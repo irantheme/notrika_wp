@@ -24,11 +24,11 @@
     <!-- Navbar menu -->
     <div class="navbar-menu">
       <?php
-wp_nav_menu(array(
-    'theme_location' => 'headerNavLocation',
-    'depth' => 1,
-));
-?>
+      wp_nav_menu(array(
+          'theme_location' => 'headerNavLocation',
+          'depth' => 1,
+      ));
+      ?>
     </div>
   </nav>
 
@@ -39,9 +39,9 @@ wp_nav_menu(array(
     <!-- Header blog -->
     <header id="header-blog">
       <?php
-// Get image src (Full size)
-$blog_header_bg = wp_get_attachment_image_src(get_option('irantheme_blog_header_bg'), 'full');
-?>
+      // Get image src (Full size)
+      $blog_header_bg = wp_get_attachment_image_src(get_option('irantheme_blog_header_bg'), 'full');
+      ?>
       <div class="parallax-container" data-parallax="scroll" data-speed="0.5" data-image-src="<?php echo esc_url($blog_header_bg[0]); ?>"
         data-position-x="left">
         <div class="container-fluid p-0">
@@ -82,9 +82,23 @@ $blog_header_bg = wp_get_attachment_image_src(get_option('irantheme_blog_header_
                 </div>
               </div>
               <!-- Main info -->
+              <?php
+              $args = array();
+              // Check title, subtitle
+              if ( is_home() ) {
+                $args['title'] = 'وبلاگ';
+                $args['subtitle'] = 'آخرین مطالب ما را در این صفحه مشاهده می کنید.';
+              } else if ( is_archive() ) {
+                $args['title'] = get_the_archive_title();
+                $args['subtitle'] = get_the_archive_description();
+              } else {
+                $args['title'] = 'ناشناخته';
+                $args['subtitle'] = 'ناشناخته';
+              }
+              ?>
               <div class="heading-main-info">
-                <h1>وبلاگ</h1>
-                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+                <h1><?php echo $args['title']; ?></h1>
+                <p><?php echo $args['subtitle']; ?></p>
               </div>
             </div>
           </div>

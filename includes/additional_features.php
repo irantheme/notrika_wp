@@ -64,55 +64,6 @@ add_filter( 'shortcode_atts_gallery', 'modify_gallery_image_size', 10, 3 );
 
 
 /**
- * @return string user role (persian)
- * @param int author id
- */
-function author_role_text( $authorID ) {
-  // Data of user role
-  $theAuthorDataRole = get_userdata($authorID);
-  // Convert to text role
-  $theRoleAuthor = $theAuthorDataRole->roles;
-  $theRoleAuthor = ''.implode('', $theRoleAuthor);
-  // Temp of converted author role
-  $user_role = '';
-  // Check user roles
-  switch ( $theRoleAuthor ) {
-    case 'administrator':
-    case 'Administrator':
-      $user_role = 'مدیریت کل';
-      break;
-    case 'editor':
-    case 'Editor':
-      $user_role = 'ویرایشگر';
-      break;
-    case 'author':
-    case 'Author':
-      $user_role = 'نویسنده';
-      break;
-    case 'contributor':
-    case 'Contributor':
-      $user_role = 'مشارکت کننده';
-      break;
-    case 'subscriber':
-    case 'Subscriber':
-      $user_role = 'مشترک';
-      break;
-    case 'shop_manager':
-    case 'Shop_manager':
-      $user_role = 'مدیر فروشگاه';
-      break;
-    case 'customer':
-    case 'Customer':
-      $user_role = 'مشتری';
-      break;
-    default:
-      $user_role = 'کاربر';
-      break;
-  }
-  return __( $user_role );
-}
-
-/**
  * Better comments (Related to comments list)
  * @return void
  * @param string, args, depth
