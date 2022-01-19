@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes();?>>
 
 <head>
-  <meta charset="<?php bloginfo( 'charset' ); ?>" />
+  <meta charset="<?php bloginfo('charset');?>" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <?php wp_head(); ?>
+  <?php wp_head();?>
 </head>
 
-<body id="top" <?php body_class(); ?>>
+<body id="top" <?php body_class();?>>
 
   <!-- Navigation -->
   <nav id="navigation">
@@ -18,17 +18,17 @@
     </div>
     <!-- Logo -->
     <div class="logo">
-      <h1><?php bloginfo('name'); ?></h1>
-      <p><?php bloginfo('description'); ?></p>
+      <h1><?php bloginfo('name');?></h1>
+      <p><?php bloginfo('description');?></p>
     </div>
     <!-- Navbar menu -->
     <div class="navbar-menu">
       <?php
-        wp_nav_menu( array( 
-          'theme_location' => 'headerNavLocation',
-          'depth' => 1
-        ) );
-      ?>
+wp_nav_menu(array(
+    'theme_location' => 'headerNavLocation',
+    'depth' => 1,
+));
+?>
     </div>
   </nav>
 
@@ -38,7 +38,11 @@
     <div id="wrapper-mask"></div>
     <!-- Header blog -->
     <header id="header-blog">
-      <div class="parallax-container" data-parallax="scroll" data-speed="0.5" data-image-src="images/header.jpg"
+      <?php
+// Get image src (Full size)
+$blog_header_bg = wp_get_attachment_image_src(get_option('irantheme_blog_header_bg'), 'full');
+?>
+      <div class="parallax-container" data-parallax="scroll" data-speed="0.5" data-image-src="<?php echo esc_url($blog_header_bg[0]); ?>"
         data-position-x="left">
         <div class="container-fluid p-0">
           <!-- Main menu -->
@@ -55,13 +59,14 @@
             <!-- Heading info -->
             <div class="heading-info">
               <!-- Breadcrumbs -->
-              <div class="breadcrumbs">
+              <?php irantheme_custom_breadcrumbs();?>
+              <!-- <div class="breadcrumbs">
                 <ul>
                   <li><a href="#">پروژه ها</a></li>
                   <li><a href="#">هک و امنیت</a></li>
                   <li class="current"><span>لینوکس دروازه ای به سمت یادگیری</span></li>
                 </ul>
-              </div>
+              </div> -->
               <!-- Options -->
               <div class="options">
                 <div class="options-layer">

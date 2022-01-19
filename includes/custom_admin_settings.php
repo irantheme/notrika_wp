@@ -75,83 +75,67 @@ class WordPress_Custom_Admin_Settings {
 
 		// Header configuration fields data
 		$settings['header'] = array(
-			'title'					=> __( 'هدر', $this->textdomain ),
-			'description'			=> __( 'برخی از تنظیمات هدر قالب', $this->textdomain ),
+			'title'					=> __( 'وبلاگ', $this->textdomain ),
+			'description'			=> __( 'برخی از تنظیمات وبلاگ', $this->textdomain ),
 			'fields'				=> array(
 				array(
-					'id' 			=> 'banner',
-					'label'			=> __( 'شعار سایت' , $this->textdomain ),
-					'description'	=> __( 'شعار یا معرفی کوتاه سایت.', $this->textdomain ),
-					'type'			=> 'text',
-					'default'		=> '',
-					'placeholder'	=> __( 'متن خود را وارد کنید', $this->textdomain )
-				),
-				array(
-					'id' 			=> 'header_bg',
+					'id' 			=> 'blog_header_bg',
 					'label'			=> __( 'تصویر پس زمینه هدر' , $this->textdomain ),
-					'description'	=> __( 'آپلود یا حذف تصویر پس زمینه هدر | پیشنهاد ما استفاده از تصویر افقی می باشد.', $this->textdomain ),
+					'description'	=> __( 'آپلود یا حذف تصویر پس زمینه هدر وبلاگ | پیشنهاد ما استفاده از تصویر افقی می باشد.', $this->textdomain ),
 					'type'			=> 'image',
 					'default'		=> '',
 					'placeholder'	=> ''
-				),
-				array(
-					'id' 			=> 'header_extra_description',
-					'label'			=> __( 'توضیحات اضافی هدر' , $this->textdomain ),
-					'description'	=> __( 'توضیح اضافی هدر که در زیر عنوان اول (توضیحات سایت) قرار میگیرد', $this->textdomain ),
-					'type'			=> 'text',
-					'default'		=> '',
-					'placeholder'	=> __( 'متن خود را وارد کنید', $this->textdomain )
 				)
 			)
 		);
 
-		// Content configuration fields data
-		$settings['content'] = array(
-			'title' => __( 'محتوا', $this->textdomain ),
-			'description' => __( 'برخی از تنظیمات محتوای قالب', $this->textdomain ),
-			'fields' => array(
-				array(
-					'id' => 'content_heading',
-					'label' => __( 'عنوان محتوا' ),
-					'description' => __( 'در بالای دسته بندی قرار میگیرد.' ),
-					'type' => 'text',
-					'default' => '',
-					'placeholder' => __( 'متن خود را وارد کنید.', $this->textdomain )
-				),
-				array(
-					'id' => 'content_description',
-					'label' => __( 'توضیحات محتوا', $this->textdomain ),
-					'description' => __( 'توضیحات که به صورت نوشته در زیر عنوان محتوا قرار میگیرد.', $this->textdomain ),
-					'type' => 'textarea',
-					'default' => '',
-					'placeholder' => __( 'متن خود را وارد کنید.', $this->textdomain )
-				),
-			)
-		);
+		// // Content configuration fields data
+		// $settings['content'] = array(
+		// 	'title' => __( 'محتوا', $this->textdomain ),
+		// 	'description' => __( 'برخی از تنظیمات محتوای قالب', $this->textdomain ),
+		// 	'fields' => array(
+		// 		array(
+		// 			'id' => 'content_heading',
+		// 			'label' => __( 'عنوان محتوا' ),
+		// 			'description' => __( 'در بالای دسته بندی قرار میگیرد.' ),
+		// 			'type' => 'text',
+		// 			'default' => '',
+		// 			'placeholder' => __( 'متن خود را وارد کنید.', $this->textdomain )
+		// 		),
+		// 		array(
+		// 			'id' => 'content_description',
+		// 			'label' => __( 'توضیحات محتوا', $this->textdomain ),
+		// 			'description' => __( 'توضیحات که به صورت نوشته در زیر عنوان محتوا قرار میگیرد.', $this->textdomain ),
+		// 			'type' => 'textarea',
+		// 			'default' => '',
+		// 			'placeholder' => __( 'متن خود را وارد کنید.', $this->textdomain )
+		// 		),
+		// 	)
+		// );
 
-		// footer configuration fields data
-		$settings['footer'] = array(
-			'title' => __( 'فوتر', $this->textdomain ),
-			'description' => __( 'برخی از تنظیمات محتوای فوتر', $this->textdomain ),
-			'fields' => array(
-				array(
-					'id' => 'footer_latest_comments_bg',
-					'label' => __( 'تصویر پس زمینه آخرین دیدگاه ها' ),
-					'description' => __( 'تصویری مورد نظر شما به صورت پشت زمینه و افقی با کمی افکت نمایش داده می شود..' ),
-					'type' => 'image',
-					'default' => '',
-					'placeholder' => ''
-				),
-				array(
-					'id' => 'footer_copyright_text',
-					'label' => __( 'متن کپی رایت فوتر' ),
-					'description' => __( 'متن کپی رایت انتخابی شما جهت نمایش در فوتر.' ),
-					'type' => 'text',
-					'default' => __( 'کلیه حقوق مادی و معنوی این سایت محفوظ است.', $this->textdomain ),
-					'placeholder' => __( 'متن خود را وارد کنید.', $this->textdomain )
-				)
-			)
-		);
+		// // footer configuration fields data
+		// $settings['footer'] = array(
+		// 	'title' => __( 'فوتر', $this->textdomain ),
+		// 	'description' => __( 'برخی از تنظیمات محتوای فوتر', $this->textdomain ),
+		// 	'fields' => array(
+		// 		array(
+		// 			'id' => 'footer_latest_comments_bg',
+		// 			'label' => __( 'تصویر پس زمینه آخرین دیدگاه ها' ),
+		// 			'description' => __( 'تصویری مورد نظر شما به صورت پشت زمینه و افقی با کمی افکت نمایش داده می شود..' ),
+		// 			'type' => 'image',
+		// 			'default' => '',
+		// 			'placeholder' => ''
+		// 		),
+		// 		array(
+		// 			'id' => 'footer_copyright_text',
+		// 			'label' => __( 'متن کپی رایت فوتر' ),
+		// 			'description' => __( 'متن کپی رایت انتخابی شما جهت نمایش در فوتر.' ),
+		// 			'type' => 'text',
+		// 			'default' => __( 'کلیه حقوق مادی و معنوی این سایت محفوظ است.', $this->textdomain ),
+		// 			'placeholder' => __( 'متن خود را وارد کنید.', $this->textdomain )
+		// 		)
+		// 	)
+		// );
 
 		$settings = apply_filters( 'plugin_settings_fields', $settings );
 
