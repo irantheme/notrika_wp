@@ -1,36 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html <?php language_attributes(); ?>>
 
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="<?php bloginfo( 'charset' ); ?>" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <?php wp_head(); ?>
 </head>
 
-<body id="top">
+<body id="top" <?php body_class(); ?>>
 
   <!-- Navigation -->
   <nav id="navigation">
-    <div class="text-center">
+    <div class="text-center pt-3">
       <!-- Back nav -->
       <button id="back-nav" class="button-style button-dark">بازگشت<i class="lni lni-chevron-left"></i></button>
     </div>
     <!-- Logo -->
     <div class="logo">
-      <h1>نوتریکا</h1>
-      <p>تفاوت ها را رقم خواهیم زد</p>
+      <h1><?php bloginfo('name'); ?></h1>
+      <p><?php bloginfo('description'); ?></p>
     </div>
     <!-- Navbar menu -->
     <div class="navbar-menu">
-      <ul>
-        <li><a href="#">خانه<i class="lni lni-chevron-left"></i></a></li>
-        <li><a href="#">پروژه ها<i class="lni lni-chevron-left"></i></a></li>
-        <li><a href="#">استخدام<i class="lni lni-chevron-left"></i></a></li>
-        <li><a href="#">همکاران<i class="lni lni-chevron-left"></i></a></li>
-        <li><a href="#">درباره<i class="lni lni-chevron-left"></i></a></li>
-        <li><a href="#">تماس<i class="lni lni-chevron-left"></i></a></li>
-      </ul>
+      <?php
+        wp_nav_menu( array( 
+          'theme_location' => 'headerNavLocation',
+          'depth' => 1
+        ) );
+      ?>
     </div>
   </nav>
 

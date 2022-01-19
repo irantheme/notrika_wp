@@ -62,21 +62,21 @@ Navigation
           justify-content: space-between;
           width: 100%;
           color: $color-gray-600;
+          position: relative;
+
+          &::after {
+            content: '\ea5a';
+            font-family: $font-family-icons;
+            font-size: 0.5rem;
+            margin-right: 0.25rem;
+          }
 
           &:hover {
             background: $color-gray-200;
 
-            i {
+            &::after {
               @extend %animation-left-to-right;
             }
-          }
-
-          i {
-            font-size: 0.5rem;
-            margin-right: 0.25rem;
-            position: relative;
-            top: 2px;
-            /* transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1); */
           }
         }
       }

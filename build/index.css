@@ -1442,7 +1442,7 @@ Heading mode
   color: #495057;
 }
 
-#footer-blog .headline .footer-latest-comments ul li:hover i, #navigation .navbar-menu ul li a:hover i {
+#footer-blog .headline .footer-latest-comments ul li:hover i, #navigation .navbar-menu ul li a:hover::after {
   -webkit-animation-name: leftToRight;
           animation-name: leftToRight;
   -webkit-animation-timing-function: linear;
@@ -1500,18 +1500,17 @@ Navigation
   justify-content: space-between;
   width: 100%;
   color: #6c757d;
+  position: relative;
+}
+#navigation .navbar-menu ul li a::after {
+  content: "\ea5a";
+  font-family: "LineIcons";
+  font-size: 0.5rem;
+  margin-right: 0.25rem;
 }
 #navigation .navbar-menu ul li a:hover {
   background: #e9ecef;
 }
-#navigation .navbar-menu ul li a i {
-  font-size: 0.5rem;
-  margin-right: 0.25rem;
-  position: relative;
-  top: 2px;
-  /* transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1); */
-}
-
 @-webkit-keyframes leftToRight {
   from {
     transform: translateX(0);
@@ -1520,7 +1519,6 @@ Navigation
     transform: translateX(-0.25rem);
   }
 }
-
 @keyframes leftToRight {
   from {
     transform: translateX(0);

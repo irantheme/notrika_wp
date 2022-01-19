@@ -86,6 +86,20 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/css/main.scss":
+/*!***************************!*\
+  !*** ./src/css/main.scss ***!
+  \***************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -95,18 +109,18 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.scss */ "./src/styles/main.scss");
-/* harmony import */ var _scripts_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scripts/main */ "./src/scripts/main.js");
-/* harmony import */ var _scripts_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_scripts_main__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _css_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./css/main.scss */ "./src/css/main.scss");
+/* harmony import */ var _js_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/main */ "./src/js/main.js");
+/* harmony import */ var _js_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_js_main__WEBPACK_IMPORTED_MODULE_1__);
 
 
 
 /***/ }),
 
-/***/ "./src/scripts/main.js":
-/*!*****************************!*\
-  !*** ./src/scripts/main.js ***!
-  \*****************************/
+/***/ "./src/js/main.js":
+/*!************************!*\
+  !*** ./src/js/main.js ***!
+  \************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -379,20 +393,6 @@ __webpack_require__.r(__webpack_exports__);
 
   partnersSlider();
 })(jQuery);
-
-/***/ }),
-
-/***/ "./src/styles/main.scss":
-/*!******************************!*\
-  !*** ./src/styles/main.scss ***!
-  \******************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
 
 /***/ })
 
