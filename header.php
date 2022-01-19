@@ -60,13 +60,6 @@ $blog_header_bg = wp_get_attachment_image_src(get_option('irantheme_blog_header_
             <div class="heading-info">
               <!-- Breadcrumbs -->
               <?php irantheme_custom_breadcrumbs();?>
-              <!-- <div class="breadcrumbs">
-                <ul>
-                  <li><a href="#">پروژه ها</a></li>
-                  <li><a href="#">هک و امنیت</a></li>
-                  <li class="current"><span>لینوکس دروازه ای به سمت یادگیری</span></li>
-                </ul>
-              </div> -->
               <!-- Options -->
               <div class="options">
                 <div class="options-layer">
@@ -77,7 +70,15 @@ $blog_header_bg = wp_get_attachment_image_src(get_option('irantheme_blog_header_
                     <li><a href="#"><i class="lni lni-twitter"></i></a></li>
                     <li><a href="#"><i class="lni lni-linkedin"></i></a></li>
                   </ul>
-                  <span>امروز‌ : ۲۷ اردیبهشت ۱۴۰۰</span>
+                  <?php
+                    $today = null;
+                    if (function_exists( 'parsidate' )) {
+                      $today = parsidate( 'j F Y', date( 'F j Y' ), 'per' );
+                    } else {
+                      $today = date( 'F j Y' );
+                    }
+                  ?>
+                  <span>امروز‌ : <?php echo $today; ?></span>
                 </div>
               </div>
               <!-- Main info -->
