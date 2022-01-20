@@ -18,33 +18,27 @@
               <div class="col-md-3 py-4">
                 <!-- Latest posts -->
                 <div class="footer-heading">آخرین مطالب</div>
-                <div class="footer-latest-posts">
-                  <ul>
-                    <!-- Item -->
-                    <li>
-                      <div class="footer-latest-posts-img">
-                        <a href="#">
-                          <img src="images/1.jpg" alt="تصویر پست">
-                        </a>
-                      </div>
-                      <div class="footer-latest-posts-content">
-                        <h3><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h3>
-                        <span>۲۷ اردیبهشت ۱۴۰۰</span>
-                      </div>
-                    </li>
-                    <!-- Item -->
-                    <li>
-                      <div class="footer-latest-posts-img">
-                        <a href="#">
-                          <img src="images/2.jpg" alt="تصویر پست">
-                        </a>
-                      </div>
-                      <div class="footer-latest-posts-content">
-                        <h3><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h3>
-                        <span>۲۷ اردیبهشت ۱۴۰۰</span>
-                      </div>
-                    </li>
-                  </ul>
+                <div class="list-post-style">
+                  <div class="list-post-style-img">
+                    <a href="#">
+                      <img src="https://source.unsplash.com/random/200x200?sig=1" alt="تصویر پست">
+                    </a>
+                  </div>
+                  <div class="list-post-style-content">
+                    <h3><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h3>
+                    <span>۲۷ اردیبهشت ۱۴۰۰</span>
+                  </div>
+                </div>
+                <div class="list-post-style">
+                  <div class="list-post-style-img">
+                    <a href="#">
+                      <img src="https://source.unsplash.com/random/200x200?sig=1" alt="تصویر پست">
+                    </a>
+                  </div>
+                  <div class="list-post-style-content">
+                    <h3><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h3>
+                    <span>۲۷ اردیبهشت ۱۴۰۰</span>
+                  </div>
                 </div>
               </div>
               <div class="col-md-3 py-4">
