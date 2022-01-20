@@ -800,6 +800,8 @@ Footer blog
 
     // About
     .footer-about {
+      padding-top: 1rem;
+
       p {
         font-size: 0.8rem;
         color: $color-gray-400;
@@ -835,7 +837,7 @@ Footer blog
         li {
           font-size: 0.8rem;
           color: $color-gray-500;
-          margin-bottom: 1rem;
+          padding: 1rem 0;
 
           &:hover {
             i {
@@ -868,6 +870,7 @@ Footer blog
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
+      padding-top: 1rem;
 
       a {
         font-size: 0.7rem;

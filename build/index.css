@@ -2811,6 +2811,9 @@ Footer blog
   font-weight: bold;
   margin-bottom: 2rem;
 }
+#footer-blog .headline .footer-about {
+  padding-top: 1rem;
+}
 #footer-blog .headline .footer-about p {
   font-size: 0.8rem;
   color: #ced4da;
@@ -2837,7 +2840,7 @@ Footer blog
 #footer-blog .headline .footer-latest-comments ul li {
   font-size: 0.8rem;
   color: #adb5bd;
-  margin-bottom: 1rem;
+  padding: 1rem 0;
 }
 #footer-blog .headline .footer-latest-comments ul li i {
   color: #0088cc;
@@ -2857,6 +2860,7 @@ Footer blog
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  padding-top: 1rem;
 }
 #footer-blog .headline .footer-tags a {
   font-size: 0.7rem;

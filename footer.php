@@ -18,6 +18,7 @@
               <div class="col-md-3 py-4">
                 <!-- Latest posts -->
                 <div class="footer-heading">آخرین مطالب</div>
+                <!-- List post item -->
                 <div class="list-post-style">
                   <div class="list-post-style-img">
                     <a href="#">
@@ -29,10 +30,11 @@
                     <span>۲۷ اردیبهشت ۱۴۰۰</span>
                   </div>
                 </div>
+                <!-- List post item -->
                 <div class="list-post-style">
                   <div class="list-post-style-img">
                     <a href="#">
-                      <img src="https://source.unsplash.com/random/200x200?sig=1" alt="تصویر پست">
+                      <img src="https://source.unsplash.com/random/200x200?sig=2" alt="تصویر پست">
                     </a>
                   </div>
                   <div class="list-post-style-content">

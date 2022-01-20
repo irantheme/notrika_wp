@@ -9,7 +9,7 @@ require get_theme_file_path('/includes/additional_features.php');
 // Adding breadcrumbs
 require get_theme_file_path('/includes/breadcrumbs.php');
 // Adding register search route
-// require get_theme_file_path( '/includes/search_live_route.php' );
+require get_theme_file_path( '/includes/search_route.php' );
 // Adding register loading posts route
 // require get_theme_file_path( '/includes/loading_post_route.php' );
 
