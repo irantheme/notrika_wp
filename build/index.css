@@ -2399,6 +2399,7 @@ Search form
   padding: 2rem;
   background: #f8f9fa;
   z-index: 4;
+  display: none;
 }
 
 .animate-rotate {

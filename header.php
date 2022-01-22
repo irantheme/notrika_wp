@@ -120,50 +120,7 @@
                 class="lni lni-close"></i></span>
             <!-- Search results -->
             <div class="search-results">
-              <div class="row">
-                <div class="col-lg-4 col-md-6">
-                  <!-- List post item -->
-                  <div class="list-post-style list-post-dark">
-                    <div class="list-post-style-img">
-                      <a href="#">
-                        <img src="https://source.unsplash.com/random/200x200?sig=1" alt="تصویر پست">
-                      </a>
-                    </div>
-                    <div class="list-post-style-content">
-                      <h3><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h3>
-                      <span>۲۷ اردیبهشت ۱۴۰۰</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                  <!-- List post item -->
-                  <div class="list-post-style list-post-dark">
-                    <div class="list-post-style-img">
-                      <a href="#">
-                        <img src="https://source.unsplash.com/random/200x200?sig=2" alt="تصویر پست">
-                      </a>
-                    </div>
-                    <div class="list-post-style-content">
-                      <h3><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h3>
-                      <span>۲۷ اردیبهشت ۱۴۰۰</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                  <!-- List post item -->
-                  <div class="list-post-style list-post-dark">
-                    <div class="list-post-style-img">
-                      <a href="#">
-                        <img src="https://source.unsplash.com/random/200x200?sig=3" alt="تصویر پست">
-                      </a>
-                    </div>
-                    <div class="list-post-style-content">
-                      <h3><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h3>
-                      <span>۲۷ اردیبهشت ۱۴۰۰</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <div class="row"></div>
             </div>
           </div>
         </div>

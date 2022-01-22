@@ -31,16 +31,24 @@
       this.searchAltButton = $('#header-blog .social-networks .search-alt');
       this.searchCloseButton = $('#search-form-close');
       this.searchInput = $('#search-form .search-input');
+      this.spinnerAlt = $('#spinner-alt');
+      this.searchAlt = $('#search-alt');
+      this.searchResults = $('#search-form .search-results');
       this.events();
+      this.timer;
+      this.previousSearchInputValue = '';
+      this.spinnerStatus = false;
+      this.isOpen = false;
     }
 
     // Events
     events() {
+      // Toggle and close form
       this.searchAltButton.on('click', () => {
-        this.toggleForm();
+        this.open();
       });
       this.searchCloseButton.on('click', () => {
-        this.closeForm();
+        this.close();
       });
       // Input box shadow style
       this.searchInput.on('focus', () => {
@@ -51,16 +59,128 @@
           .parent()
           .css('box-shadow', '0px 15px 45px -9px rgb(0 0 0 / 20%)');
       });
+      // Trigger keypress
+      $(document).on('keydown', (e) => {
+        this.keyPressDispatcher(e);
+      });
+      // Trigger keyup
+      this.searchInput.on('keyup', () => {
+        // Get input search input value
+        var searchInputValue = this.searchInput.val();
+        // Check search input value
+        if (searchInputValue != this.previousSearchInputValue) {
+          clearTimeout(this.timer);
+          if (searchInputValue) {
+            // Check search input value with previous value & length
+            this.enableSpinner();
+            // Enable spinner
+            this.timer = setTimeout(() => {
+              // Get live search data
+              this.trigger();
+            }, 1000);
+          } else {
+            this.searchResults.html('');
+            this.disableSpinner();
+            this.searchResults.hide();
+          }
+        }
+        this.previousSearchInputValue = searchInputValue;
+      });
+      // Hide search results
+      $('#wrapper > *')
+        .not('#search-form')
+        .on('click', () => {
+          this.searchResults.hide();
+        });
     }
 
-    // Toggle search form
-    toggleForm() {
+    trigger() {
+      this.searchResults.show();
+      // Get json data with api
+      $.getJSON(
+        wpData.root_url +
+          '/wp-json/json/v1/search/?term=' +
+          this.searchInput.val(),
+        (result) => {
+          $('.search-results').html(`
+          <div class="row">
+          ${
+            result.generalInfo.length
+              ? ''
+              : '<div class="search-not-found">نتیجه ای برای کلمات جستجو شده یافت نشد</div>'
+          }
+          ${result.generalInfo
+            .map(
+              (item) => `
+                <div class="col-lg-4 col-md-6">
+                  <div class="list-post-style list-post-dark">
+                    ${
+                      item.imageSrc
+                        ? `<div class="list-post-style-img">
+                      <a href="${item.permalink}">
+                        ${
+                          item.imageSrc
+                            ? '<img src="' +
+                              item.imageSrc +
+                              '" alt="تصویر پست">'
+                            : ''
+                        }
+                      </a>
+                    </div>`
+                        : ''
+                    }
+                    <div class="list-post-style-content">
+                      <h3><a href="${item.permalink}">${item.title}</a></h3>
+                      <span>${item.date}</span>
+                    </div>
+                  </div>
+                </div>
+              `
+            )
+            .join('')}
+            </div>
+        `);
+          // Stop spinner!
+          this.disableSpinner();
+        }
+      );
+    }
+
+    // Open search form
+    open() {
       this.searchForm.slideToggle(1000);
+      this.isOpen = true;
     }
 
     // Close search form
-    closeForm() {
+    close() {
       this.searchForm.slideUp(1000);
+      this.isOpen = false;
+    }
+
+    keyPressDispatcher(e) {
+      if (
+        e.keyCode == 83 &&
+        !this.isOpen &&
+        !$('input, textarea').is(':focus')
+      ) {
+        this.open();
+      }
+      if (e.keyCode == 27 && this.isOpen) {
+        this.close();
+      }
+    }
+
+    // Spinner alt active (Rotate)
+    enableSpinner() {
+      this.searchAlt.hide();
+      this.spinnerAlt.show();
+    }
+
+    // Search alt active (Disable rotate spinner)
+    disableSpinner() {
+      this.searchAlt.show();
+      this.spinnerAlt.hide();
     }
   }
 

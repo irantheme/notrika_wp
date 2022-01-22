@@ -42,7 +42,7 @@ function resultsSearch( $data ) {
       array_push( $results['generalInfo'], array(
         'title' => get_the_title(),
         'permalink' => get_the_permalink(),
-        'content' => get_the_excerpt(),
+        'date' => get_the_date( 'j, F Y' ),
         'imageSrc' => get_the_post_thumbnail_url( get_the_ID(), 'large' )
       ) );
     }
