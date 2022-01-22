@@ -21,7 +21,7 @@ function add_theme_sources() {
   // Adding images loaded js
   wp_enqueue_script( 'images-loaded-irantheme-js', get_template_directory_uri() . '/assets/js/imagesloaded.pkgd.min.js', NULL, '1.0', true );
   // Adding main js
-  wp_enqueue_script( 'main-irantheme-js', get_template_directory_uri() . '/build/index.js', NULL, '1.0', true );
+  wp_enqueue_script( 'main-irantheme-js', get_template_directory_uri() . '/build/index.js', array('jquery-irantheme-js'), '1.0', true );
   // Adding stylesheet files ======================================================
   // Adding fonts css
   wp_enqueue_style( 'fonts-irantheme-css', get_template_directory_uri() . '/assets/css/fonts.css' );

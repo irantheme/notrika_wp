@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * @return void
+ * Custom breadcrumbs
+ */
 // Breadcrumbs
 function irantheme_custom_breadcrumbs()
 {
