@@ -88,17 +88,24 @@
               if ( is_home() ) {
                 $args['title'] = 'وبلاگ';
                 $args['subtitle'] = 'آخرین مطالب ما را در این صفحه مشاهده می کنید.';
+                $args['link'] = site_url('/');
               } else if ( is_archive() ) {
                 $args['title'] = get_the_archive_title();
                 $args['subtitle'] = get_the_archive_description();
+                $args['link'] = null;
               } else {
                 $args['title'] = 'ناشناخته';
                 $args['subtitle'] = 'ناشناخته';
+                $args['link'] = null;
               }
               ?>
               <div class="heading-main-info">
-                <h1><?php echo $args['title']; ?></h1>
-                <p><?php echo $args['subtitle']; ?></p>
+                <?php if ( $args['link'] ) : ?>
+                <h1><a href="<?php echo esc_url( $args['link'] ); ?>"><?php echo __( $args['title'] ); ?></a></h1>
+                <?php else : ?>
+                <h1><?php echo __( $args['title'] ); ?></h1>
+                <?php endif; ?>
+                <p><?php echo __( $args['subtitle'] ); ?></p>
               </div>
             </div>
           </div>

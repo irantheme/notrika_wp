@@ -150,6 +150,9 @@
     open() {
       this.searchForm.slideToggle(1000);
       this.isOpen = true;
+      setTimeout(() => {
+        this.searchInput.focus();
+      }, 1001);
     }
 
     // Close search form

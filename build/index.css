@@ -2328,8 +2328,11 @@ Header blog
 }
 #header-blog .heading-info .heading-main-info h1 {
   font-size: 2rem;
-  color: #fff;
   margin: 0;
+  color: #fff;
+}
+#header-blog .heading-info .heading-main-info h1 a {
+  color: #fff;
 }
 #header-blog .heading-info .heading-main-info p {
   font-size: 0.8rem;
