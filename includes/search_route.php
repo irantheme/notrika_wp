@@ -24,7 +24,7 @@ function resultsSearch( $data ) {
 
   // Getting new query for post and page type
   $mainQuery = new WP_Query( array(
-    'post_type' => array( 'post', 'page' ),
+    'post_type' => array( 'post' ),
     's' => sanitize_text_field( $data['term'] ), // Sanitize is more security for wordpress functions
     'posts_per_page' => 99999999
   ) );

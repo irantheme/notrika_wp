@@ -41,50 +41,55 @@
               <div class="col-md-3 py-4">
                 <!-- Latest comments -->
                 <div class="footer-heading">آخرین دیدگاه ها</div>
+                <?php
+                $latestCommentsQuery = new WP_Comment_Query();
+                $latestComments = $latestCommentsQuery->query( array( 
+                  'number' => 3
+                ) );
+                if ( $latestComments ) :
+                ?>
                 <div class="footer-latest-comments">
                   <ul>
+                    <?php
+                    foreach ( $latestComments as $comment ) : 
+                    ?>
                     <!-- Item -->
                     <li>
-                      <i class="lni lni-chevron-left"></i><span>محمد ملک زاده</span> در <a href="#">لورم ایپسوم متن
-                        ساختگی با تولید سادگی نامفهوم</a>
+                      <i class="lni lni-chevron-left"></i><span><?php echo get_comment_author( $comment->comment_ID ); ?></span> در <a href="<?php echo get_permalink( $comment->comment_post_ID ); ?>"><?php echo get_the_title( $comment->comment_post_ID ); ?></a>
                     </li>
-                    <!-- Item -->
-                    <li>
-                      <i class="lni lni-chevron-left"></i><span>محمد ملک زاده</span> در <a href="#">لورم ایپسوم متن
-                        ساختگی با تولید سادگی نامفهوم</a>
-                    </li>
-                    <!-- Item -->
-                    <li>
-                      <i class="lni lni-chevron-left"></i><span>محمد ملک زاده</span> در <a href="#">لورم ایپسوم متن
-                        ساختگی با تولید سادگی نامفهوم</a>
-                    </li>
+                    <?php endforeach; ?>
                   </ul>
                 </div>
+                <?php endif; ?>
               </div>
               <div class="col-md-3 py-4">
                 <!-- Tags -->
                 <div class="footer-heading">برچسب ها</div>
                 <div class="footer-tags">
-                  <a href="#">طراحی و توسعه</a>
-                  <a href="#">قالب وردپرس</a>
-                  <a href="#">افزونه وردپرس</a>
-                  <a href="#">وردپرس</a>
-                  <a href="#">طراحی لوگو</a>
-                  <a href="#">سئو</a>
-                  <a href="#">آموزش وردپرس</a>
-                  <a href="#">ادمین لینوکس</a>
-                  <a href="#">آرچ لینوکس</a>
-                  <a href="#">هک و امنیت</a>
-                  <a href="#">شبکه</a>
-                  <a href="#">کسب و کار</a>
-                  <a href="#">بازاریابی</a>
-                  <a href="#">الپیک</a>
-                  <a href="#">ترمینال</a>
-                  <a href="#">سیستم دی</a>
-                  <a href="#">وی اس کد</a>
-                  <a href="#">دی باس</a>
-                  <a href="#">تور</a>
-                  <a href="#">توئیتر</a>
+                  <?php
+                  // Get number of tags
+                  // $number_tags = 0;
+                  // if ( get_option( 'footer_number_tags' ) ) {
+                  //   $number_tags = get_option( 'footer_number_tags' );
+                  // } else {
+                  //   $number_tags = 30;
+                  // }
+                  $tags = get_tags(array(
+                    'smallest'                  => 10, 
+                    'largest'                   => 10,
+                    'unit'                      => 'px', 
+                    'number'                    => 20,  
+                    'format'                    => 'flat',
+                    'separator'                 => " ",
+                    'orderby'                   => 'count', 
+                    'order'                     => 'DESC',
+                    'show_count'                => 1,
+                    'echo'                      => false
+                  ));
+                  foreach ($tags as $tag) {
+                  echo '<a href="'.get_term_link($tag).'">' . $tag->name . '</a>';
+                  }
+                  ?>
                 </div>
               </div>
             </div>
