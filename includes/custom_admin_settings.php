@@ -73,8 +73,8 @@ class WordPress_Custom_Admin_Settings {
 	 */
 	private function settings_fields() {
 
-		// Header configuration fields data
-		$settings['header'] = array(
+		// Blog configuration fields data
+		$settings['blog'] = array(
 			'title'					=> __( 'وبلاگ', $this->textdomain ),
 			'description'			=> __( 'برخی از تنظیمات وبلاگ', $this->textdomain ),
 			'fields'				=> array(
@@ -86,6 +86,30 @@ class WordPress_Custom_Admin_Settings {
 					'default'		=> '',
 					'placeholder'	=> ''
 				)
+			)
+		);
+
+		// general configuration fields data
+		$settings['general'] = array(
+			'title'					=> __( 'عمومی', $this->textdomain ),
+			'description'			=> __( 'تنظیمات عمومی سایت', $this->textdomain ),
+			'fields'				=> array(
+				array(
+					'id' 			=> 'about_excerpt',
+					'label'			=> __( 'درباره سایت' , $this->textdomain ),
+					'description'	=> __( 'متن درباره سایت که به صورت منتخب در صفحه اصلی سایت و وبلاگ نمایش داده می شود.', $this->textdomain ),
+					'type'			=> 'textarea',
+					'default'		=> '',
+					'placeholder'	=> ''
+				),
+				array(
+					'id' 			=> 'about_link',
+					'label'			=> __( 'لینک درباره ما' , $this->textdomain ),
+					'description'	=> __( 'لینک اصلی صفحه درباره ما برای ارائه ادامه مطلب', $this->textdomain ),
+					'type'			=> 'text',
+					'default'		=> '',
+					'placeholder'	=> ''
+				),
 			)
 		);
 

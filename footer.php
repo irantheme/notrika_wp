@@ -9,39 +9,34 @@
                 <!-- About -->
                 <div class="footer-heading">درباره</div>
                 <div class="footer-about">
-                  <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                    چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
-                    نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
-                  <a href="#">مشاهده بیشتر<i class="lni lni-chevron-left"></i></a>
+                  <p><?php echo __( get_option( 'irantheme_about_excerpt' ) ); ?></p>
+                  <a href="<?php echo esc_url( get_option( 'irantheme_about_link' ) ); ?>">مشاهده بیشتر<i class="lni lni-chevron-left"></i></a>
                 </div>
               </div>
               <div class="col-md-3 py-4">
                 <!-- Latest posts -->
                 <div class="footer-heading">آخرین مطالب</div>
+                <?php
+                $args = array(
+                  'posts_per_page' => 2,
+                  'post_type' => 'post'
+                );
+                $latest_blog_post = new WP_Query($args);
+                while ( $latest_blog_post->have_posts() ) : $latest_blog_post->the_post();
+                ?>
                 <!-- List post item -->
                 <div class="list-post-style">
                   <div class="list-post-style-img">
-                    <a href="#">
-                      <img src="https://source.unsplash.com/random/200x200?sig=1" alt="تصویر پست">
+                    <a href="<?php echo get_the_permalink(); ?>">
+                      <img src="<?php the_post_thumbnail_url( ); ?>" alt="تصویر پست">
                     </a>
                   </div>
                   <div class="list-post-style-content">
-                    <h3><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h3>
-                    <span>۲۷ اردیبهشت ۱۴۰۰</span>
+                    <h3><a href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?></a></h3>
+                    <span><?php echo get_the_date( 'j, F Y' ); ?></span>
                   </div>
                 </div>
-                <!-- List post item -->
-                <div class="list-post-style">
-                  <div class="list-post-style-img">
-                    <a href="#">
-                      <img src="https://source.unsplash.com/random/200x200?sig=2" alt="تصویر پست">
-                    </a>
-                  </div>
-                  <div class="list-post-style-content">
-                    <h3><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h3>
-                    <span>۲۷ اردیبهشت ۱۴۰۰</span>
-                  </div>
-                </div>
+                <?php endwhile; ?>
               </div>
               <div class="col-md-3 py-4">
                 <!-- Latest comments -->

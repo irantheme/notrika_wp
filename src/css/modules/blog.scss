@@ -381,6 +381,7 @@ Blog content
     bottom: 1rem;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     z-index: 3;
 
     span {
@@ -389,10 +390,36 @@ Blog content
       font-size: 0.7rem;
       padding: 0.25rem 1rem;
       border-radius: 3rem;
+      margin-top: 0.25rem;
 
       &:not(:last-child) {
-        margin-left: 0.5rem;
+        margin-left: 0.25rem;
       }
+    }
+  }
+}
+
+// Post category (Without thumbnail)
+.post-category {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  a {
+    background: $color-gray-900;
+    color: $color-white;
+    font-size: 0.7rem;
+    padding: 0.25rem 1rem;
+    border-radius: 3rem;
+    margin-bottom: 0.25rem;
+
+    &:hover {
+      background: $color-darker;
+    }
+
+    &:not(:last-child) {
+      margin-left: 0.25rem;
     }
   }
 }
@@ -737,35 +764,29 @@ Blog content
   // Pagination
   .pagination {
     padding: 3rem 15px 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 
-    ul {
-      display: flex;
-      justify-content: center;
-      width: 100%;
+    a,
+    span {
+      @extend %box-style;
+      background: $color-white;
+      padding: 0.75rem 1rem;
+      font-size: 0.8rem;
+      color: $color-gray-800;
+      border-radius: 0.25rem;
+      margin: 0.25rem;
 
-      li {
-
-        a,
-        span {
-          @extend %box-style;
-          background: $color-white;
-          padding: 1rem;
-          font-size: 0.8rem;
-          color: $color-gray-800;
-          border-radius: 0.25rem;
-          margin: 0.25rem;
-
-          &:not(span):hover {
-            background: $color-gray-100;
-            // color: $color-white;
-          }
-        }
-
-        span {
-          background: $color-gray-800;
-          color: $color-white;
-        }
+      &:not(span):hover {
+        background: $color-gray-100;
+        // color: $color-white;
       }
+    }
+
+    span {
+      background: $color-gray-800;
+      color: $color-white;
     }
   }
 }

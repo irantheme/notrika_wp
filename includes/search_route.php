@@ -43,7 +43,7 @@ function resultsSearch( $data ) {
         'title' => get_the_title(),
         'permalink' => get_the_permalink(),
         'date' => get_the_date( 'j, F Y' ),
-        'imageSrc' => get_the_post_thumbnail_url( get_the_ID(), 'large' )
+        'imageSrc' => get_the_post_thumbnail_url( get_the_ID(), 'thumbnail' )
       ) );
     }
   }

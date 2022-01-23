@@ -2198,13 +2198,13 @@ Footer
   color: #f8f9fa;
 }
 
-#blog-content .pagination ul li a,
-#blog-content .pagination ul li span, .post-box, #search-form .search-box {
+#blog-content .pagination a,
+#blog-content .pagination span, .post-box, #search-form .search-box {
   box-shadow: 0px 15px 45px -9px rgba(0, 0, 0, 0.2);
   transition: 0.3s;
 }
-#blog-content .pagination ul li a:not(.search-box):hover,
-#blog-content .pagination ul li span:not(.search-box):hover, .post-box:not(.search-box):hover, #search-form .search-box:not(.search-box):hover {
+#blog-content .pagination a:not(.search-box):hover,
+#blog-content .pagination span:not(.search-box):hover, .post-box:not(.search-box):hover, #search-form .search-box:not(.search-box):hover {
   box-shadow: none;
 }
 
@@ -2473,6 +2473,7 @@ Blog content
   bottom: 1rem;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   z-index: 3;
 }
 .post-thumbnail .post-categories span {
@@ -2481,9 +2482,31 @@ Blog content
   font-size: 0.7rem;
   padding: 0.25rem 1rem;
   border-radius: 3rem;
+  margin-top: 0.25rem;
 }
 .post-thumbnail .post-categories span:not(:last-child) {
-  margin-left: 0.5rem;
+  margin-left: 0.25rem;
+}
+
+.post-category {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.post-category a {
+  background: #212529;
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 0.25rem 1rem;
+  border-radius: 3rem;
+  margin-bottom: 0.25rem;
+}
+.post-category a:hover {
+  background: #000000;
+}
+.post-category a:not(:last-child) {
+  margin-left: 0.25rem;
 }
 
 .post-heading {
@@ -2759,26 +2782,24 @@ Blog content
 }
 #blog-content .pagination {
   padding: 3rem 15px 0;
-}
-#blog-content .pagination ul {
   display: flex;
   justify-content: center;
   width: 100%;
 }
-#blog-content .pagination ul li a,
-#blog-content .pagination ul li span {
+#blog-content .pagination a,
+#blog-content .pagination span {
   background: #fff;
-  padding: 1rem;
+  padding: 0.75rem 1rem;
   font-size: 0.8rem;
   color: #343a40;
   border-radius: 0.25rem;
   margin: 0.25rem;
 }
-#blog-content .pagination ul li a:not(span):hover,
-#blog-content .pagination ul li span:not(span):hover {
+#blog-content .pagination a:not(span):hover,
+#blog-content .pagination span:not(span):hover {
   background: #f8f9fa;
 }
-#blog-content .pagination ul li span {
+#blog-content .pagination span {
   background: #343a40;
   color: #fff;
 }
