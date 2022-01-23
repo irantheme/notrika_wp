@@ -102,11 +102,12 @@
           <div class="container-fluid">
             <!-- Social networks -->
             <ul class="social-networks">
-              <li><a href="#"><i class="lni lni-facebook"></i></a></li>
-              <li><a href="#"><i class="lni lni-twitter"></i></a></li>
-              <li><a href="#"><i class="lni lni-linkedin"></i></a></li>
+              <?php
+              // Get template part of social media
+              get_template_part('/template-parts/content', 'social-media');
+              ?>
             </ul>
-            <p>کلیه حقوق مادی و معنوی این سایت محفوظ است.</p>
+            <p><?php echo __( get_option('irantheme_copyright') ); ?></p>
           </div>
         </div>
       </div>

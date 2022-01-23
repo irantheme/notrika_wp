@@ -110,56 +110,72 @@ class WordPress_Custom_Admin_Settings {
 					'default'		=> '',
 					'placeholder'	=> ''
 				),
+				array(
+					'id' 			=> 'copyright',
+					'label'			=> __( 'متن کپی رایت' , $this->textdomain ),
+					'description'	=> __( 'متن حقوقی و معنوی سایت که در آخر سایت نمایش داده میشود.', $this->textdomain ),
+					'type'			=> 'textarea',
+					'default'		=> '',
+					'placeholder'	=> ''
+				),
 			)
 		);
 
-		// // Content configuration fields data
-		// $settings['content'] = array(
-		// 	'title' => __( 'محتوا', $this->textdomain ),
-		// 	'description' => __( 'برخی از تنظیمات محتوای قالب', $this->textdomain ),
-		// 	'fields' => array(
-		// 		array(
-		// 			'id' => 'content_heading',
-		// 			'label' => __( 'عنوان محتوا' ),
-		// 			'description' => __( 'در بالای دسته بندی قرار میگیرد.' ),
-		// 			'type' => 'text',
-		// 			'default' => '',
-		// 			'placeholder' => __( 'متن خود را وارد کنید.', $this->textdomain )
-		// 		),
-		// 		array(
-		// 			'id' => 'content_description',
-		// 			'label' => __( 'توضیحات محتوا', $this->textdomain ),
-		// 			'description' => __( 'توضیحات که به صورت نوشته در زیر عنوان محتوا قرار میگیرد.', $this->textdomain ),
-		// 			'type' => 'textarea',
-		// 			'default' => '',
-		// 			'placeholder' => __( 'متن خود را وارد کنید.', $this->textdomain )
-		// 		),
-		// 	)
-		// );
-
-		// // footer configuration fields data
-		// $settings['footer'] = array(
-		// 	'title' => __( 'فوتر', $this->textdomain ),
-		// 	'description' => __( 'برخی از تنظیمات محتوای فوتر', $this->textdomain ),
-		// 	'fields' => array(
-		// 		array(
-		// 			'id' => 'footer_latest_comments_bg',
-		// 			'label' => __( 'تصویر پس زمینه آخرین دیدگاه ها' ),
-		// 			'description' => __( 'تصویری مورد نظر شما به صورت پشت زمینه و افقی با کمی افکت نمایش داده می شود..' ),
-		// 			'type' => 'image',
-		// 			'default' => '',
-		// 			'placeholder' => ''
-		// 		),
-		// 		array(
-		// 			'id' => 'footer_copyright_text',
-		// 			'label' => __( 'متن کپی رایت فوتر' ),
-		// 			'description' => __( 'متن کپی رایت انتخابی شما جهت نمایش در فوتر.' ),
-		// 			'type' => 'text',
-		// 			'default' => __( 'کلیه حقوق مادی و معنوی این سایت محفوظ است.', $this->textdomain ),
-		// 			'placeholder' => __( 'متن خود را وارد کنید.', $this->textdomain )
-		// 		)
-		// 	)
-		// );
+		// general configuration fields data
+		$settings['social'] = array(
+			'title'					=> __( 'شبکه های اجتماعی', $this->textdomain ),
+			'description'			=> __( 'لینک شبکه های اجتماعی که در آن فعالیت دارید.', $this->textdomain ),
+			'fields'				=> array(
+				array(
+					'id' 			=> 'social_facebook',
+					'label'			=> __( 'فیس بوک' , $this->textdomain ),
+					'description'	=> __( 'لینک صفحه یا پروفایل خود را وارد کنید.', $this->textdomain ),
+					'type'			=> 'text',
+					'default'		=> '',
+					'placeholder'	=> ''
+				),
+				array(
+					'id' 			=> 'social_twitter',
+					'label'			=> __( 'توئیتر' , $this->textdomain ),
+					'description'	=> __( 'لینک صفحه یا پروفایل خود را وارد کنید.', $this->textdomain ),
+					'type'			=> 'text',
+					'default'		=> '',
+					'placeholder'	=> ''
+				),
+				array(
+					'id' 			=> 'social_linkedin',
+					'label'			=> __( 'لینکدین' , $this->textdomain ),
+					'description'	=> __( 'لینک صفحه یا پروفایل خود را وارد کنید.', $this->textdomain ),
+					'type'			=> 'text',
+					'default'		=> '',
+					'placeholder'	=> ''
+				),
+				array(
+					'id' 			=> 'social_instagram',
+					'label'			=> __( 'اینستاگرام' , $this->textdomain ),
+					'description'	=> __( 'لینک صفحه یا پروفایل خود را وارد کنید.', $this->textdomain ),
+					'type'			=> 'text',
+					'default'		=> '',
+					'placeholder'	=> ''
+				),
+				array(
+					'id' 			=> 'social_whatsapp',
+					'label'			=> __( 'واتس آپ' , $this->textdomain ),
+					'description'	=> __( 'لینک صفحه یا پروفایل خود را وارد کنید.', $this->textdomain ),
+					'type'			=> 'text',
+					'default'		=> '',
+					'placeholder'	=> ''
+				),
+				array(
+					'id' 			=> 'social_telegram',
+					'label'			=> __( 'تلگرام' , $this->textdomain ),
+					'description'	=> __( 'لینک صفحه یا پروفایل خود را وارد کنید.', $this->textdomain ),
+					'type'			=> 'text',
+					'default'		=> '',
+					'placeholder'	=> ''
+				)
+			)
+		);
 
 		$settings = apply_filters( 'plugin_settings_fields', $settings );
 

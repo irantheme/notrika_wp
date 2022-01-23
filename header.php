@@ -47,7 +47,7 @@
         <div class="container-fluid p-0">
           <!-- Main menu -->
           <div class="main-menu">
-            <button id="nav-toggle">
+            <button id="nav-open">
               <span></span>
               <span></span>
               <span></span>
@@ -66,9 +66,10 @@
                   <!-- Social network -->
                   <ul class="social-networks">
                     <li><a class="search-alt" href="#search-form"><i class="lni lni-search-alt"></i></a></li>
-                    <li><a href="#"><i class="lni lni-facebook"></i></a></li>
-                    <li><a href="#"><i class="lni lni-twitter"></i></a></li>
-                    <li><a href="#"><i class="lni lni-linkedin"></i></a></li>
+                    <?php
+                    // Get template part of social media
+                    get_template_part('/template-parts/content', 'social-media');
+                    ?>
                   </ul>
                   <?php
                     $today = null;

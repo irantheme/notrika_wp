@@ -485,40 +485,40 @@ __webpack_require__.r(__webpack_exports__);
   Nav Options
   =============================================================== */
 
-  class NavOptions {
+  class MainMenu {
     // Initialize
     constructor() {
-      this.btnToggle = $('#nav-toggle');
+      this.btnOpen = $('#nav-open');
       this.wrapper = $('#wrapper');
       this.navigation = $('#navigation');
       this.wrapperMask = $('#wrapper-mask');
-      this.btnBack = $('#back-nav');
+      this.btnClose = $('#back-nav');
       this.events();
     }
 
     events() {
-      this.btnToggle.on('click', () => {
-        this.toggleNav();
+      this.btnOpen.on('click', () => {
+        this.open();
       });
-      this.btnBack.on('click', () => {
-        this.closeNav();
+      this.btnClose.on('click', () => {
+        this.close();
       });
       this.wrapperMask.on('click', () => {
-        this.closeNav();
+        this.close();
       });
     } // Toggle nav
 
 
-    toggleNav() {
-      this.btnToggle.toggleClass('active');
-      this.wrapper.toggleClass('active');
-      this.navigation.toggleClass('active');
-      this.wrapperMask.delay(600).fadeToggle();
+    open() {
+      this.btnOpen.addClass('active');
+      this.wrapper.addClass('active');
+      this.navigation.addClass('active');
+      this.wrapperMask.delay(600).fadeIn();
     } // Close nav
 
 
-    closeNav() {
-      this.btnToggle.removeClass('active');
+    close() {
+      this.btnOpen.removeClass('active');
       this.wrapper.removeClass('active');
       this.navigation.removeClass('active');
       this.wrapperMask.fadeOut();
@@ -526,7 +526,7 @@ __webpack_require__.r(__webpack_exports__);
 
   }
 
-  new NavOptions();
+  new MainMenu();
 })(jQuery);
 
 /***/ })
