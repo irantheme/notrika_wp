@@ -161,6 +161,7 @@
       this.isOpen = false;
     }
 
+    // Open & close with keypress
     keyPressDispatcher(e) {
       if (
         e.keyCode == 83 &&
@@ -341,6 +342,16 @@
           },
         },
       });
+      let galleryPost = new Swiper('.gallery-swiper', {
+        navigation: {
+          nextEl: '.post-image-next',
+          prevEl: '.post-image-prev',
+        },
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+      });
     }
   }
 
@@ -393,6 +404,7 @@
       this.wrapperMask = $('#wrapper-mask');
       this.btnClose = $('#back-nav');
       this.events();
+      this.isOpen = false;
     }
 
     events() {
@@ -405,6 +417,9 @@
       this.wrapperMask.on('click', () => {
         this.close();
       });
+      $(document).on('keydown', (e) => {
+        this.keyPressDispatcher(e);
+      });
     }
 
     // Toggle nav
@@ -413,6 +428,7 @@
       this.wrapper.addClass('active');
       this.navigation.addClass('active');
       this.wrapperMask.delay(600).fadeIn();
+      this.isOpen = true;
     }
 
     // Close nav
@@ -421,6 +437,25 @@
       this.wrapper.removeClass('active');
       this.navigation.removeClass('active');
       this.wrapperMask.fadeOut();
+      this.isOpen = false;
+    }
+
+    // Open & close with keypress
+    keyPressDispatcher(e) {
+      if (
+        e.keyCode == 77 &&
+        !this.isOpen &&
+        !$('input, textarea').is(':focus')
+      ) {
+        this.open();
+      }
+      if (
+        e.keyCode == 27 &&
+        this.isOpen &&
+        !$('input, textarea').is(':focus')
+      ) {
+        this.close();
+      }
     }
   }
 

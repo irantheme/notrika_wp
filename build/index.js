@@ -261,7 +261,8 @@ __webpack_require__.r(__webpack_exports__);
     close() {
       this.searchForm.slideUp(1000);
       this.isOpen = false;
-    }
+    } // Open & close with keypress
+
 
     keyPressDispatcher(e) {
       if (e.keyCode == 83 && !this.isOpen && !$('input, textarea').is(':focus')) {
@@ -440,6 +441,16 @@ __webpack_require__.r(__webpack_exports__);
           }
         }
       });
+      let galleryPost = new Swiper('.gallery-swiper', {
+        navigation: {
+          nextEl: '.post-image-next',
+          prevEl: '.post-image-prev'
+        },
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false
+        }
+      });
     }
 
   }
@@ -494,6 +505,7 @@ __webpack_require__.r(__webpack_exports__);
       this.wrapperMask = $('#wrapper-mask');
       this.btnClose = $('#back-nav');
       this.events();
+      this.isOpen = false;
     }
 
     events() {
@@ -506,6 +518,9 @@ __webpack_require__.r(__webpack_exports__);
       this.wrapperMask.on('click', () => {
         this.close();
       });
+      $(document).on('keydown', e => {
+        this.keyPressDispatcher(e);
+      });
     } // Toggle nav
 
 
@@ -514,6 +529,7 @@ __webpack_require__.r(__webpack_exports__);
       this.wrapper.addClass('active');
       this.navigation.addClass('active');
       this.wrapperMask.delay(600).fadeIn();
+      this.isOpen = true;
     } // Close nav
 
 
@@ -522,6 +538,18 @@ __webpack_require__.r(__webpack_exports__);
       this.wrapper.removeClass('active');
       this.navigation.removeClass('active');
       this.wrapperMask.fadeOut();
+      this.isOpen = false;
+    } // Open & close with keypress
+
+
+    keyPressDispatcher(e) {
+      if (e.keyCode == 77 && !this.isOpen && !$('input, textarea').is(':focus')) {
+        this.open();
+      }
+
+      if (e.keyCode == 27 && this.isOpen && !$('input, textarea').is(':focus')) {
+        this.close();
+      }
     }
 
   }

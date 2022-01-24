@@ -1,12 +1,8 @@
 <?php get_header(); ?>
 
 <?php
-$args = array(
-  'post_type' => array( 'post' )
-);
-$blog_post_type = new WP_Query( $args );
 
-if ( $blog_post_type->have_posts() ) : 
+if ( have_posts() ) : 
 ?>
 <!-- Blog content -->
 <section id="blog-content">
@@ -15,7 +11,7 @@ if ( $blog_post_type->have_posts() ) :
       <!-- All posts -->
       <main class="grid-masonry">
         <div class="grid-sizer"></div>
-        <?php while ( $blog_post_type->have_posts() ) : $blog_post_type->the_post(); ?>
+        <?php while ( have_posts() ) : the_post(); ?>
         <?php get_template_part( '/template-parts/content', 'post' ); ?>
         <?php endwhile; ?>
       </main>

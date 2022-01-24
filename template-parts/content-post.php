@@ -5,39 +5,92 @@
     // Get all category of posts
     $categories = get_the_category();
     $categories_output = '';
+
+    // Get post format
+    $post_format = get_post_format();
+
+    // Get gallery post, (true, false) -> related to html output or data
+    $gallery_post = get_post_gallery( get_the_ID(), false );
+
+    // Init url video
+    $video_url =  wp_get_attachment_url( get_the_ID() );
+    $videoElement = wp_video_shortcode( array( 'src' => esc_url( $video_url ) ) );
     ?>
-    <?php if ( has_post_thumbnail() ) : ?>
-    <!-- Post image -->
-    <div class="post-image">
-      <a href="<?php echo get_the_permalink(); ?>" class="post-image-link">
-        <!-- Post thumbnail -->
-        <div class="post-thumbnail">
-          <img src="<?php the_post_thumbnail_url( 'large' ); ?>" alt="تصویر مطلب">
-          <?php if ( !empty( $categories ) ) : ?>
-          <!-- Post categories -->
-          <div class="post-categories">
-            <?php
-            foreach( $categories as $category ) {
-              $categories_output .= '<span>' . __( $category->name ) . '</span>';
-            }
-            echo trim( $categories_output, '' );
-            ?>
+
+    <?php if ( $post_format == 'video' && $videoElement ) : ?>
+      <!-- Post video -->
+      <div class="post-video">
+        <?php echo $videoElement; ?>
+      </div>
+
+    <?php elseif ( $post_format == 'gallery' && $gallery_post ) : ?>
+      <!-- Post gallery -->
+      <div class="post-slider">
+        <a href="<?php echo get_the_permalink(); ?>" class="post-slider-link">
+          <!-- Swiper slider -->
+          <div class="swiper gallery-swiper">
+            <div class="swiper-wrapper">
+              <?php if ( has_post_thumbnail() ) : ?>
+              <div class="swiper-slide"><img src="<?php the_post_thumbnail_url( 'large' ); ?>" alt="تصویر اصلی"></div>
+              <?php endif; ?>
+              <?php foreach ( $gallery_post['src'] as $gallery_src ) : ?>
+                <div class="swiper-slide"><img src="<?php echo esc_url( $gallery_src ); ?>" alt="گالری"></div>
+              <?php endforeach; ?>
+            </div>
+            <!-- Slider buttons -->
+            <div class="post-image-slider-buttons">
+              <div class="post-image-next"><i class="lni lni-chevron-right"></i>
+              </div>
+              <div class="post-image-prev"><i class="lni lni-chevron-left"></i>
+              </div>
+            </div>
+            <?php if ( ! empty( $categories ) ) : ?>
+            <!-- Post category -->
+            <div class="post-categories">
+              <?php
+              foreach( $categories as $category ) {
+                $categories_output .= '<span>' . __( $category->name ) . '</span>';
+              }
+              echo trim( $categories_output, '' );
+              ?>
+            </div>
+            <?php endif; ?>
           </div>
-          <?php endif; ?>
-        </div>
-      </a>
-    </div>
+        </a>
+      </div>
+
+    <?php elseif ( has_post_thumbnail() ) : ?>
+      <!-- Post image -->
+      <div class="post-image">
+        <a href="<?php echo get_the_permalink(); ?>" class="post-image-link">
+          <!-- Post thumbnail -->
+          <div class="post-thumbnail">
+            <img src="<?php the_post_thumbnail_url( 'large' ); ?>" alt="تصویر مطلب">
+            <?php if ( !empty( $categories ) ) : ?>
+            <!-- Post categories -->
+            <div class="post-categories">
+              <?php
+              foreach( $categories as $category ) {
+                $categories_output .= '<span>' . __( $category->name ) . '</span>';
+              }
+              echo trim( $categories_output, '' );
+              ?>
+            </div>
+            <?php endif; ?>
+          </div>
+        </a>
+      </div>
     <?php else :
     if ( ! empty( $categories ) ) : ?>
-    <!-- Post category -->
-    <div class="post-category">
-      <?php
-        foreach( $categories as $category ) {
-          $categories_output .= '<a href=" ' . esc_attr( $category->link ) . '">' . __( $category->name ) . '</a>';
-        }
-        echo trim( $categories_output, '' );
-      ?>
-    </div>
+      <!-- Post category -->
+      <div class="post-category">
+        <?php
+          foreach( $categories as $category ) {
+            $categories_output .= '<a href=" ' . esc_attr( $category->link ) . '">' . __( $category->name ) . '</a>';
+          }
+          echo trim( $categories_output, '' );
+        ?>
+      </div>
     <?php endif; ?>
     <?php endif; ?>
     <!-- Post content -->

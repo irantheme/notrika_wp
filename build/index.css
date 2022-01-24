@@ -2470,7 +2470,44 @@ Blog content
   width: 100%;
   transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
 }
-.post-thumbnail .post-categories {
+
+.post-slider .post-slider-link {
+  display: block;
+  position: relative;
+}
+.post-slider .post-image-slider-buttons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  z-index: 3;
+}
+.post-slider .post-image-slider-buttons > div[class*=post-image] {
+  width: 3rem;
+  height: 3rem;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+.post-slider .post-image-slider-buttons > div[class*=post-image].swiper-button-disabled {
+  color: #6c757d;
+  cursor: default;
+}
+
+#content #posts .post .post-video video {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.post-categories {
   position: absolute;
   right: 1rem;
   bottom: 1rem;
@@ -2479,7 +2516,7 @@ Blog content
   flex-wrap: wrap;
   z-index: 3;
 }
-.post-thumbnail .post-categories span {
+.post-categories span {
   background: rgba(33, 33, 33, 0.65);
   color: #fff;
   font-size: 0.7rem;
@@ -2487,7 +2524,7 @@ Blog content
   border-radius: 3rem;
   margin-top: 0.25rem;
 }
-.post-thumbnail .post-categories span:not(:last-child) {
+.post-categories span:not(:last-child) {
   margin-left: 0.25rem;
 }
 
