@@ -2509,11 +2509,12 @@ Blog content
 
 .post-categories {
   position: absolute;
-  right: 1rem;
-  bottom: 1rem;
+  right: 0;
+  bottom: 0;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  padding: 1rem;
   z-index: 3;
 }
 .post-categories span {
@@ -2662,6 +2663,12 @@ Blog content
 .post-text h6 {
   font-size: 1rem;
 }
+.post-text .gallery .gallery-item .gallery-icon a {
+  display: block;
+}
+.post-text .gallery .gallery-item .gallery-icon a img {
+  height: inherit;
+}
 
 .post-list-options {
   display: flex;
@@ -2732,17 +2739,19 @@ Blog content
   margin-left: 0.25rem;
   margin-bottom: 0.25rem;
 }
-.post-tags a:hover {
-  background: #dee2e6;
-  opacity: 1;
-  color: #1C2023;
-}
-.post-tags a i {
+.post-tags a::before {
+  content: "\ebb4";
+  font-family: "LineIcons";
   line-height: inherit;
   background: #adb5bd;
   color: #fff;
   padding: 0 0.5rem;
   margin-left: 1rem;
+}
+.post-tags a:hover {
+  background: #dee2e6;
+  opacity: 1;
+  color: #1C2023;
 }
 
 .share-like {

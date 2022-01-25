@@ -89,10 +89,14 @@
               if ( is_home() ) {
                 $args['title'] = 'وبلاگ';
                 $args['subtitle'] = 'آخرین مطالب ما را در این صفحه مشاهده می کنید.';
-                $args['link'] = site_url('/');
+                $args['link'] = null;
               } else if ( is_archive() ) {
                 $args['title'] = get_the_archive_title();
                 $args['subtitle'] = get_the_archive_description();
+                $args['link'] = null;
+              } else if ( is_single() || is_page() ) {
+                $args['title'] = get_the_title();
+                $args['subtitle'] = wp_trim_words( strip_shortcodes( get_the_content() ), 20 );;
                 $args['link'] = null;
               } else {
                 $args['title'] = 'ناشناخته';
