@@ -50,15 +50,6 @@
       this.searchCloseButton.on('click', () => {
         this.close();
       });
-      // Input box shadow style
-      this.searchInput.on('focus', () => {
-        this.searchInput.parent().css('box-shadow', 'none');
-      });
-      this.searchInput.on('blur', () => {
-        this.searchInput
-          .parent()
-          .css('box-shadow', '0px 15px 45px -9px rgb(0 0 0 / 20%)');
-      });
       // Trigger keypress
       $(document).on('keydown', (e) => {
         this.keyPressDispatcher(e);
@@ -301,7 +292,7 @@
       });
       // Related post
       let relatedPost = new Swiper('.related-post-slider', {
-        slidesPerView: 3,
+        slidesPerView: 1,
         spaceBetween: 30,
         slidesPerGroup: 1,
         loop: true,
@@ -320,25 +311,25 @@
         },
         breakpoints: {
           // when window width is >= 320px
-          320: {
-            slidesPerView: 1,
-          },
-          // when window width is >= 480px
-          575: {
+          // 320: {
+          //   slidesPerView: 1,
+          // },
+          // // when window width is >= 480px
+          // 575: {
+          //   slidesPerView: 2,
+          // },
+          // // when window width is >= 640px
+          // 767: {
+          //   slidesPerView: 2,
+          // },
+          // 991: {
+          //   slidesPerView: 3,
+          // },
+          // 1199: {
+          //   slidesPerView: 3,
+          // },
+          1376: {
             slidesPerView: 2,
-          },
-          // when window width is >= 640px
-          767: {
-            slidesPerView: 2,
-          },
-          991: {
-            slidesPerView: 3,
-          },
-          1199: {
-            slidesPerView: 3,
-          },
-          1375: {
-            slidesPerView: 4,
           },
         },
       });

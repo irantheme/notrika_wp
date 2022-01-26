@@ -121,83 +121,92 @@
             </div>
           </div>
         </article>
-
-        <?php
-        $orig_post = $post;
-        global $post;
-        $related_category = get_the_category( $post->ID );
-        if ( $related_category ) : 
-          $category_ids = array();
-          foreach( $related_category as $individual_category ) {
-            $category_ids[] = $individual_category->term_id;
-          }
-          $args = array (
-            'category__in' => $category_ids,
-            'post__not_in' => array( $post->ID ),
-            'posts_per_page'=> 8,
-            'ignore_sticky_posts'=> 1
-          );
-          $my_query = new wp_query( $args );
-
-          if ( $my_query->have_posts() ) :
-          ?>
-          <!-- Related posts -->
-          <div class="related-post">
-            <!-- Swiper -->
-            <div class="swiper related-post-slider">
-              <div class="swiper-wrapper">
+        
+        <!-- After -->
+        <div class="single-after">
+          <div class="row">
+            <div class="col-lg-5">
               <?php
-              while( $my_query->have_posts() ) : $my_query->the_post(); ?>
-                <!-- Item -->
-                <div class="swiper-slide">
-                  <div class="post-box">
-                    <?php if ( has_post_thumbnail() ) : ?>
-                      <!-- Post image -->
-                      <div class="post-image">
-                        <a href="<?php echo get_the_permalink(); ?>" class="post-image-link">
-                          <!-- Post thumbnail -->
-                          <div class="post-thumbnail">
-                            <img src="<?php the_post_thumbnail_url( 'large' ); ?>" alt="تصویر مطلب">
+              $orig_post = $post;
+              global $post;
+              $related_category = get_the_category( $post->ID );
+              if ( $related_category ) : 
+                $category_ids = array();
+                foreach( $related_category as $individual_category ) {
+                  $category_ids[] = $individual_category->term_id;
+                }
+                $args = array (
+                  'category__in' => $category_ids,
+                  'post__not_in' => array( $post->ID ),
+                  'posts_per_page'=> 8,
+                  'ignore_sticky_posts'=> 1
+                );
+                $my_query = new wp_query( $args );
+  
+                if ( $my_query->have_posts() ) :
+                ?>
+                <!-- Related posts -->
+                <div class="related-post">
+                  <!-- Swiper -->
+                  <div class="swiper related-post-slider">
+                    <div class="swiper-wrapper">
+                    <?php
+                    while( $my_query->have_posts() ) : $my_query->the_post(); ?>
+                      <!-- Item -->
+                      <div class="swiper-slide">
+                        <div class="post-box">
+                          <?php if ( has_post_thumbnail() ) : ?>
+                            <!-- Post image -->
+                            <div class="post-image">
+                              <a href="<?php echo get_the_permalink(); ?>" class="post-image-link">
+                                <!-- Post thumbnail -->
+                                <div class="post-thumbnail">
+                                  <img src="<?php the_post_thumbnail_url( 'large' ); ?>" alt="تصویر مطلب">
+                                </div>
+                              </a>
+                            </div>
+                          <?php endif; ?>
+                          <!-- Holder -->
+                          <div class="post-content text-right">
+                            <!-- Heading -->
+                            <div class="post-heading">
+                              <!-- Date -->
+                              <span><i class="lni lni-calendar"></i><?php echo get_the_date( 'j, F Y' ); ?></span>
+                              <h2><a href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?></a></h2>
+                            </div>
+                            <!-- Comments & Likes -->
+                            <div class="post-list-options">
+                              <span><i class="lni lni-comments"></i><?php echo get_comments_number(); ?> دیدگاه</span>
+                              <span><i class="lni lni-heart"></i>۲۳ پسندشده</span>
+                            </div>
                           </div>
-                        </a>
+                        </div>
                       </div>
-                    <?php endif; ?>
-                    <!-- Holder -->
-                    <div class="post-content text-right">
-                      <!-- Heading -->
-                      <div class="post-heading">
-                        <!-- Date -->
-                        <span><i class="lni lni-calendar"></i><?php echo get_the_date( 'j, F Y' ); ?></span>
-                        <h2><a href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?></a></h2>
-                      </div>
-                      <!-- Comments & Likes -->
-                      <div class="post-list-options">
-                        <span><i class="lni lni-comments"></i><?php echo get_comments_number(); ?> دیدگاه</span>
-                        <span><i class="lni lni-heart"></i>۲۳ پسندشده</span>
-                      </div>
+                    <?php endwhile; ?>  
                     </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
                   </div>
                 </div>
-              <?php endwhile; ?>  
-              </div>
-              <div class="swiper-button-next"></div>
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-pagination"></div>
+                <?php
+                endif;
+              endif;
+              $post = $orig_post;
+              wp_reset_query();
+              ?>
+            </div>
+            <div class="col-lg-7">
+              <?php
+              // If comments are open or we have at least one comment, load up the comment template.
+              if ( comments_open() || get_comments_number() ) :
+                comments_template();
+              endif;
+              ?>
             </div>
           </div>
-          <?php
-          endif;
-        endif;
-        $post = $orig_post;
-        wp_reset_query();
-        ?>
-
-        <?php
-        // If comments are open or we have at least one comment, load up the comment template.
-        if ( comments_open() || get_comments_number() ) :
-          comments_template();
-        endif;
-        ?>
+        </div>
+        
       <?php endwhile; ?>
     </div>
   </div>

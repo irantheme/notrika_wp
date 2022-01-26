@@ -2198,16 +2198,6 @@ Footer
   color: #f8f9fa;
 }
 
-#blog-content .pagination a,
-#blog-content .pagination span, .post-box, #search-form .search-box {
-  box-shadow: 0px 15px 45px -9px rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-}
-#blog-content .pagination a:not(.search-box):hover,
-#blog-content .pagination span:not(.search-box):hover, .post-box:not(.search-box):hover, #search-form .search-box:not(.search-box):hover {
-  box-shadow: none;
-}
-
 /*
 =====================================
 List post style
@@ -2824,7 +2814,7 @@ Blog content
 }
 
 #blog-content {
-  background: #e9ecef;
+  background: #f8f9fa;
   padding: 6rem 0;
 }
 #blog-content main.grid-masonry .post-holder {
@@ -2839,7 +2829,7 @@ Blog content
 #blog-content .pagination a,
 #blog-content .pagination span {
   background: #fff;
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 1rem;
   font-size: 0.8rem;
   color: #343a40;
   border-radius: 0.25rem;
@@ -2860,7 +2850,6 @@ Related post
 =====================================
 */
 .related-post {
-  padding-top: calc(6rem - 30px);
   padding-bottom: 3rem;
 }
 .related-post .related-post-slider {
@@ -2934,6 +2923,12 @@ Comments list
 }
 .comments-list > .children {
   padding-right: 7rem;
+}
+
+.text-description {
+  font-size: 0.8rem;
+  color: #495057;
+  margin: 0.5rem 0;
 }
 
 /*
