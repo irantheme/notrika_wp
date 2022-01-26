@@ -82,16 +82,16 @@ if( ! function_exists( 'better_comments' ) ):
           <?php endif; ?>
           <div class="comment-heading">
             <b><?php echo get_comment_author() ?></b>
-            <span class="date"><?php printf(/* translators: 1: date and time(s). */ esc_html__('%1$s at %2$s' , '5balloons_theme'), get_comment_date(),  get_comment_time()) ?></span>
+            <div class="comment-reply">
+              <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+            <?php edit_comment_link( __( 'ویرایش', 'textdomain' ), '  ', '' ); ?>
+            </div>
           </div>
           <div class="comment-body">
-            <p>
-              <?php comment_text() ?>
-            </p>
+            <?php comment_text() ?>
           </div>
           <div class="comment-options">
-            <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
-            <?php edit_comment_link( __( 'ویرایش', 'textdomain' ), '  ', '' ); ?>
+            <span class="date"><?php printf(/* translators: 1: date and time(s). */ esc_html__('%1$s at %2$s' , '5balloons_theme'), get_comment_date(),  get_comment_time()) ?></span>
           </div>            
         </div>
       </div>
