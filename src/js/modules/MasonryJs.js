@@ -2,7 +2,7 @@ import $ from 'jquery';
 /* ===============================================================
   Masonry Init
 =============================================================== */
-class Masonry {
+class MasonryJs {
   // Initialize
   constructor() {
     // Init Masonry
@@ -32,4 +32,4 @@ class Masonry {
   }
 }
 
-export default Masonry;
+export default MasonryJs;

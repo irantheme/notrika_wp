@@ -114,8 +114,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_modules_Extra__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/modules/Extra */ "./src/js/modules/Extra.js");
 /* harmony import */ var _js_modules_Search__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/modules/Search */ "./src/js/modules/Search.js");
 /* harmony import */ var _js_modules_LoadPosts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js/modules/LoadPosts */ "./src/js/modules/LoadPosts.js");
-/* harmony import */ var _js_modules_Masonry__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/modules/Masonry */ "./src/js/modules/Masonry.js");
-/* harmony import */ var _js_modules_Swiper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/modules/Swiper */ "./src/js/modules/Swiper.js");
+/* harmony import */ var _js_modules_MasonryJs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/modules/MasonryJs */ "./src/js/modules/MasonryJs.js");
+/* harmony import */ var _js_modules_SwiperJs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/modules/SwiperJs */ "./src/js/modules/SwiperJs.js");
 
 
 
@@ -127,8 +127,8 @@ let mainMenu = new _js_modules_MainMenu__WEBPACK_IMPORTED_MODULE_1__["default"](
 let extra = new _js_modules_Extra__WEBPACK_IMPORTED_MODULE_2__["default"]();
 let search = new _js_modules_Search__WEBPACK_IMPORTED_MODULE_3__["default"]();
 let loadPosts = new _js_modules_LoadPosts__WEBPACK_IMPORTED_MODULE_4__["default"]();
-let masonry = new _js_modules_Masonry__WEBPACK_IMPORTED_MODULE_5__["default"]();
-let swiper = new _js_modules_Swiper__WEBPACK_IMPORTED_MODULE_6__["default"]();
+let masonryJs = new _js_modules_MasonryJs__WEBPACK_IMPORTED_MODULE_5__["default"]();
+let swiper = new _js_modules_SwiperJs__WEBPACK_IMPORTED_MODULE_6__["default"]();
 
 /***/ }),
 
@@ -315,10 +315,10 @@ class MainMenu {
 
 /***/ }),
 
-/***/ "./src/js/modules/Masonry.js":
-/*!***********************************!*\
-  !*** ./src/js/modules/Masonry.js ***!
-  \***********************************/
+/***/ "./src/js/modules/MasonryJs.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/MasonryJs.js ***!
+  \*************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -331,7 +331,7 @@ __webpack_require__.r(__webpack_exports__);
   Masonry Init
 =============================================================== */
 
-class Masonry {
+class MasonryJs {
   // Initialize
   constructor() {
     // Init Masonry
@@ -362,7 +362,7 @@ class Masonry {
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Masonry);
+/* harmony default export */ __webpack_exports__["default"] = (MasonryJs);
 
 /***/ }),
 
@@ -516,10 +516,10 @@ class Search {
 
 /***/ }),
 
-/***/ "./src/js/modules/Swiper.js":
-/*!**********************************!*\
-  !*** ./src/js/modules/Swiper.js ***!
-  \**********************************/
+/***/ "./src/js/modules/SwiperJs.js":
+/*!************************************!*\
+  !*** ./src/js/modules/SwiperJs.js ***!
+  \************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -528,7 +528,7 @@ __webpack_require__.r(__webpack_exports__);
 /* ===============================================================
   Swiper Init
 =============================================================== */
-class Swiper {
+class SwiperJs {
   constructor() {
     // Partners brands slider init
     let partner = new Swiper('.partners-slider', {
@@ -638,7 +638,7 @@ class Swiper {
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Swiper);
+/* harmony default export */ __webpack_exports__["default"] = (SwiperJs);
 
 /***/ }),
 

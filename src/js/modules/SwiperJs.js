@@ -1,7 +1,7 @@
 /* ===============================================================
   Swiper Init
 =============================================================== */
-class Swiper {
+class SwiperJs {
   constructor() {
     // Partners brands slider init
     let partner = new Swiper('.partners-slider', {
@@ -110,4 +110,4 @@ class Swiper {
   }
 }
 
-export default Swiper;
+export default SwiperJs;
