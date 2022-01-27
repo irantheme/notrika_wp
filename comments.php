@@ -26,7 +26,7 @@ if ( post_password_required() )
       //Declare Vars
       $comment_send = 'ثبت دیدگاه';
       $comment_reply = 'ارسال دیدگاه';
-      $comment_reply_to = 'پاسخ دادن';
+      $comment_reply_to = 'پاسخ به';
       
       $comment_author = 'نام *';
       $comment_email = 'ایمیل *';
@@ -54,7 +54,7 @@ if ( post_password_required() )
           //URL Field
           'url' => '
           <label for="url">' . $comment_url .'</label>
-          <input type="text" id="url" name="url"></input>',
+          <input type="url" id="url" name="url"></input>',
           //Cookies
           'cookies' => '',
         ),

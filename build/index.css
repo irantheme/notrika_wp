@@ -1013,6 +1013,7 @@ input[type=search],
 input[type=url],
 select,
 textarea {
+  background: #fff;
   border: solid 1px #e9ecef;
   color: inherit;
   font-family: "IRANSans", "iranyekan", sans-serif;
@@ -2814,7 +2815,7 @@ Blog content
 }
 
 #blog-content {
-  background: #f8f9fa;
+  background: #e9ecef;
   padding: 6rem 0;
 }
 #blog-content main.grid-masonry .post-holder {
