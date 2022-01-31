@@ -406,31 +406,6 @@ Blog content
   object-fit: cover;
 }
 
-// Post categories
-.post-categories {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 1rem;
-  z-index: 3;
-
-  span {
-    background: $color-dark-transparent-low;
-    color: $color-white;
-    font-size: 0.7rem;
-    padding: 0.25rem 1rem;
-    border-radius: 3rem;
-    margin-top: 0.25rem;
-
-    &:not(:last-child) {
-      margin-left: 0.25rem;
-    }
-  }
-}
-
 // Post category (Without thumbnail)
 .post-category {
   margin-bottom: 1rem;
@@ -439,27 +414,24 @@ Blog content
   flex-wrap: wrap;
 
   a {
-    background: $color-gray-900;
-    color: $color-white;
+    color: $color-dark;
     font-size: 0.7rem;
-    padding: 0.25rem 1rem;
-    border-radius: 3rem;
     margin-bottom: 0.25rem;
+    font-weight: bold;
+  }
 
-    &:hover {
-      background: $color-darker;
-    }
+  span {
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
 
-    &:not(:last-child) {
-      margin-left: 0.25rem;
+    &:last-child {
+      display: none;
     }
   }
 }
 
 // Post heading
 .post-heading {
-  margin-bottom: 1rem;
-
   span {
     font-size: 0.7rem;
     color: $color-gray-900;
@@ -486,7 +458,7 @@ Blog content
 
 // Post text
 .post-text {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: $color-gray-700;
   margin-bottom: 1rem;
 
@@ -638,15 +610,11 @@ Blog content
 
 // Post author
 .post-author {
+  margin-bottom: 1rem;
+
   &>div {
     display: flex;
-    padding: 1rem;
-    background: $color-gray-100;
     transition: 0.3s;
-
-    &:hover {
-      background: transparent;
-    }
 
     img {
       width: 4rem;
