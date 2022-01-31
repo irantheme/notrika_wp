@@ -6,11 +6,11 @@ class Search {
   // Initialize
   constructor() {
     this.searchForm = $('#search-form');
-    this.searchAltButton = $('#header-blog .social-networks .search-alt');
+    this.searchAltButton = $('#search-alt');
     this.searchCloseButton = $('#search-form-close');
     this.searchInput = $('#search-form .search-input');
-    this.spinnerAlt = $('#spinner-alt');
-    this.searchAlt = $('#search-alt');
+    this.spinnerAlt = $('#spinner-alt-form');
+    this.searchAlt = $('#search-alt-form');
     this.searchResults = $('#search-form .search-results');
     this.events();
     this.timer;

@@ -47,11 +47,17 @@
         <div class="container-fluid p-0">
           <!-- Main menu -->
           <div class="main-menu">
-            <button id="nav-open">
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
+            <!-- Main menu items -->
+            <div class="main-menu-items">
+              <!-- Search alt -->
+              <button id="search-alt" class="button-default"><i class="lni lni-search-alt"></i></button>
+              <!-- Nav open -->
+              <button id="nav-open" class="button-default">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+            </div>
           </div>
         </div>
         <div class="container-holder">
@@ -65,7 +71,6 @@
                 <div class="options-layer">
                   <!-- Social network -->
                   <ul class="social-networks">
-                    <li><a class="search-alt" href="#search-form"><i class="lni lni-search-alt"></i></a></li>
                     <?php
                     // Get template part of social media
                     get_template_part('/template-parts/content', 'social-media');
@@ -125,8 +130,8 @@
           <div class="search-box">
             <input type="text" class="search-input" placeholder="به دنبال چیزی هستید؟">
             <span class="search-case search-case-alt">
-              <i id="search-alt" class="lni lni-search-alt"></i>
-              <i id="spinner-alt" class="animate-rotate"></i>
+              <i id="search-alt-form" class="lni lni-search-alt"></i>
+              <i id="spinner-alt-form" class="animate-rotate"></i>
             </span>
             <span class="search-case" id="search-form-close" data-type="close" data-search="0"><i
                 class="lni lni-close"></i></span>

@@ -144,13 +144,6 @@ Header blog
               &:hover {
                 color: $color-white;
               }
-
-              &.search-alt {
-                &:hover {
-                  color: $color-primary;
-                  cursor: pointer;
-                }
-              }
             }
           }
         }
@@ -243,7 +236,7 @@ Search form
         background: $color-gray-300;
       }
 
-      #spinner-alt {
+      #spinner-alt-form {
         width: 1.5rem;
         height: 1.5rem;
         border-radius: 50%;
