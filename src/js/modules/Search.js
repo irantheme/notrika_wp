@@ -117,7 +117,7 @@ class Search {
 
   // Open search form
   open() {
-    this.searchForm.slideToggle(1000);
+    this.searchForm.fadeIn(500);
     this.isOpen = true;
     setTimeout(() => {
       this.searchInput.focus();
@@ -126,7 +126,7 @@ class Search {
 
   // Close search form
   close() {
-    this.searchForm.slideUp(1000);
+    this.searchForm.fadeOut(500);
     this.isOpen = false;
   }
 
