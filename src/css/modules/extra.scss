@@ -148,11 +148,6 @@ Wrapper
   }
 }
 
-.container-padding {
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
 /*
 =====================================
 Init grid masonry
@@ -181,13 +176,13 @@ Init grid masonry
 
     @media screen and (min-width: 992px) {
       & {
-        width: 100%;
+        width: 50%;
       }
     }
 
     @media screen and (min-width: 1200px) {
       & {
-        width: 50%;
+        width: 33.3333333%;
       }
     }
   }

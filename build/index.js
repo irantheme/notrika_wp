@@ -340,7 +340,7 @@ class MasonryJs {
       columnWidth: '.grid-sizer',
       percentPosition: true,
       // gutter: 30,
-      // horizontalOrder: true,
+      horizontalOrder: true,
       // fitWidth: true,
       originLeft: false,
       transitionDuration: '0.5s',
@@ -386,11 +386,11 @@ class Search {
   // Initialize
   constructor() {
     this.searchForm = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#search-form');
-    this.searchAltButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#search-alt');
+    this.searchAltButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#header-blog .social-networks .search-alt');
     this.searchCloseButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#search-form-close');
     this.searchInput = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#search-form .search-input');
-    this.spinnerAlt = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#spinner-alt-form');
-    this.searchAlt = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#search-alt-form');
+    this.spinnerAlt = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#spinner-alt');
+    this.searchAlt = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#search-alt');
     this.searchResults = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#search-form .search-results');
     this.events();
     this.timer;

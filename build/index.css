@@ -1375,11 +1375,6 @@ Wrapper
   }
 }
 
-.container-padding {
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
 /*
 =====================================
 Init grid masonry
@@ -1408,13 +1403,13 @@ Init grid masonry
 @media screen and (min-width: 992px) {
   .grid-masonry .grid-sizer,
 .grid-masonry .grid-item {
-    width: 100%;
+    width: 50%;
   }
 }
 @media screen and (min-width: 1200px) {
   .grid-masonry .grid-sizer,
 .grid-masonry .grid-item {
-    width: 50%;
+    width: 33.3333333%;
   }
 }
 
@@ -1459,19 +1454,6 @@ Heading mode
           animation-iteration-count: infinite;
   -webkit-animation-direction: alternate;
           animation-direction: alternate;
-}
-
-.button-default {
-  background: transparent;
-  padding: 0;
-  margin: 0;
-  border: none;
-  outline: none;
-  box-shadow: none;
-}
-.button-default:hover {
-  background: none;
-  color: none;
 }
 
 /*
@@ -1586,72 +1568,63 @@ Header
   position: relative;
   z-index: 3;
 }
-#header .container .main-menu .main-menu-items,
-#header .container-fluid .main-menu .main-menu-items,
-#header-blog .container .main-menu .main-menu-items,
-#header-blog .container-fluid .main-menu .main-menu-items {
-  margin-right: auto;
-  display: flex;
-}
-#header .container .main-menu .main-menu-items #nav-open,
-#header .container-fluid .main-menu .main-menu-items #nav-open,
-#header-blog .container .main-menu .main-menu-items #nav-open,
-#header-blog .container-fluid .main-menu .main-menu-items #nav-open {
+#header .container .main-menu #nav-open,
+#header .container-fluid .main-menu #nav-open,
+#header-blog .container .main-menu #nav-open,
+#header-blog .container-fluid .main-menu #nav-open {
+  background: transparent;
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 2.5rem;
+  padding: 0;
+  margin: 0;
+  margin-right: auto;
+  border: none;
+  box-shadow: none;
+  width: 3rem;
 }
-#header .container .main-menu .main-menu-items #nav-open span,
-#header .container-fluid .main-menu .main-menu-items #nav-open span,
-#header-blog .container .main-menu .main-menu-items #nav-open span,
-#header-blog .container-fluid .main-menu .main-menu-items #nav-open span {
+#header .container .main-menu #nav-open span,
+#header .container-fluid .main-menu #nav-open span,
+#header-blog .container .main-menu #nav-open span,
+#header-blog .container-fluid .main-menu #nav-open span {
   width: 100%;
   height: 2px;
   background: #fff;
   display: block;
   margin-right: auto;
 }
-#header .container .main-menu .main-menu-items #nav-open span:not(:last-child),
-#header .container-fluid .main-menu .main-menu-items #nav-open span:not(:last-child),
-#header-blog .container .main-menu .main-menu-items #nav-open span:not(:last-child),
-#header-blog .container-fluid .main-menu .main-menu-items #nav-open span:not(:last-child) {
-  margin-bottom: 0.5rem;
+#header .container .main-menu #nav-open span:not(:last-child),
+#header .container-fluid .main-menu #nav-open span:not(:last-child),
+#header-blog .container .main-menu #nav-open span:not(:last-child),
+#header-blog .container-fluid .main-menu #nav-open span:not(:last-child) {
+  margin-bottom: 0.75rem;
 }
-#header .container .main-menu .main-menu-items #nav-open span:first-child,
-#header .container-fluid .main-menu .main-menu-items #nav-open span:first-child,
-#header-blog .container .main-menu .main-menu-items #nav-open span:first-child,
-#header-blog .container-fluid .main-menu .main-menu-items #nav-open span:first-child {
+#header .container .main-menu #nav-open span:first-child,
+#header .container-fluid .main-menu #nav-open span:first-child,
+#header-blog .container .main-menu #nav-open span:first-child,
+#header-blog .container-fluid .main-menu #nav-open span:first-child {
   transition: all 0.6s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   width: 60%;
 }
-#header .container .main-menu .main-menu-items #nav-open span:last-child,
-#header .container-fluid .main-menu .main-menu-items #nav-open span:last-child,
-#header-blog .container .main-menu .main-menu-items #nav-open span:last-child,
-#header-blog .container-fluid .main-menu .main-menu-items #nav-open span:last-child {
+#header .container .main-menu #nav-open span:last-child,
+#header .container-fluid .main-menu #nav-open span:last-child,
+#header-blog .container .main-menu #nav-open span:last-child,
+#header-blog .container-fluid .main-menu #nav-open span:last-child {
   transition: all 0.4s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   width: 50%;
 }
-#header .container .main-menu .main-menu-items #nav-open span:nth-child(2),
-#header .container-fluid .main-menu .main-menu-items #nav-open span:nth-child(2),
-#header-blog .container .main-menu .main-menu-items #nav-open span:nth-child(2),
-#header-blog .container-fluid .main-menu .main-menu-items #nav-open span:nth-child(2) {
+#header .container .main-menu #nav-open span:nth-child(2),
+#header .container-fluid .main-menu #nav-open span:nth-child(2),
+#header-blog .container .main-menu #nav-open span:nth-child(2),
+#header-blog .container-fluid .main-menu #nav-open span:nth-child(2) {
   transition: all 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   width: 80%;
 }
-#header .container .main-menu .main-menu-items #nav-open.active span,
-#header .container-fluid .main-menu .main-menu-items #nav-open.active span,
-#header-blog .container .main-menu .main-menu-items #nav-open.active span,
-#header-blog .container-fluid .main-menu .main-menu-items #nav-open.active span {
+#header .container .main-menu #nav-open.active span,
+#header .container-fluid .main-menu #nav-open.active span,
+#header-blog .container .main-menu #nav-open.active span,
+#header-blog .container-fluid .main-menu #nav-open.active span {
   width: 100%;
-}
-#header .container .main-menu .main-menu-items #search-alt,
-#header .container-fluid .main-menu .main-menu-items #search-alt,
-#header-blog .container .main-menu .main-menu-items #search-alt,
-#header-blog .container-fluid .main-menu .main-menu-items #search-alt {
-  font-size: 1.4rem;
-  line-height: 1;
-  margin-left: 0.5rem;
 }
 #header .container .banner,
 #header .container-fluid .banner,
@@ -2337,6 +2310,10 @@ Header blog
 #header-blog .heading-info .options .options-layer .social-networks li a:hover {
   color: #fff;
 }
+#header-blog .heading-info .options .options-layer .social-networks li a.search-alt:hover {
+  color: #0088cc;
+  cursor: pointer;
+}
 #header-blog .heading-info .options .options-layer > span {
   padding: 0 1rem;
 }
@@ -2398,7 +2375,7 @@ Search form
 #search-form .search-box .search-case#search-form-close:hover {
   background: #dee2e6;
 }
-#search-form .search-box .search-case #spinner-alt-form {
+#search-form .search-box .search-case #spinner-alt {
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 50%;
@@ -2522,6 +2499,28 @@ Blog content
   object-fit: cover;
 }
 
+.post-categories {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 1rem;
+  z-index: 3;
+}
+.post-categories span {
+  background: rgba(33, 33, 33, 0.65);
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 0.25rem 1rem;
+  border-radius: 3rem;
+  margin-top: 0.25rem;
+}
+.post-categories span:not(:last-child) {
+  margin-left: 0.25rem;
+}
+
 .post-category {
   margin-bottom: 1rem;
   display: flex;
@@ -2529,19 +2528,23 @@ Blog content
   flex-wrap: wrap;
 }
 .post-category a {
-  color: #1C2023;
+  background: #212529;
+  color: #fff;
   font-size: 0.7rem;
+  padding: 0.25rem 1rem;
+  border-radius: 3rem;
   margin-bottom: 0.25rem;
-  font-weight: bold;
 }
-.post-category span {
-  margin-right: 0.5rem;
-  margin-left: 0.5rem;
+.post-category a:hover {
+  background: #000000;
 }
-.post-category span:last-child {
-  display: none;
+.post-category a:not(:last-child) {
+  margin-left: 0.25rem;
 }
 
+.post-heading {
+  margin-bottom: 1rem;
+}
 .post-heading span {
   font-size: 0.7rem;
   color: #212529;
@@ -2563,7 +2566,7 @@ Blog content
 }
 
 .post-text {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: #495057;
   margin-bottom: 1rem;
 }
@@ -2680,12 +2683,14 @@ Blog content
   color: #fff;
 }
 
-.post-author {
-  margin-bottom: 1rem;
-}
 .post-author > div {
   display: flex;
+  padding: 1rem;
+  background: #f8f9fa;
   transition: 0.3s;
+}
+.post-author > div:hover {
+  background: transparent;
 }
 .post-author > div img {
   width: 4rem;

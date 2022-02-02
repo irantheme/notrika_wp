@@ -11,7 +11,7 @@ class MasonryJs {
       columnWidth: '.grid-sizer',
       percentPosition: true,
       // gutter: 30,
-      // horizontalOrder: true,
+      horizontalOrder: true,
       // fitWidth: true,
       originLeft: false,
       transitionDuration: '0.5s',
