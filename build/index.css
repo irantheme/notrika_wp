@@ -1409,7 +1409,7 @@ Init grid masonry
 @media screen and (min-width: 1200px) {
   .grid-masonry .grid-sizer,
 .grid-masonry .grid-item {
-    width: 33.3333333%;
+    width: 50%;
   }
 }
 
