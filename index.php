@@ -10,7 +10,7 @@ if (have_posts()) :
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus numquam ex totam repudiandae rerum? Maxime blanditiis mollitia id illum, dolores quibusdam corrupti aliquam placeat animi neque accusamus vel! Dolorem, nulla!
+            <?php get_sidebar(); ?>
           </div>
           <div class="col-lg-8 px-0">
             <!-- All posts -->

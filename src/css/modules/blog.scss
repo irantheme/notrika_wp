@@ -3,6 +3,7 @@
 List post style
 =====================================
 */
+
 .list-post-style {
   display: flex;
   padding: 1rem 0;
@@ -760,6 +761,7 @@ Blog content
 Related post
 =====================================
 */
+
 .related-post {
   padding-bottom: 3rem;
 
@@ -770,9 +772,120 @@ Related post
 
 /*
 =====================================
+Sidebar & wp widgets
+=====================================
+*/
+
+.box-holder {
+  background: $color-white;
+  margin-bottom: 30px;
+  padding: 2rem;
+}
+
+.widget-title {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  font-weight: normal;
+}
+
+// Latest posts
+
+.wp-block-latest-posts {
+  li {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $color-gray-200;
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    a {
+      font-size: 0.8rem;
+      color: $color-dark;
+      display: block;
+      
+      &::before {
+        content: '\ea5a';
+        font-family: $font-family-icons;
+        margin-left: 0.5rem;
+        font-size: 0.5rem;
+        display: inline-block;
+      }
+
+      &:hover {
+        color: $color-primary;
+        
+        &::before {
+          @extend %animation-left-to-right;
+        }
+      }
+    }
+
+    .wp-block-latest-posts__post-author {
+      font-size: 0.7rem;
+      color: $color-gray-800;
+    }
+
+    .wp-block-latest-posts__post-date {
+      font-size: 0.6rem;
+      color: $color-gray-600;
+    }
+  }
+}
+
+// Categories list
+
+.wp-block-categories {
+  .cat-item {
+    font-size: 0.7rem;
+    color: $color-primary;
+
+    a {
+      padding: 0.5rem 0;
+      font-size: 0.8rem;
+      color: $color-gray-900;
+      display: inline-block;
+      margin-left: 0.25rem;
+      
+      &::before {
+        content: '\ea5a';
+        font-family: $font-family-icons;
+        margin-left: 0.5rem;
+        font-size: 0.5rem;
+        display: inline-block;
+      }
+
+      &:hover {
+        color: $color-primary;
+
+        &::before {
+          @extend %animation-left-to-right;
+        }
+      }
+    }
+
+    ul {
+      padding-right: 1rem;
+
+      .cat-item {
+        a {
+          color: $color-gray-700;
+          font-size: 0.7rem;
+        }
+      }
+    }
+  }
+}
+
+/*
+=====================================
 Comments list
 =====================================
 */
+
 .comments-list {
   .comment {
     margin-bottom: 15px;
@@ -865,6 +978,7 @@ Comments list
 Footer blog
 =====================================
 */
+
 #footer-blog {
   background: $color-dark;
 

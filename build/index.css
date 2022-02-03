@@ -1513,7 +1513,7 @@ Search form
   display: none;
 }
 
-#footer-blog .headline .footer-latest-comments ul li:hover i, #navigation .navbar-menu ul li a:hover::after {
+#footer-blog .headline .footer-latest-comments ul li:hover i, .wp-block-categories .cat-item a:hover::before, .wp-block-latest-posts li a:hover::before, #navigation .navbar-menu ul li a:hover::after {
   -webkit-animation-name: leftToRight;
           animation-name: leftToRight;
   -webkit-animation-timing-function: linear;
@@ -1526,6 +1526,23 @@ Search form
           animation-direction: alternate;
 }
 
+@-webkit-keyframes leftToRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-0.25rem);
+  }
+}
+
+@keyframes leftToRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-0.25rem);
+  }
+}
 /*
 =====================================
 Navigation
@@ -1581,22 +1598,6 @@ Navigation
 }
 #navigation .navbar-menu ul li a:hover {
   background: #e9ecef;
-}
-@-webkit-keyframes leftToRight {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-0.25rem);
-  }
-}
-@keyframes leftToRight {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-0.25rem);
-  }
 }
 /*
 =====================================
@@ -2859,6 +2860,86 @@ Related post
 }
 .related-post .related-post-slider {
   position: relative;
+}
+
+/*
+=====================================
+Sidebar & wp widgets
+=====================================
+*/
+.box-holder {
+  background: #fff;
+  margin-bottom: 30px;
+  padding: 2rem;
+}
+
+.widget-title {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  font-weight: normal;
+}
+
+.wp-block-latest-posts li {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e9ecef;
+}
+.wp-block-latest-posts li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.wp-block-latest-posts li a {
+  font-size: 0.8rem;
+  color: #1C2023;
+  display: block;
+}
+.wp-block-latest-posts li a::before {
+  content: "\ea5a";
+  font-family: "LineIcons";
+  margin-left: 0.5rem;
+  font-size: 0.5rem;
+  display: inline-block;
+}
+.wp-block-latest-posts li a:hover {
+  color: #0088cc;
+}
+.wp-block-latest-posts li .wp-block-latest-posts__post-author {
+  font-size: 0.7rem;
+  color: #343a40;
+}
+.wp-block-latest-posts li .wp-block-latest-posts__post-date {
+  font-size: 0.6rem;
+  color: #6c757d;
+}
+
+.wp-block-categories .cat-item {
+  font-size: 0.7rem;
+  color: #0088cc;
+}
+.wp-block-categories .cat-item a {
+  padding: 0.5rem 0;
+  font-size: 0.8rem;
+  color: #212529;
+  display: inline-block;
+  margin-left: 0.25rem;
+}
+.wp-block-categories .cat-item a::before {
+  content: "\ea5a";
+  font-family: "LineIcons";
+  margin-left: 0.5rem;
+  font-size: 0.5rem;
+  display: inline-block;
+}
+.wp-block-categories .cat-item a:hover {
+  color: #0088cc;
+}
+.wp-block-categories .cat-item ul {
+  padding-right: 1rem;
+}
+.wp-block-categories .cat-item ul .cat-item a {
+  color: #495057;
+  font-size: 0.7rem;
 }
 
 /*
