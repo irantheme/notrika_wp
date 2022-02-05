@@ -8,10 +8,7 @@ if (have_posts()) :
   <section id="blog-content">
     <div class="container-holder">
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-4">
-            <?php get_sidebar(); ?>
-          </div>
+        <div class="row flex-lg-row-reverse">
           <div class="col-lg-8 px-0">
             <!-- All posts -->
             <main class="grid-masonry">
@@ -29,6 +26,10 @@ if (have_posts()) :
                 )); ?>
               </div>
             <?php endif; ?>
+          </div>
+          <!-- Sidebar -->
+          <div class="col-lg-4">
+            <?php get_sidebar(); ?>
           </div>
         </div>
       </div>
