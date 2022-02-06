@@ -231,18 +231,42 @@ class Like {
     let currentLikeBox = jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.target).closest('.like-button');
 
     if (currentLikeBox.data('exists') == 'yes') {
-      this.deleteLike();
+      this.deleteLike(currentLikeBox);
     } else {
-      this.createLike();
+      this.createLike(currentLikeBox);
     }
   }
 
-  createLike() {
-    console.log('Create like');
+  createLike(currentLikeBox) {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.ajax({
+      beforeSend: xhr => {
+        xhr.setRequestHeader('X-WP-Nonce', wpData.nonce);
+      },
+      url: wpData.root_url + '/wp-json/irantheme/v1/manageLike',
+      type: 'POST',
+      data: {
+        postID: currentLikeBox.data('like')
+      },
+      success: response => {
+        console.log(response);
+      },
+      error: response => {
+        console.log(response);
+      }
+    });
   }
 
-  deleteLike() {
-    console.log('Delete like');
+  deleteLike(currentLikeBox) {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.ajax({
+      url: wpData.root_url + '/wp-json/irantheme/v1/manageLike',
+      type: 'DELETE',
+      success: response => {
+        console.log(response);
+      },
+      error: response => {
+        console.log(response);
+      }
+    });
   }
 
 }
