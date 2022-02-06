@@ -116,6 +116,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_modules_LoadPosts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js/modules/LoadPosts */ "./src/js/modules/LoadPosts.js");
 /* harmony import */ var _js_modules_MasonryJs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/modules/MasonryJs */ "./src/js/modules/MasonryJs.js");
 /* harmony import */ var _js_modules_SwiperJs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/modules/SwiperJs */ "./src/js/modules/SwiperJs.js");
+/* harmony import */ var _js_modules_Like__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js/modules/Like */ "./src/js/modules/Like.js");
+
 
 
 
@@ -129,6 +131,7 @@ let search = new _js_modules_Search__WEBPACK_IMPORTED_MODULE_3__["default"]();
 let loadPosts = new _js_modules_LoadPosts__WEBPACK_IMPORTED_MODULE_4__["default"]();
 let masonryJs = new _js_modules_MasonryJs__WEBPACK_IMPORTED_MODULE_5__["default"]();
 let swiper = new _js_modules_SwiperJs__WEBPACK_IMPORTED_MODULE_6__["default"]();
+let like = new _js_modules_Like__WEBPACK_IMPORTED_MODULE_7__["default"]();
 
 /***/ }),
 
@@ -196,6 +199,34 @@ class Extra {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Extra);
+
+/***/ }),
+
+/***/ "./src/js/modules/Like.js":
+/*!********************************!*\
+  !*** ./src/js/modules/Like.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+class Like {
+  constructor() {
+    this.events();
+  }
+
+  events() {
+    console.log('Like class events');
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Like);
 
 /***/ }),
 

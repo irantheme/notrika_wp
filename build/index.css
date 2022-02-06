@@ -2759,55 +2759,60 @@ Blog content
   color: #1C2023;
 }
 
-.share-like {
-  padding-top: 1rem;
-}
-.share-like .share-like-holder {
+.post-like {
   display: flex;
   justify-content: space-between;
+  margin-left: 1rem;
 }
-.share-like .share-like-holder .like-button {
+.post-like .like-button {
   margin: 0;
   padding: 0;
-  background: #dee2e6;
+  background: #e9ecef;
   border: 0;
   outline: 0;
   color: #212529;
   line-height: inherit;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.share-like .share-like-holder .like-button:hover i {
-  background: #dee2e6;
+.post-like .like-button:hover {
+  background: #ced4da;
 }
-.share-like .share-like-holder .like-button i {
-  line-height: inherit;
+.post-like .like-button i {
   padding: 0 1rem;
   transition: 0.3s;
   color: #1C2023;
   background: #ced4da;
+  display: flex;
+  align-items: center;
+  -ms-grid-row-align: stretch;
+      align-self: stretch;
 }
-.share-like .share-like-holder .social-media {
+.post-like .like-button span {
+  padding: 0 1rem;
+  margin-left: 0.5rem;
+  font-size: 0.7rem;
+  color: #1C2023;
+}
+.post-like .like-button .like-count {
+  font-style: normal;
+  font-size: inherit;
+  margin-right: 0.5rem;
+}
+
+.post-share {
   display: flex;
   background: #ced4da;
   justify-content: center;
   overflow: hidden;
-  border-radius: 3rem;
-  padding-left: 1rem;
   height: 2.5rem;
   line-height: 2.5rem;
   align-items: center;
-}
-.share-like .share-like-holder .social-media > span {
-  background: #e9ecef;
   padding: 0 1rem;
-  margin-left: 0.5rem;
-  line-height: inherit;
-  font-size: 0.7rem;
-  color: #0088cc;
-  border-top-left-radius: 1.5rem;
-  border-bottom-left-radius: 1.5rem;
 }
-.share-like .share-like-holder .social-media a {
+.post-share a {
   line-height: 1rem;
   padding: 0 0.5rem;
   font-size: 0.7rem;
@@ -2817,11 +2822,11 @@ Blog content
   overflow: hidden;
   transition: none;
 }
-.share-like .share-like-holder .social-media a:hover {
+.post-share a:hover {
   opacity: 1;
   color: inherit;
 }
-.share-like .share-like-holder .social-media a span {
+.post-share a span {
   position: absolute;
   right: 2rem;
   white-space: nowrap;

@@ -6,6 +6,7 @@ import Search from './js/modules/Search';
 import LoadPosts from './js/modules/LoadPosts';
 import MasonryJs from './js/modules/MasonryJs';
 import Swiper from './js/modules/SwiperJs';
+import Like from './js/modules/Like';
 
 let mainMenu = new MainMenu();
 let extra = new Extra();
@@ -13,3 +14,4 @@ let search = new Search();
 let loadPosts = new LoadPosts();
 let masonryJs = new MasonryJs();
 let swiper = new Swiper();
+let like = new Like();
