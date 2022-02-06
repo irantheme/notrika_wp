@@ -217,11 +217,32 @@ __webpack_require__.r(__webpack_exports__);
 
 class Like {
   constructor() {
+    this.likeButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.like-button');
     this.events();
   }
 
   events() {
-    console.log('Like class events');
+    this.likeButton.on('click', e => {
+      this.ourClickDispatcher(e);
+    });
+  }
+
+  ourClickDispatcher(e) {
+    let currentLikeBox = jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.target).closest('.like-button');
+
+    if (currentLikeBox.data('exists') == 'yes') {
+      this.deleteLike();
+    } else {
+      this.createLike();
+    }
+  }
+
+  createLike() {
+    console.log('Create like');
+  }
+
+  deleteLike() {
+    console.log('Delete like');
   }
 
 }

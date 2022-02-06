@@ -1,5 +1,5 @@
 <?php
-function member_add_meta_box()
+function irantheme_member_add_meta_box()
 {
   //this will add the metabox for the member post type
   $screens = array('like');
@@ -8,13 +8,13 @@ function member_add_meta_box()
 
     add_meta_box(
       'member_sectionid',
-      __('Member Details', 'member_textdomain'),
-      'member_meta_box_callback',
+      __('شناسه مطلب لایک شده', 'member_textdomain'),
+      'irantheme_member_meta_box_callback',
       $screen
     );
   }
 }
-add_action('add_meta_boxes', 'member_add_meta_box');
+add_action('add_meta_boxes', 'irantheme_member_add_meta_box');
 
 /**
  * Prints the box content.
@@ -22,22 +22,22 @@ add_action('add_meta_boxes', 'member_add_meta_box');
  * @param WP_Post $post The object for the current post/page.
  * @return void
  */
-function member_meta_box_callback($post)
+function irantheme_member_meta_box_callback($post)
 {
 
   // Add a nonce field so we can check for it later.
-  wp_nonce_field('member_save_meta_box_data', 'member_meta_box_nonce');
+  wp_nonce_field('irantheme_member_save_meta_box_data', 'member_meta_box_nonce');
 
   /*
 * Use get_post_meta() to retrieve an existing value
 * from the database and use the value for the form.
 */
-  $value = get_post_meta($post->ID, '_my_meta_value_key', true);
+  $value = get_post_meta($post->ID, 'liked_meta_value_key', true);
 
-  echo '<label for="member_new_field">';
-  _e('Phone Number', 'member_textdomain');
+  echo '<label for="liked_post_id">';
+  _e('شناسه مطلب', 'member_textdomain');
   echo '</label> ';
-  echo '<input type="text" id="member_new_field" name="member_new_field" value="' . esc_attr($value) . '" size="25" />';
+  echo '<input type="text" id="liked_post_id" name="liked_post_id" value="' . esc_attr($value) . '" size="25" />';
 }
 
 /**
@@ -45,14 +45,14 @@ function member_meta_box_callback($post)
  *
  * @param int $post_id The ID of the post being saved.
  */
-function member_save_meta_box_data($post_id)
+function irantheme_member_save_meta_box_data($post_id)
 {
 
   if (!isset($_POST['member_meta_box_nonce'])) {
     return;
   }
 
-  if (!wp_verify_nonce($_POST['member_meta_box_nonce'], 'member_save_meta_box_data')) {
+  if (!wp_verify_nonce($_POST['member_meta_box_nonce'], 'irantheme_member_save_meta_box_data')) {
     return;
   }
 
@@ -73,12 +73,12 @@ function member_save_meta_box_data($post_id)
     }
   }
 
-  if (!isset($_POST['member_new_field'])) {
+  if (!isset($_POST['liked_post_id'])) {
     return;
   }
 
-  $my_data = sanitize_text_field($_POST['member_new_field']);
+  $my_data = sanitize_text_field($_POST['liked_post_id']);
 
-  update_post_meta($post_id, '_my_meta_value_key', $my_data);
+  update_post_meta($post_id, 'liked_meta_value_key', $my_data);
 }
-add_action('save_post', 'member_save_meta_box_data');
+add_action('save_post', 'irantheme_member_save_meta_box_data');

@@ -2777,14 +2777,41 @@ Blog content
   align-items: center;
   justify-content: center;
 }
+.post-like .like-button[data-exists=yes] {
+  background: #dee2e6;
+}
+.post-like .like-button[data-exists=yes] .like-heart-no {
+  display: none !important;
+}
+.post-like .like-button[data-exists=yes] .like-heart-yes {
+  display: flex !important;
+}
+.post-like .like-button[data-exists=yes] .text-heart-no {
+  display: none !important;
+}
+.post-like .like-button[data-exists=yes] .text-heart-yes {
+  display: flex !important;
+}
+.post-like .like-button .like-heart-no {
+  display: flex;
+}
+.post-like .like-button .like-heart-yes {
+  display: none;
+}
+.post-like .like-button .text-heart-no {
+  display: flex !important;
+}
+.post-like .like-button .text-heart-yes {
+  display: none !important;
+}
 .post-like .like-button:hover {
-  background: #ced4da;
+  background: #dee2e6;
 }
 .post-like .like-button i {
   padding: 0 1rem;
   transition: 0.3s;
-  color: #1C2023;
-  background: #ced4da;
+  color: #0088cc;
+  background: #dee2e6;
   display: flex;
   align-items: center;
   -ms-grid-row-align: stretch;
@@ -2793,8 +2820,12 @@ Blog content
 .post-like .like-button span {
   padding: 0 1rem;
   margin-left: 0.5rem;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: #1C2023;
+  display: flex;
+}
+.post-like .like-button span cite {
+  font-style: normal;
 }
 .post-like .like-button .like-count {
   font-style: normal;

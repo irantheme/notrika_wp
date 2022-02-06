@@ -94,7 +94,43 @@
                   <div class="d-flex flex-row">
                     <!-- Post like -->
                     <div class="post-like">
-                      <button class="like-button"><i class="lni lni-heart"></i><span>می پسندم<em class="like-count">3</em></span></button>
+                      <?php
+                      // Counter of like
+                      $likeCount = new WP_Query(array(
+                        'post_type' => 'like',
+                        'meta_query' => array(
+                          array(
+                            'key' => 'liked_meta_value_key',
+                            'compare' => '=',
+                            'value' => get_the_ID()
+                          )
+                        )
+                      ));
+                      $existStatus = 'no';
+                      // Exist query
+                      $existQuery = new WP_Query(array(
+                        'author' => get_current_user_id(),
+                        'post_type' => 'like',
+                        'meta_query' => array(
+                          array(
+                            'key' => 'liked_meta_value_key',
+                            'compare' => '=',
+                            'value' => get_the_ID()
+                          )
+                        )
+                      ));
+                      // Check count of like posts
+                      if ($existQuery->found_posts) {
+                        $existStatus = 'yes';
+                      }
+                      ?>
+                      <button class="like-button" data-exists="<?php echo $existStatus; ?>">
+                        <i class="lni lni-heart like-heart-no"></i>
+                        <i class="lni lni-heart-filled like-heart-yes"></i>
+                        <span>
+                          <cite class="text-heart-yes">پسند شده !</cite><cite class="text-heart-no">می پسندید ؟</cite><em class="like-count"><?php echo $likeCount->found_posts; ?></em>
+                        </span>
+                      </button>
                     </div>
                     <!-- Post share -->
                     <div class="post-share">

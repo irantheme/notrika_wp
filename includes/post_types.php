@@ -9,10 +9,10 @@ function irantheme_register_post_types()
     'show_ui' => true,
     'labels' => array(
       'name' => 'لایک ها',
-      'add_new_item' => 'Add New Like',
-      'edit_item' => 'Edit Like',
-      'all_items' => 'All Likes',
-      'singular_name' => 'Like'
+      'add_new_item' => 'لایک جدید',
+      'edit_item' => 'ویرایش لایک',
+      'all_items' => 'همه لایک ها',
+      'singular_name' => 'لایک'
     ),
     'menu_icon' => 'dashicons-heart'
   ));
