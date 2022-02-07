@@ -127,11 +127,11 @@
                         }
                       }
                       ?>
-                      <button class="like-button" data-like="<?php echo get_the_ID(); ?>" data-exists="<?php echo $existStatus; ?>">
+                      <button class="like-button" data-like="<?php echo $existQuery->posts[0]->ID; ?>" data-post="<?php echo get_the_ID(); ?>" data-exists="<?php echo $existStatus; ?>">
                         <i class="lni lni-heart like-heart-no"></i>
                         <i class="lni lni-heart-filled like-heart-yes"></i>
                         <span>
-                          <cite class="text-heart-yes">پسند شده !</cite><cite class="text-heart-no">می پسندید ؟</cite><em class="like-count"><?php echo $likeCount->found_posts; ?></em>
+                          <cite class="text-heart-yes">پسند شده</cite><cite class="text-heart-no">می پسندید ؟</cite><em class="like-count"><?php echo $likeCount->found_posts; ?></em>
                         </span>
                       </button>
                     </div>

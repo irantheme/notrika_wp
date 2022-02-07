@@ -214,28 +214,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 
+/* ===============================================================
+  Like
+=============================================================== */
 
 class Like {
+  // Initialize
   constructor() {
     this.likeButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.like-button');
     this.events();
-  }
+  } // Events
+
 
   events() {
     this.likeButton.on('click', e => {
       this.ourClickDispatcher(e);
     });
-  }
+  } // Click like button dispatcher
+
 
   ourClickDispatcher(e) {
     let currentLikeBox = jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.target).closest('.like-button');
 
-    if (currentLikeBox.data('exists') == 'yes') {
+    if (currentLikeBox.attr('data-exists') == 'yes') {
       this.deleteLike(currentLikeBox);
     } else {
       this.createLike(currentLikeBox);
     }
-  }
+  } // Create like
+
 
   createLike(currentLikeBox) {
     jquery__WEBPACK_IMPORTED_MODULE_0___default.a.ajax({
@@ -245,22 +252,39 @@ class Like {
       url: wpData.root_url + '/wp-json/irantheme/v1/manageLike',
       type: 'POST',
       data: {
-        postID: currentLikeBox.data('like')
+        postID: currentLikeBox.data('post')
       },
       success: response => {
+        currentLikeBox.attr('data-exists', 'yes');
+        let likeCount = parseInt(currentLikeBox.find('.like-count').html(), 10);
+        likeCount++;
+        currentLikeBox.find('.like-count').html(likeCount);
+        currentLikeBox.attr('data-like', response);
         console.log(response);
       },
       error: response => {
         console.log(response);
       }
     });
-  }
+  } // Delete like
+
 
   deleteLike(currentLikeBox) {
     jquery__WEBPACK_IMPORTED_MODULE_0___default.a.ajax({
+      beforeSend: xhr => {
+        xhr.setRequestHeader('X-WP-Nonce', wpData.nonce);
+      },
       url: wpData.root_url + '/wp-json/irantheme/v1/manageLike',
+      data: {
+        like: currentLikeBox.attr('data-like')
+      },
       type: 'DELETE',
       success: response => {
+        currentLikeBox.attr('data-exists', 'no');
+        let likeCount = parseInt(currentLikeBox.find('.like-count').html(), 10);
+        likeCount--;
+        currentLikeBox.find('.like-count').html(likeCount);
+        currentLikeBox.attr('data-like', '');
         console.log(response);
       },
       error: response => {
