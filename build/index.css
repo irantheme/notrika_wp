@@ -2584,7 +2584,7 @@ Blog content
   margin-bottom: 1rem;
 }
 .post-text p {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 .post-text p em,
 .post-text p i {
@@ -2652,21 +2652,33 @@ Blog content
 }
 .post-text h1 {
   font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #1C2023;
 }
 .post-text h2 {
   font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #1C2023;
 }
 .post-text h3 {
   font-size: 1.15rem;
+  margin-bottom: 1rem;
+  color: #1C2023;
 }
 .post-text h4 {
   font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #1C2023;
 }
 .post-text h5 {
   font-size: 1.05rem;
+  margin-bottom: 1rem;
+  color: #1C2023;
 }
 .post-text h6 {
   font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #1C2023;
 }
 .post-text .gallery .gallery-item .gallery-icon a {
   display: block;

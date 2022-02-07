@@ -64,10 +64,23 @@
                     <span><i class="lni lni-calendar"></i><?php echo get_the_date('j, F Y'); ?></span>
                     <h2><?php echo get_the_title(); ?></h2>
                   </div>
+                  <?php
+                  // Counter of like
+                  $likeCount = new WP_Query(array(
+                    'post_type' => 'like',
+                    'meta_query' => array(
+                      array(
+                        'key' => 'liked_meta_value_key',
+                        'compare' => '=',
+                        'value' => get_the_ID()
+                      )
+                    )
+                  ));
+                  ?>
                   <!-- Comments & Likes -->
                   <div class="post-list-options">
                     <span><i class="lni lni-comments"></i><?php echo get_comments_number(); ?> دیدگاه</span>
-                    <span><i class="lni lni-heart"></i>۲۳ پسندشده</span>
+                    <span><i class="lni lni-heart"></i><?php echo $likeCount->found_posts; ?> پسندشده</span>
                   </div>
                   <!-- Author -->
                   <div class="post-author">
@@ -95,17 +108,6 @@
                     <!-- Post like -->
                     <div class="post-like">
                       <?php
-                      // Counter of like
-                      $likeCount = new WP_Query(array(
-                        'post_type' => 'like',
-                        'meta_query' => array(
-                          array(
-                            'key' => 'liked_meta_value_key',
-                            'compare' => '=',
-                            'value' => get_the_ID()
-                          )
-                        )
-                      ));
                       $existStatus = 'no';
 
                       if (is_user_logged_in()) {
