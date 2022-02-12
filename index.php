@@ -1,9 +1,6 @@
 <?php get_header(); ?>
 
-<?php
-
-if (have_posts()) :
-?>
+<?php if (have_posts()) : ?>
   <!-- Blog content -->
   <section id="blog-content">
     <div class="container-holder">

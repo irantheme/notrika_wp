@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html <?php language_attributes();?>>
+<html <?php language_attributes(); ?>>
 
 <head>
-  <meta charset="<?php bloginfo('charset');?>" />
+  <meta charset="<?php bloginfo('charset'); ?>" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <?php wp_head();?>
+  <?php wp_head(); ?>
 </head>
 
-<body id="top" <?php body_class();?>>
+<body id="top" <?php body_class(); ?>>
 
   <!-- Navigation -->
   <nav id="navigation">
@@ -18,15 +18,15 @@
     </div>
     <!-- Logo -->
     <div class="logo">
-      <h1><?php bloginfo('name');?></h1>
-      <p><?php bloginfo('description');?></p>
+      <h1><?php bloginfo('name'); ?></h1>
+      <p><?php bloginfo('description'); ?></p>
     </div>
     <!-- Navbar menu -->
     <div class="navbar-menu">
       <?php
       wp_nav_menu(array(
-          'theme_location' => 'headerNavLocation',
-          'depth' => 1,
+        'theme_location' => 'headerNavLocation',
+        'depth' => 1,
       ));
       ?>
     </div>
@@ -42,8 +42,7 @@
       // Get image src (Full size)
       $blog_header_bg = wp_get_attachment_image_src(get_option('irantheme_blog_header_bg'), 'full');
       ?>
-      <div class="parallax-container" data-parallax="scroll" data-speed="0.5" data-image-src="<?php echo esc_url($blog_header_bg[0]); ?>"
-        data-position-x="left">
+      <div class="parallax-container" data-parallax="scroll" data-speed="0.5" data-image-src="<?php echo esc_url($blog_header_bg[0]); ?>" data-position-x="left">
         <div class="container-fluid p-0">
           <!-- Main menu -->
           <div class="main-menu">
@@ -59,7 +58,7 @@
             <!-- Heading info -->
             <div class="heading-info">
               <!-- Breadcrumbs -->
-              <?php irantheme_custom_breadcrumbs();?>
+              <?php irantheme_custom_breadcrumbs(); ?>
               <!-- Options -->
               <div class="options">
                 <div class="options-layer">
@@ -72,12 +71,12 @@
                     ?>
                   </ul>
                   <?php
-                    $today = null;
-                    if (function_exists( 'parsidate' )) {
-                      $today = parsidate( 'j F Y', date( 'F j Y' ), 'per' );
-                    } else {
-                      $today = date( 'F j Y' );
-                    }
+                  $today = null;
+                  if (function_exists('parsidate')) {
+                    $today = parsidate('j F Y', date('F j Y'), 'per');
+                  } else {
+                    $today = date('F j Y');
+                  }
                   ?>
                   <span>امروز‌ : <?php echo $today; ?></span>
                 </div>
@@ -86,17 +85,21 @@
               <?php
               $args = array();
               // Check title, subtitle
-              if ( is_home() ) {
+              if (is_home()) {
                 $args['title'] = 'وبلاگ';
                 $args['subtitle'] = 'آخرین مطالب ما را در این صفحه مشاهده می کنید.';
                 $args['link'] = null;
-              } else if ( is_archive() ) {
+              } else if (is_archive()) {
                 $args['title'] = get_the_archive_title();
                 $args['subtitle'] = get_the_archive_description();
                 $args['link'] = null;
-              } else if ( is_single() || is_page() ) {
+              } else if (is_single() || is_page()) {
                 $args['title'] = get_the_title();
-                $args['subtitle'] = wp_trim_words( strip_shortcodes( get_the_content() ), 20 );;
+                $args['subtitle'] = wp_trim_words(strip_shortcodes(get_the_content()), 20);
+                $args['link'] = null;
+              } else if (is_404()) {
+                $args['title'] = 'ارور ۴۰۴';
+                $args['subtitle'] = 'صفحه مورد نظر پیدا نشد.';
                 $args['link'] = null;
               } else {
                 $args['title'] = 'ناشناخته';
@@ -105,12 +108,12 @@
               }
               ?>
               <div class="heading-main-info">
-                <?php if ( $args['link'] ) : ?>
-                <h1><a href="<?php echo esc_url( $args['link'] ); ?>"><?php echo __( $args['title'] ); ?></a></h1>
+                <?php if ($args['link']) : ?>
+                  <h1><a href="<?php echo esc_url($args['link']); ?>"><?php echo __($args['title']); ?></a></h1>
                 <?php else : ?>
-                <h1><?php echo __( $args['title'] ); ?></h1>
+                  <h1><?php echo __($args['title']); ?></h1>
                 <?php endif; ?>
-                <p><?php echo __( $args['subtitle'] ); ?></p>
+                <p><?php echo __($args['subtitle']); ?></p>
               </div>
             </div>
           </div>
@@ -128,8 +131,7 @@
               <i id="search-alt" class="lni lni-search-alt"></i>
               <i id="spinner-alt" class="animate-rotate"></i>
             </span>
-            <span class="search-case" id="search-form-close" data-type="close" data-search="0"><i
-                class="lni lni-close"></i></span>
+            <span class="search-case" id="search-form-close" data-type="close" data-search="0"><i class="lni lni-close"></i></span>
             <!-- Search results -->
             <div class="search-results">
               <div class="row"></div>

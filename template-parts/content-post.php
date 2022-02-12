@@ -120,7 +120,7 @@
       <!-- Comments & Likes -->
       <div class="post-list-options">
         <span><i class="lni lni-comments"></i><?php echo get_comments_number(); ?> دیدگاه</span>
-        <span><i class="lni lni-heart"></i><?php echo $likeCount->found_posts; ?> پسندشده</span>
+        <span><i class="lni lni-heart"></i>پسندشده <?php echo $likeCount->found_posts; ?></span>
       </div>
       <!-- Post author -->
       <div class="post-author">

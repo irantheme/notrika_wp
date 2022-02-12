@@ -129,7 +129,7 @@
                         }
                       }
                       ?>
-                      <button class="like-button" data-like="<?php echo $existQuery->posts[0]->ID; ?>" data-post="<?php echo get_the_ID(); ?>" data-exists="<?php echo $existStatus; ?>">
+                      <button class="like-button" data-remote="<?php echo $_SERVER['REMOTE_ADDR'] ?>" data-like="<?php echo $existQuery->posts[0]->ID; ?>" data-post="<?php echo get_the_ID(); ?>" data-exists="<?php echo $existStatus; ?>">
                         <i class="lni lni-heart like-heart-no"></i>
                         <i class="lni lni-heart-filled like-heart-yes"></i>
                         <span>
@@ -196,10 +196,23 @@
                                 <span><i class="lni lni-calendar"></i><?php echo get_the_date('j, F Y'); ?></span>
                                 <h2><a href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?></a></h2>
                               </div>
+                              <?php
+                              // Counter of like
+                              $likeCountRel = new WP_Query(array(
+                                'post_type' => 'like',
+                                'meta_query' => array(
+                                  array(
+                                    'key' => 'liked_meta_value_key',
+                                    'compare' => '=',
+                                    'value' => get_the_ID()
+                                  )
+                                )
+                              ));
+                              ?>
                               <!-- Comments & Likes -->
                               <div class="post-list-options">
                                 <span><i class="lni lni-comments"></i><?php echo get_comments_number(); ?> دیدگاه</span>
-                                <span><i class="lni lni-heart"></i>۲۳ پسندشده</span>
+                                <span><i class="lni lni-heart"></i><?php echo $likeCountRel->found_posts; ?> پسندشده</span>
                               </div>
                             </div>
                           </div>
