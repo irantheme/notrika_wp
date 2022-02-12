@@ -99,28 +99,26 @@ if (!function_exists('better_comments')) :
   function better_comments($comment, $args, $depth)
   { ?>
     <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
-      <div class="comment">
-        <div class="comment-avatar">
-          <?php echo get_avatar($comment); ?>
+      <div class="comment-avatar">
+        <?php echo get_avatar($comment); ?>
+      </div>
+      <div class="comment-content">
+        <?php if ($comment->comment_approved == '0') : ?>
+          <em><?php esc_html_e('نظر شما در صف بررسی است.', '5balloons_theme') ?></em>
+          <br />
+        <?php endif; ?>
+        <div class="comment-heading">
+          <b><?php echo get_comment_author() ?></b>
         </div>
-        <div class="comment-content">
-          <?php if ($comment->comment_approved == '0') : ?>
-            <em><?php esc_html_e('نظر شما در صف بررسی است.', '5balloons_theme') ?></em>
-            <br />
-          <?php endif; ?>
-          <div class="comment-heading">
-            <b><?php echo get_comment_author() ?></b>
-            <div class="comment-reply">
-              <?php comment_reply_link(array_merge($args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
-              <?php edit_comment_link(__('ویرایش', 'textdomain'), '  ', ''); ?>
-            </div>
-          </div>
-          <div class="comment-body">
-            <?php comment_text() ?>
-          </div>
-          <div class="comment-options">
-            <span class="date"><?php printf(/* translators: 1: date and time(s). */esc_html__('%1$s at %2$s', '5balloons_theme'), get_comment_date(),  get_comment_time()) ?></span>
-          </div>
+        <div class="comment-options">
+          <span class="date"><?php printf(/* translators: 1: date and time(s). */esc_html__('%1$s at %2$s', '5balloons_theme'), get_comment_date(),  get_comment_time()) ?></span>
+        </div>
+        <div class="comment-body">
+          <?php comment_text() ?>
+        </div>
+        <div class="comment-reply">
+          <?php comment_reply_link(array_merge($args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+          <?php edit_comment_link(__('ویرایش', 'textdomain'), '  ', ''); ?>
         </div>
       </div>
     </li>
@@ -203,3 +201,16 @@ function ourLoginTitle()
   return get_bloginfo('name');
 }
 add_filter('login_headertext', 'ourLoginTitle');
+
+
+/**
+ * Custom avatar comments user
+ * @return void
+ */
+function irantheme_custom_avatar_comments_user($avatar_defaults)
+{
+  $custom_avatar = get_stylesheet_directory_uri() . '/images/user.png';
+  $avatar_defaults[$custom_avatar] = "My Default Avatar";
+  return $avatar_defaults;
+}
+add_filter('avatar_defaults', 'irantheme_custom_avatar_comments_user');

@@ -129,7 +129,7 @@
                         }
                       }
                       ?>
-                      <button class="like-button" data-remote="<?php echo $_SERVER['REMOTE_ADDR'] ?>" data-like="<?php echo $existQuery->posts[0]->ID; ?>" data-post="<?php echo get_the_ID(); ?>" data-exists="<?php echo $existStatus; ?>">
+                      <button class="like-button" data-remote="<?php echo $_SERVER['REMOTE_ADDR']; ?>" data-like="<?php echo $existQuery->posts[0]->ID; ?>" data-post="<?php echo get_the_ID(); ?>" data-exists="<?php echo $existStatus; ?>">
                         <i class="lni lni-heart like-heart-no"></i>
                         <i class="lni lni-heart-filled like-heart-yes"></i>
                         <span>
