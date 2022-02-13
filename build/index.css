@@ -1445,6 +1445,17 @@ Heading mode
 
 /*
 =====================================
+Holding table
+=====================================
+*/
+.holding-table::before, .wp-block-latest-posts li::before, .holding-table::after, .wp-block-latest-posts li::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*
+=====================================
 Search form
 =====================================
 */
@@ -3327,7 +3338,7 @@ Wp blocks
   padding-right: 0.5rem;
 }
 
-.wp-block-video figcaption {
+*[class*=wp-block-] figcaption {
   font-size: 0.8rem;
   color: #343a40;
 }
@@ -3364,6 +3375,10 @@ Wp blocks
   top: 2px;
   margin-left: 0.5rem;
   color: #0088cc;
+}
+
+.wp-block-calendar {
+  font-size: 0.8rem;
 }
 
 /*# sourceMappingURL=index.css.map*/

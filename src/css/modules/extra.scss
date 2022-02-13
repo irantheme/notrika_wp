@@ -230,3 +230,17 @@ Heading mode
     }
   }
 }
+
+/*
+=====================================
+Holding table
+=====================================
+*/
+
+.holding-table {
+  &::before, &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}

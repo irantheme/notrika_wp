@@ -25,6 +25,7 @@ Wp blocks
     margin-bottom: 1rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid $color-gray-200;
+    @extend .holding-table;
 
     &:last-child {
       border-bottom: none;
@@ -243,7 +244,7 @@ Wp blocks
 
 // Wp block video
 
-.wp-block-video {
+*[class*="wp-block-"] {
   figcaption {
     font-size: 0.8rem;
     color: $color-gray-800;
@@ -290,4 +291,10 @@ Wp blocks
       color: $color-primary;
     }
   }
+}
+
+// Wp block calendar
+
+.wp-block-calendar {
+  font-size: 0.8rem;
 }
