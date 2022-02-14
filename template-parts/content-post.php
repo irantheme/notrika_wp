@@ -128,7 +128,15 @@
           <img src="<?php echo get_avatar_url(get_the_author_meta('ID')); ?>" alt="آواتاز نویسنده">
           <div>
             <?php echo get_the_author_posts_link(); ?>
-            <span><?php echo get_the_author_meta('nickname'); ?></span>
+            <span>
+              <?php
+              if (get_the_author_meta('nickname')) {
+                echo get_the_author_meta('nickname');
+              } else {
+                echo 'عدم تعریف جایگاه و تخصص';
+              }
+              ?>
+            </span>
           </div>
         </div>
       </div>

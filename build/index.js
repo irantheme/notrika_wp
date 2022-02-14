@@ -271,7 +271,7 @@ class Like {
         likeCount++;
         currentLikeBox.find('.like-count').html(likeCount);
         currentLikeBox.attr('data-like', response);
-        this.setCookie('wpIranthemeLiked', 'liked', 1000, this.getPath());
+        this.setCookie('wpIranthemeLiked', 'liked', 99999999, this.getPath());
         console.log(response);
       },
       error: response => {
