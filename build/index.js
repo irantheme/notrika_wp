@@ -332,7 +332,8 @@ class Like {
     }
 
     return '';
-  }
+  } // Get current path
+
 
   getPath() {
     let location = window.location.href;

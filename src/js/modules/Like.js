@@ -109,6 +109,7 @@ class Like {
     return '';
   }
 
+  // Get current path
   getPath() {
     let location = window.location.href;
     let directoryPath = location.substring(0, location.lastIndexOf('/') + 1);

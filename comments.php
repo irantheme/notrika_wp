@@ -86,30 +86,32 @@ if (post_password_required())
   <!-- Check have comment -->
   <?php if (have_comments()) : ?>
 
-    <div class="comments-holder">
-      <ul class="comments-list">
-        <?php
-        wp_list_comments(array(
-          'avatar_size' => 100,
-          'style'      => 'ul',
-          'short_ping' => true,
-          'callback' => 'better_comments',
-          'reverse_top_level' => true,
-          // 'per_page' => 2
-        ));
-        ?>
-      </ul><!-- .comment-list -->
+    <div class="post-box">
+      <div class="comments-holder">
+        <ul class="comments-list">
+          <?php
+          wp_list_comments(array(
+            'avatar_size' => 100,
+            'style'      => 'ul',
+            'short_ping' => true,
+            'callback' => 'better_comments',
+            'reverse_top_level' => true,
+            // 'per_page' => 2
+          ));
+          ?>
+        </ul><!-- .comment-list -->
 
-      <?php
-      // Are there comments to navigate through?
-      if (get_comment_pages_count() > 1 && get_option('page_comments')) :
-      ?>
-        <!-- Pagination comments list -->
-        <div class="pagination">
-          <?php paginate_comments_links(); ?>
-        </div>
-      <?php endif; // Check for comment navigation 
-      ?>
+        <?php
+        // Are there comments to navigate through?
+        if (get_comment_pages_count() > 1 && get_option('page_comments')) :
+        ?>
+          <!-- Pagination comments list -->
+          <div class="pagination">
+            <?php paginate_comments_links(); ?>
+          </div>
+        <?php endif; // Check for comment navigation 
+        ?>
+      </div>
     </div>
 
   <?php endif; // have_comments() 

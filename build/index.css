@@ -3048,11 +3048,12 @@ Comments list
 }
 
 .comments-list {
-  background: #fff;
   padding: 2rem;
 }
 .comments-list li.comment:last-child {
   border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 .comments-list .comment {
   border-bottom: 1px solid #e9ecef;

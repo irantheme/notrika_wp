@@ -20,11 +20,12 @@ Comments list
 }
 
 .comments-list {
-  background: $color-white;
   padding: 2rem;
 
   & li.comment:last-child {
     border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 
   .comment {
