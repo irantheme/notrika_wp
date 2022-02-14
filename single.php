@@ -108,28 +108,19 @@
                     <!-- Post like -->
                     <div class="post-like">
                       <?php
-                      $existStatus = 'no';
-
-                      if (is_user_logged_in()) {
-                        // Exist query
-                        $existQuery = new WP_Query(array(
-                          'author' => get_current_user_id(),
-                          'post_type' => 'like',
-                          'meta_query' => array(
-                            array(
-                              'key' => 'liked_meta_value_key',
-                              'compare' => '=',
-                              'value' => get_the_ID()
-                            )
+                      // Exist query
+                      $existQuery = new WP_Query(array(
+                        'post_type' => 'like',
+                        'meta_query' => array(
+                          array(
+                            'key' => 'liked_meta_value_key',
+                            'compare' => '=',
+                            'value' => get_the_ID()
                           )
-                        ));
-                        // Check count of like posts
-                        if ($existQuery->found_posts) {
-                          $existStatus = 'yes';
-                        }
-                      }
+                        )
+                      ));
                       ?>
-                      <button class="like-button" data-remote="<?php echo $_SERVER['REMOTE_ADDR']; ?>" data-like="<?php echo $existQuery->posts[0]->ID; ?>" data-post="<?php echo get_the_ID(); ?>" data-exists="<?php echo $existStatus; ?>">
+                      <button class="like-button" data-like="<?php echo $existQuery->posts[0]->ID; ?>" data-post="<?php echo get_the_ID(); ?>" data-exists="">
                         <i class="lni lni-heart like-heart-no"></i>
                         <i class="lni lni-heart-filled like-heart-yes"></i>
                         <span>

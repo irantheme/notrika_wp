@@ -17,43 +17,38 @@ function irantheme_like_routes()
 
 function createLike($data)
 {
-  if (is_user_logged_in()) {
-    $postID = sanitize_text_field($data['postID']);
+  $postID = sanitize_text_field($data['postID']);
 
-    // Exist query
-    $existQuery = new WP_Query(array(
-      'author' => get_current_user_id(),
+  // Exist query
+  // $existQuery = new WP_Query(array(
+  //   'post_type' => 'like',
+  //   'meta_query' => array(
+  //     array(
+  //       'key' => 'liked_meta_value_key',
+  //       'compare' => '=',
+  //       'value' => $postID
+  //     )
+  //   )
+  // ));
+
+  if (get_post_type($postID) == 'post') {
+    return wp_insert_post(array(
       'post_type' => 'like',
-      'meta_query' => array(
-        array(
-          'key' => 'liked_meta_value_key',
-          'compare' => '=',
-          'value' => $postID
-        )
+      'post_status' => 'publish',
+      'post_title' => get_the_title($postID),
+      'meta_input' => array(
+        'liked_meta_value_key' => $postID
       )
     ));
-
-    if ($existQuery->found_posts == 0 && get_post_type($postID) == 'post') {
-      return wp_insert_post(array(
-        'post_type' => 'like',
-        'post_status' => 'publish',
-        'post_title' => '2nd PHP test',
-        'meta_input' => array(
-          'liked_meta_value_key' => $postID
-        )
-      ));
-    } else {
-      die('Invalid Post ID');
-    }
   } else {
-    die('Only logged in users can create a like.');
+    die('Invalid Post Type');
   }
 }
 
 function deleteLike($data)
 {
   $likeID = sanitize_text_field($data['like']);
-  if (get_current_user_id() == get_post_field('post_author', $likeID) && get_post_type($likeID) == 'like') {
+  if (get_post_type($likeID) == 'like') {
     wp_delete_post($likeID, true);
     return 'Congrats, like deleted.';
   } else {

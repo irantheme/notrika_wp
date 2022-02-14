@@ -6,6 +6,7 @@ class Like {
   // Initialize
   constructor() {
     this.likeButton = $('.like-button');
+    this.checkStatusLiked();
     this.events();
   }
 
@@ -14,6 +15,15 @@ class Like {
     this.likeButton.on('click', (e) => {
       this.ourClickDispatcher(e);
     });
+  }
+
+  // Check status liked (Local storage)
+  checkStatusLiked(e) {
+    if (localStorage.getItem('wpIranthemeLiked')) {
+      this.likeButton.attr('data-exists', 'yes');
+    } else {
+      this.likeButton.attr('data-exists', 'no');
+    }
   }
 
   // Click like button dispatcher
@@ -41,6 +51,7 @@ class Like {
         likeCount++;
         currentLikeBox.find('.like-count').html(likeCount);
         currentLikeBox.attr('data-like', response);
+        localStorage.setItem('wpIranthemeLiked', true);
         console.log(response);
       },
       error: (response) => {
@@ -64,6 +75,7 @@ class Like {
         likeCount--;
         currentLikeBox.find('.like-count').html(likeCount);
         currentLikeBox.attr('data-like', '');
+        localStorage.removeItem('wpIranthemeLiked');
         console.log(response);
       },
       error: (response) => {
