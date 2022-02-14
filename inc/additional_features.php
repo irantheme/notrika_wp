@@ -2,101 +2,104 @@
 
 // Features includes ====================================================
 
-/**
- * Add features
- * @return void
- */
-function include_features()
-{
-  // Register nav header
-  register_nav_menu('headerNavLocation', 'منوی شناور اصلی');
-  // Add title tag
-  add_theme_support('title-tag');
-  // Add thumbnail image to posts
-  add_theme_support('post-thumbnails');
-  // Search form support
-  add_theme_support('html5', array('search-form'));
-  // Custom logo
-  add_theme_support('custom-logo');
-  // Add default posts and comments RSS feed links to head.
-  add_theme_support('automatic-feed-links');
-  // Add post format features
-  add_theme_support(
-    'post-formats',
-    array(
-      // 'link',
-      // 'aside',
-      'gallery',
-      // 'image',
-      'quote',
-      // 'status',
-      'video',
-      'audio',
-      // 'chat',
-    )
-  );
-  // Add image size
-  // add_image_size('professorLandscape', 400, 260, true);
-  // add_image_size('professorPortraite', 480, 650, true);
-  // add_image_size('pageBanner', 1500, 350, true);
+if (!function_exists('irantheme_include_features')) {
+  /**
+   * Add features
+   * @return void
+   */
+  function irantheme_include_features()
+  {
+    // Register nav header
+    register_nav_menu('headerNavLocation', 'منوی شناور اصلی');
+    // Add title tag
+    add_theme_support('title-tag');
+    // Add thumbnail image to posts
+    add_theme_support('post-thumbnails');
+    // Search form support
+    add_theme_support('html5', array('search-form'));
+    // Custom logo
+    add_theme_support('custom-logo');
+    // Add default posts and comments RSS feed links to head.
+    add_theme_support('automatic-feed-links');
+    // Add post format features
+    add_theme_support(
+      'post-formats',
+      array(
+        // 'link',
+        // 'aside',
+        'gallery',
+        // 'image',
+        'quote',
+        // 'status',
+        'video',
+        'audio',
+        // 'chat',
+      )
+    );
+    // Add image size
+    // add_image_size('professorLandscape', 400, 260, true);
+    // add_image_size('professorPortraite', 480, 650, true);
+    // add_image_size('pageBanner', 1500, 350, true);
+  }
+  add_action('after_setup_theme', 'irantheme_include_features');
 }
 
-// Run above
-add_action('after_setup_theme', 'include_features');
 
 
-/**
- * Initialize of sidebars
- * @return void
- */
-function irantheme_register_sidebar_widgets()
-{
-  // Down of header
-  register_sidebar(array(
-    'name'           => 'سایدبار',
-    'id'             => 'sidebar-widget',
-    'description'    => 'سایدبار قرار گرفته در کنار مطالب سایت',
-    'class'          => '',
-    'before_widget'  => '<aside class="box-holder">',
-    'after_widget'   => '</aside>',
-    'before_title'   => '<div class="box-title">',
-    'after_title'    => '</div>',
-    'before_sidebar' => '<section id="sidebar">',
-    'after_sidebar'  => '</section>',
-  ));
+if (!function_exists('irantheme_register_sidebar_widgets')) {
+  /**
+   * Initialize of sidebars
+   * @return void
+   */
+  function irantheme_register_sidebar_widgets()
+  {
+    // Down of header
+    register_sidebar(array(
+      'name'           => 'سایدبار',
+      'id'             => 'sidebar-widget',
+      'description'    => 'سایدبار قرار گرفته در کنار مطالب سایت',
+      'class'          => '',
+      'before_widget'  => '<aside class="box-holder">',
+      'after_widget'   => '</aside>',
+      'before_title'   => '<div class="box-title">',
+      'after_title'    => '</div>',
+      'before_sidebar' => '<section id="sidebar">',
+      'after_sidebar'  => '</section>',
+    ));
+  }
+  add_action('widgets_init', 'irantheme_register_sidebar_widgets');
 }
-// Run above
-add_action('widgets_init', 'irantheme_register_sidebar_widgets');
 
 
-/**
- * Modifying gallery image sizes
- * @return array
- * @param output, pairs atts
- */
-function modify_gallery_image_size($output, $pairs, $atts)
-{
-  $atts = shortcode_atts(array(
-    'columns' => '2',
-    'size' => 'large',
-  ), $atts);
+if (!function_exists('irantheme_modify_gallery_image_size')) {
+  /**
+   * Modifying gallery image sizes
+   * @return array
+   * @param output, pairs atts
+   */
+  function irantheme_modify_gallery_image_size($output, $pairs, $atts)
+  {
+    $atts = shortcode_atts(array(
+      'columns' => '2',
+      'size' => 'large',
+    ), $atts);
 
-  $output['columns'] = $atts['columns'];
-  $output['size'] = $atts['size'];
+    $output['columns'] = $atts['columns'];
+    $output['size'] = $atts['size'];
 
-  return $output;
+    return $output;
+  }
+  add_filter('shortcode_atts_gallery', 'irantheme_modify_gallery_image_size', 10, 3);
 }
-// Run above
-add_filter('shortcode_atts_gallery', 'modify_gallery_image_size', 10, 3);
 
 
-/**
- * Better comments (Related to comments list)
- * @return void
- * @param string, args, depth
- */
-if (!function_exists('better_comments')) :
-  function better_comments($comment, $args, $depth)
+if (!function_exists('irantheme_better_comments')) {
+  /**
+   * Better comments (Related to comments list)
+   * @return void
+   * @param string, args, depth
+   */
+  function irantheme_better_comments($comment, $args, $depth)
   { ?>
     <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
       <div class="comment-avatar">
@@ -124,93 +127,107 @@ if (!function_exists('better_comments')) :
     </li>
 <?php
   }
-endif;
-
-
-/**
- * Change default gravatar
- * @param array
- * @return string (url user.png)
- */
-function new_default_user_avatar($avatar_defaults)
-{
-  $customAvatar = get_template_directory_uri() . '/images/user.png';
-  $avatar_defaults[$customAvatar] = "Default Gravatar";
-  return $avatar_defaults;
 }
-add_filter('avatar_defaults', 'new_default_user_avatar');
 
 
-/**
- * Redirect subscriber user to home after login
- * @return void
- */
-function redirectSubsToFronted()
-{
-  $currentUser = wp_get_current_user();
-  if (count($currentUser->roles) == 1 and $currentUser->roles[0] == 'subscriber') {
-    wp_redirect(site_url('/'));
-    exit;
+if (!function_exists('irantheme_new_default_user_avatar')) {
+  /**
+   * Change default gravatar
+   * @param array
+   * @return string (url user.png)
+   */
+  function irantheme_new_default_user_avatar($avatar_defaults)
+  {
+    $customAvatar = get_template_directory_uri() . '/images/user.png';
+    $avatar_defaults[$customAvatar] = "Default Gravatar";
+    return $avatar_defaults;
   }
+  add_filter('avatar_defaults', 'irantheme_new_default_user_avatar');
 }
-add_action('admin_init', 'redirectSubsToFronted');
 
 
-/**
- * Hide admin bar in subscriber user
- * @return void
- */
-function noSubsAdminBar()
-{
-  $currentUser = wp_get_current_user();
-  if (count($currentUser->roles) == 1 and $currentUser->roles[0] == 'subscriber') {
-    show_admin_bar(false);
+if (!function_exists('irantheme_redirect_subs_to_fronted')) {
+  /**
+   * Redirect subscriber user to home after login
+   * @return void
+   */
+  function irantheme_redirect_subs_to_fronted()
+  {
+    $currentUser = wp_get_current_user();
+    if (count($currentUser->roles) == 1 and $currentUser->roles[0] == 'subscriber') {
+      wp_redirect(site_url('/'));
+      exit;
+    }
   }
+  add_action('admin_init', 'irantheme_redirect_subs_to_fronted');
 }
-add_action('wp_loaded', 'noSubsAdminBar');
 
 
-/**
- * Customize login screen
- * @return string (url)
- */
-function ourHeaderUrl()
-{
-  return esc_url(site_url('/'));
+if (!function_exists('irantheme_no_subs_admin_bar')) {
+  /**
+   * Hide admin bar in subscriber user
+   * @return void
+   */
+  function irantheme_no_subs_admin_bar()
+  {
+    $currentUser = wp_get_current_user();
+    if (count($currentUser->roles) == 1 and $currentUser->roles[0] == 'subscriber') {
+      show_admin_bar(false);
+    }
+  }
+  add_action('wp_loaded', 'irantheme_no_subs_admin_bar');
 }
-add_filter('login_headerurl', 'ourHeaderUrl');
 
 
-/**
- * Manually css to login screen
- * @return void
- */
-function ourLoginCSS()
-{
-  wp_enqueue_style('university_main_styles', get_stylesheet_uri());
+if (!function_exists('irantheme_our_header_url')) {
+  /**
+   * Customize login screen
+   * @return string (url)
+   */
+  function irantheme_our_header_url()
+  {
+    return esc_url(site_url('/'));
+  }
+  add_filter('login_headerurl', 'irantheme_our_header_url');
 }
-add_action('login_enqueue_scripts', 'ourLoginCSS');
 
 
-/**
- * Manually title login screen
- * @return string (website title)
- */
-function ourLoginTitle()
-{
-  return get_bloginfo('name');
+if (!function_exists('irantheme_our_login_css')) {
+  /**
+   * Manually css to login screen
+   * @return void
+   */
+  function irantheme_our_login_css()
+  {
+    wp_enqueue_style('university_main_styles', get_stylesheet_uri());
+  }
+  add_action('login_enqueue_scripts', 'irantheme_our_login_css');
 }
-add_filter('login_headertext', 'ourLoginTitle');
 
 
-/**
- * Custom avatar comments user
- * @return void
- */
-function irantheme_custom_avatar_comments_user($avatar_defaults)
-{
-  $custom_avatar = get_stylesheet_directory_uri() . '/images/user.png';
-  $avatar_defaults[$custom_avatar] = "My Default Avatar";
-  return $avatar_defaults;
+if (!function_exists('irantheme_our_login_title')) {
+  /**
+   * Manually title login screen
+   * @return string (website title)
+   */
+  function irantheme_our_login_title()
+  {
+    return get_bloginfo('name');
+  }
+  add_filter('login_headertext', 'irantheme_our_login_title');
 }
-add_filter('avatar_defaults', 'irantheme_custom_avatar_comments_user');
+
+
+if (!function_exists('irantheme_custom_avatar_comments_user')) {
+  /**
+   * Custom avatar comments user
+   * @return void
+   */
+  function irantheme_custom_avatar_comments_user($avatar_defaults)
+  {
+    $custom_avatar = get_stylesheet_directory_uri() . '/images/user.png';
+    $avatar_defaults[$custom_avatar] = "My Default Avatar";
+    return $avatar_defaults;
+  }
+  add_filter('avatar_defaults', 'irantheme_custom_avatar_comments_user');
+}

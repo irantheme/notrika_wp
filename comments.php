@@ -94,7 +94,7 @@ if (post_password_required())
             'avatar_size' => 100,
             'style'      => 'ul',
             'short_ping' => true,
-            'callback' => 'better_comments',
+            'callback' => 'irantheme_better_comments',
             'reverse_top_level' => true,
             // 'per_page' => 2
           ));
