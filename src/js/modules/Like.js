@@ -6,6 +6,7 @@ class Like {
   // Initialize
   constructor() {
     this.likeButton = $('.like-button');
+    const d = new Date();
     this.checkStatusLiked();
     this.events();
   }
@@ -19,7 +20,7 @@ class Like {
 
   // Check status liked (Local storage)
   checkStatusLiked(e) {
-    if (localStorage.getItem('wpIranthemeLiked')) {
+    if (this.getCookie('wpIranthemeLiked') == 'liked') {
       this.likeButton.attr('data-exists', 'yes');
     } else {
       this.likeButton.attr('data-exists', 'no');
@@ -51,7 +52,7 @@ class Like {
         likeCount++;
         currentLikeBox.find('.like-count').html(likeCount);
         currentLikeBox.attr('data-like', response);
-        localStorage.setItem('wpIranthemeLiked', true);
+        this.setCookie('wpIranthemeLiked', 'liked', 1000, this.getPath());
         console.log(response);
       },
       error: (response) => {
@@ -75,13 +76,43 @@ class Like {
         likeCount--;
         currentLikeBox.find('.like-count').html(likeCount);
         currentLikeBox.attr('data-like', '');
-        localStorage.removeItem('wpIranthemeLiked');
+        this.setCookie('wpIranthemeLiked', '', 365, this.getPath());
         console.log(response);
       },
       error: (response) => {
         console.log(response);
       },
     });
+  }
+
+  // Set cookie
+  setCookie(key, value, expireDay, path) {
+    const d = new Date();
+    d.setTime(d.getTime() + expireDay * 24 * 60 * 60 * 1000);
+    let expires = 'expires=' + d.toUTCString();
+    document.cookie = key + '=' + value + ';' + expires + ';path=' + path;
+  }
+
+  // Get cookie
+  getCookie(key) {
+    let name = key + '=';
+    let ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return '';
+  }
+
+  getPath() {
+    let location = window.location.href;
+    let directoryPath = location.substring(0, location.lastIndexOf('/') + 1);
+    return directoryPath;
   }
 }
 
