@@ -221,6 +221,7 @@ if (!function_exists('irantheme_our_login_title')) {
 if (!function_exists('irantheme_custom_avatar_comments_user')) {
   /**
    * Custom avatar comments user
+   * ###########################################################
    * @return void
    */
   function irantheme_custom_avatar_comments_user($avatar_defaults)

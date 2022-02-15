@@ -89,6 +89,11 @@
                 $args['title'] = 'وبلاگ';
                 $args['subtitle'] = 'آخرین مطالب ما را در این صفحه مشاهده می کنید.';
                 $args['link'] = null;
+              } else if (is_author()) {
+                $author = get_user_by('slug', get_query_var('author_name'));
+                $args['title'] = get_the_archive_title();
+                $args['subtitle'] = $author->nickname;
+                $args['link'] = null;
               } else if (is_archive()) {
                 $args['title'] = get_the_archive_title();
                 $args['subtitle'] = get_the_archive_description();
