@@ -6,13 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
-  <link rel="stylesheet" href="assets/css/lineicons.css" />
-  <!-- <link rel="stylesheet" href="assets/css/font-awesome.min.css" /> -->
-  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="assets/css/aos.css" />
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="assets/css/fonts.css" />
-  <link rel="stylesheet" href="style.css" />
+  <?php wp_head(); ?>
 </head>
 
 <body id="top">
@@ -703,14 +697,7 @@
     </footer>
   </div>
 
-  <script src="assets/js/jquery-3.5.1.min.js"></script>
-  <script src="assets/js/parallax.min.js"></script>
-  <script src="assets/js/aos.js"></script>
-  <script src="assets/js/swiper-bundle.min.js"></script>
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/js/masonry.pkgd.min.js"></script>
-  <script src="assets/js/main.js"></script>
+  <?php wp_footer(); ?>
 </body>
 
 </html>
