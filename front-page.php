@@ -1,50 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html <?php language_attributes(); ?>>
 
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="<?php bloginfo('charset'); ?>" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+
   <?php wp_head(); ?>
 </head>
 
 <body id="top">
+
   <!-- Navigation -->
   <nav id="navigation">
-    <div class="text-center">
+    <div class="text-center pt-5">
       <!-- Back nav -->
-      <button id="back-nav" class="button-style button-dark">
-        بازگشت<i class="lni lni-chevron-left"></i>
-      </button>
+      <button id="back-nav" class="button-style button-dark">بازگشت<i class="lni lni-chevron-left"></i></button>
     </div>
     <!-- Logo -->
     <div class="logo">
-      <h1>نوتریکا</h1>
-      <p>تفاوت ها را رقم خواهیم زد</p>
+      <h1><?php bloginfo('name'); ?></h1>
+      <p><?php bloginfo('description'); ?></p>
     </div>
     <!-- Navbar menu -->
     <div class="navbar-menu">
-      <ul>
-        <li>
-          <a href="#">خانه<i class="lni lni-chevron-left"></i></a>
-        </li>
-        <li>
-          <a href="#">پروژه ها<i class="lni lni-chevron-left"></i></a>
-        </li>
-        <li>
-          <a href="#">استخدام<i class="lni lni-chevron-left"></i></a>
-        </li>
-        <li>
-          <a href="#">همکاران<i class="lni lni-chevron-left"></i></a>
-        </li>
-        <li>
-          <a href="#">درباره<i class="lni lni-chevron-left"></i></a>
-        </li>
-        <li>
-          <a href="#">تماس<i class="lni lni-chevron-left"></i></a>
-        </li>
-      </ul>
+      <?php
+      wp_nav_menu(array(
+        'theme_location' => 'headerNavLocation',
+        'depth' => 1,
+      ));
+      ?>
     </div>
   </nav>
 
@@ -55,11 +40,15 @@
     <!-- Header -->
     <header id="header">
       <div class="dark-mask"></div>
-      <div class="parallax-container" data-parallax="scroll" data-speed="0.5" data-image-src="images/header.jpg" data-position-x="left">
+      <?php
+      // Get image src (Full size)
+      $front_header_bg = wp_get_attachment_image_src(get_option('irantheme_front_header_bg'), 'full');
+      ?>
+      <div class="parallax-container" data-parallax="scroll" data-speed="0.5" data-image-src="<?php echo esc_url($front_header_bg[0]); ?>" data-position-x="left">
         <div class="container-fluid p-0">
           <!-- Main menu -->
           <div class="main-menu">
-            <button id="nav-toggle">
+            <button id="nav-open">
               <span></span>
               <span></span>
               <span></span>
@@ -69,21 +58,19 @@
         <div class="container">
           <!-- Banner -->
           <div class="banner">
-            <h2>طراحی و توسعه را با دو عنصر سادگی و خلاقیت ترکیب کرده ایم</h2>
-            <p>
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
-              در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
-              نیاز است.
-            </p>
+            <h2><?php echo __(get_option('irantheme_front_header_title')); ?></h2>
+            <p><?php echo __(get_option('irantheme_front_header_description')); ?></p>
             <a href="#features" id="go-down" class="button-style button-light">شروع کنید<i class="lni lni-chevron-left"></i></a>
           </div>
         </div>
         <!-- Social media -->
         <div class="social-media">
-          <a href=""><i class="lni lni-facebook"></i></a>
-          <a href=""><i class="lni lni-twitter"></i></a>
-          <a href=""><i class="lni lni-linkedin"></i></a>
+          <ul>
+            <?php
+            // Get template part of social media
+            get_template_part('/template-parts/content', 'social-media');
+            ?>
+          </ul>
         </div>
       </div>
     </header>

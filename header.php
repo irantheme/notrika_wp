@@ -12,7 +12,7 @@
 
   <!-- Navigation -->
   <nav id="navigation">
-    <div class="text-center pt-3">
+    <div class="text-center pt-5">
       <!-- Back nav -->
       <button id="back-nav" class="button-style button-dark">بازگشت<i class="lni lni-chevron-left"></i></button>
     </div>

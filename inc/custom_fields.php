@@ -48,7 +48,7 @@ if (!function_exists('irantheme_member_meta_box_callback')) {
 }
 
 
-if (!function_exists('')) {
+if (!function_exists('irantheme_member_save_meta_box_data')) {
   /**
    * When the post is saved, saves our custom data.
    *
