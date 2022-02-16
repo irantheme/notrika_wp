@@ -104,6 +104,16 @@ Wrapper
   }
 }
 
+.dark-mask {
+  background: $color-dark-transparent;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+
 
 // Container holder
 
@@ -242,5 +252,29 @@ Holding table
     content: '';
     display: table;
     clear: both;
+  }
+}
+
+/*
+=====================================
+Animations
+=====================================
+*/
+
+%animation-left-to-right {
+  animation-name: leftToRight;
+  animation-timing-function: linear;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes leftToRight {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-0.25rem);
   }
 }

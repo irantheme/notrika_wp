@@ -60,8 +60,8 @@
     <div id="wrapper-mask"></div>
     <!-- Header -->
     <header id="header">
-      <div class="parallax-container" data-parallax="scroll" data-speed="0.5" data-image-src="images/header.jpg"
-        data-position-x="left">
+      <div class="dark-mask"></div>
+      <div class="parallax-container" data-parallax="scroll" data-speed="0.5" data-image-src="images/header.jpg" data-position-x="left">
         <div class="container-fluid p-0">
           <!-- Main menu -->
           <div class="main-menu">
@@ -82,8 +82,7 @@
               در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
               نیاز است.
             </p>
-            <a href="#features" id="go-down" class="button-style button-light">شروع کنید<i
-                class="lni lni-chevron-left"></i></a>
+            <a href="#features" id="go-down" class="button-style button-light">شروع کنید<i class="lni lni-chevron-left"></i></a>
           </div>
         </div>
         <!-- Social media -->
@@ -528,8 +527,7 @@
     </section>
     <!-- Partners -->
     <section id="partners">
-      <div class="parallax-container" data-speed="0.5" data-parallax="scroll" data-image-src="images/partner.jpg"
-        data-position-x="left">
+      <div class="parallax-container" data-speed="0.5" data-parallax="scroll" data-image-src="images/partner.jpg" data-position-x="left">
         <div class="container">
           <!-- Heading mode -->
           <div class="heading-mode heading-mode-light text-center">

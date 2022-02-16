@@ -38,6 +38,7 @@
     <div id="wrapper-mask"></div>
     <!-- Header blog -->
     <header id="header-blog">
+      <div class="dark-mask"></div>
       <?php
       // Get image src (Full size)
       $blog_header_bg = wp_get_attachment_image_src(get_option('irantheme_blog_header_bg'), 'full');
