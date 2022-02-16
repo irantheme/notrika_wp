@@ -104,7 +104,7 @@
                     <?php the_content(); ?>
                   </div>
 
-                  <div class="d-flex flex-row">
+                  <div class="d-flex flex-row pt-3">
                     <!-- Post like -->
                     <div class="post-like">
                       <?php

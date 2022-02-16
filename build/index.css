@@ -3172,6 +3172,47 @@ Author profile
   }
 }
 
+.gallery {
+  margin: 0 auto !important;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.gallery-item {
+  margin: 0 !important;
+  text-align: center;
+  height: 20rem;
+  width: 49% !important;
+}
+.gallery-icon {
+  height: 100%;
+  padding: 1% 0 !important;
+}
+.gallery-icon a {
+  height: 100%;
+}
+.gallery img {
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  height: inherit;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.gallery-gallery-caption {
+  color: #495057;
+  font-size: 0.8rem;
+  margin: 0 0 0.5rem;
+}
+.gallery dl, .gallery dt {
+  margin: 0;
+}
+.gallery br + br {
+  display: none;
+}
+
 /*
 =====================================
 Wp blocks
