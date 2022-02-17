@@ -5,6 +5,10 @@ import $ from 'jquery';
 class MasonryJs {
   // Initialize
   constructor() {
+    this.masonryInit();
+  }
+
+  masonryInit() {
     // Init Masonry
     let $grid = $('.grid-masonry').masonry({
       itemSelector: '.grid-item',

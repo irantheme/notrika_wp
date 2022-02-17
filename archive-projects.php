@@ -8,7 +8,7 @@
         <div class="col-lg-8 px-0">
           <?php
           $allQueryPosts = new WP_Query(array(
-            'post_type' => array('post', 'projects'),
+            'post_type' => array('projects'),
             'order' => 'DESC',
             'orderby' => 'date'
           ));

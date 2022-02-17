@@ -192,6 +192,30 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 				),
 			);
 
+			// Front projects page configuration fields data
+			$settings['front_projects'] = array(
+				'title'					=> __('(قالب اصلی - پروژه ها)', $this->textdomain),
+				'description'			=> __('برخی از تنظیمات پروژه ها (قالب اصلی)', $this->textdomain),
+				'fields'				=> array(
+					array(
+						'id' 			=> 'front_projects_title',
+						'label'			=> __('عنوان پروژه ها', $this->textdomain),
+						'description'	=> __('عنوان اصلی که در بالای پروژه ها قرار می گیرد.', $this->textdomain),
+						'type'			=> 'text',
+						'default'		=> '',
+						'placeholder'	=> ''
+					),
+					array(
+						'id' 			=> 'front_projects_description',
+						'label'			=> __('توضیحات پروژه ها', $this->textdomain),
+						'description'	=> __('توضیحات عنوان اصلی که در بالای پروژه ها قرار می گیرد.', $this->textdomain),
+						'type'			=> 'textarea',
+						'default'		=> '',
+						'placeholder'	=> ''
+					),
+				),
+			);
+
 			// Blog configuration fields data
 			$settings['blog'] = array(
 				'title'					=> __('وبلاگ', $this->textdomain),

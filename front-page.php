@@ -153,282 +153,103 @@
       <div class="container">
         <!-- Heading mode -->
         <div class="heading-mode heading-mode-dark text-right">
-          <h2>پروژه های ما</h2>
-          <p>
-            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-            استفاده از طراحان گرافیک است.
-          </p>
+          <h2><?php echo __(get_option('irantheme_front_projects_title')); ?></h2>
+          <p><?php echo __(get_option('irantheme_front_projects_description')); ?></p>
         </div>
-        <!-- Categories -->
-        <div class="categories">
-          <ul>
-            <li><span class="active">همه</span></li>
-            <li><span>طراحی و توسعه</span></li>
-            <li><span>برنامه نویسی</span></li>
-            <li><span>قالب وردپرس</span></li>
-            <li><span>شبکه</span></li>
-            <li><span>سخت افزار</span></li>
-            <li><span>هک و امنیت</span></li>
-          </ul>
-        </div>
+        <?php
+        $categories = get_categories(array('parent' => 0, 'hide_empty' => 0));
+        if (count($categories)) : ?>
+          <!-- Categories -->
+          <div class="categories">
+            <ul>
+              <li>
+                <span id="all-categories" class="active">همه</span>
+              </li>
+              <?php
+              $categories = get_categories(array(
+                'orderby' => 'name',
+                'parent' => 0
+              ));
+              foreach ($categories as $category) {
+                echo '<li><span data-cate="' . esc_attr($category->term_id) . '">' . __($category->name) . '</span></li>';
+              }
+              ?>
+            </ul>
+          </div>
+        <?php endif; ?>
       </div>
       <div class="container">
+        <?php
+        $front_projects_post = new WP_Query(array(
+          'post_type' => 'projects',
+          'posts_per_page' => 6,
+        ));
+        ?>
         <div class="row">
           <!-- Grid masonry -->
           <div class="grid-masonry">
             <div class="grid-sizer"></div>
-            <!-- Post -->
-            <div class="grid-item post-holder">
-              <article class="post">
-                <a href="#" class="post-link">
-                  <!-- Post image -->
-                  <div class="post-image">
-                    <img src="images/1.jpg" alt="تصویر پروژه" />
-                  </div>
-                  <!-- Post content -->
-                  <div class="post-content">
-                    <!-- Post heading -->
-                    <div class="post-heading">
-                      <h2>طراحی و توسعه وب</h2>
-                      <!-- Post categories -->
-                      <ul class="post-categories">
-                        <li><span>قالب وردپرس</span></li>
-                        <li><span>لینوکس</span></li>
-                      </ul>
+            <?php while ($front_projects_post->have_posts()) : $front_projects_post->the_post();
+              // Get parent id category of post
+              $category = get_the_category();
+              // $category_parent_list = array();
+              $category_parents_id = '';
+              foreach ($category as $cate) {
+                if ($cate->parent) {
+                  // From your child category, grab parent ID
+                  $parent = $cate->parent;
+
+                  // Load object for parent category
+                  $parent_id = get_category($parent);
+
+                  // Grab a category name
+                  $parent_id = $parent_id->term_id;
+                  $category_parents_id .= strval($parent_id) . ',';
+                } else {
+                  $category_parents_id .= strval($cate->term_id) . ',';
+                }
+              }
+              // Get all category of posts
+              $categories = get_the_category();
+              $categories_output = '';
+            ?>
+              <!-- Post -->
+              <div class="grid-item post-holder" data-cate="<?php echo esc_attr($category_parents_id); ?>">
+                <article class="post">
+                  <a href="<?php echo get_the_permalink(); ?>" class="post-link">
+                    <?php if (has_post_thumbnail()) : ?>
+                      <!-- Post image -->
+                      <div class="post-image">
+                        <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="تصویر پروژه" />
+                      </div>
+                    <?php endif; ?>
+                    <!-- Post content -->
+                    <div class="post-content">
+                      <!-- Post heading -->
+                      <div class="post-heading">
+                        <h2><?php echo get_the_title(); ?></h2>
+                        <?php if (count($categories)) : ?>
+                          <!-- Post categories -->
+                          <ul class="post-categories">
+                            <?php
+                            foreach ($categories as $category) {
+                              $categories_output .= '<li><span>' . __($category->name) . '</span></li>';
+                            }
+                            echo trim($categories_output, '');
+                            ?>
+                          </ul>
+                        <?php endif; ?>
+                      </div>
+                      <!-- Post icons -->
+                      <div class="post-icons">
+                        <i class="lni lni-full-screen"></i>
+                        <i class="lni lni-link"></i>
+                      </div>
                     </div>
-                    <!-- Post icons -->
-                    <div class="post-icons">
-                      <i class="lni lni-full-screen"></i>
-                      <i class="lni lni-link"></i>
-                    </div>
-                  </div>
-                </a>
-              </article>
-            </div>
-            <!-- Post -->
-            <div class="grid-item post-holder">
-              <article class="post">
-                <a href="#" class="post-link">
-                  <!-- Post image -->
-                  <div class="post-image">
-                    <img src="images/2.jpg" alt="تصویر پروژه" />
-                  </div>
-                  <!-- Post content -->
-                  <div class="post-content">
-                    <!-- Post heading -->
-                    <div class="post-heading">
-                      <h2>طراحی و توسعه وب</h2>
-                      <!-- Post categories -->
-                      <ul class="post-categories">
-                        <li><span>قالب وردپرس</span></li>
-                        <li><span>لینوکس</span></li>
-                      </ul>
-                    </div>
-                    <!-- Post icons -->
-                    <div class="post-icons">
-                      <i class="lni lni-full-screen"></i>
-                      <i class="lni lni-link"></i>
-                    </div>
-                  </div>
-                </a>
-              </article>
-            </div>
-            <!-- Post -->
-            <div class="grid-item post-holder">
-              <article class="post">
-                <a href="#" class="post-link">
-                  <!-- Post image -->
-                  <div class="post-image">
-                    <img src="images/3.jpg" alt="تصویر پروژه" />
-                  </div>
-                  <!-- Post content -->
-                  <div class="post-content">
-                    <!-- Post heading -->
-                    <div class="post-heading">
-                      <h2>طراحی و توسعه وب</h2>
-                      <!-- Post categories -->
-                      <ul class="post-categories">
-                        <li><span>قالب وردپرس</span></li>
-                        <li><span>لینوکس</span></li>
-                      </ul>
-                    </div>
-                    <!-- Post icons -->
-                    <div class="post-icons">
-                      <i class="lni lni-full-screen"></i>
-                      <i class="lni lni-link"></i>
-                    </div>
-                  </div>
-                </a>
-              </article>
-            </div>
-            <!-- Post -->
-            <div class="grid-item post-holder">
-              <article class="post">
-                <a href="#" class="post-link">
-                  <!-- Post image -->
-                  <div class="post-image">
-                    <img src="images/4.jpg" alt="تصویر پروژه" />
-                  </div>
-                  <!-- Post content -->
-                  <div class="post-content">
-                    <!-- Post heading -->
-                    <div class="post-heading">
-                      <h2>طراحی و توسعه وب</h2>
-                      <!-- Post categories -->
-                      <ul class="post-categories">
-                        <li><span>قالب وردپرس</span></li>
-                        <li><span>لینوکس</span></li>
-                      </ul>
-                    </div>
-                    <!-- Post icons -->
-                    <div class="post-icons">
-                      <i class="lni lni-full-screen"></i>
-                      <i class="lni lni-link"></i>
-                    </div>
-                  </div>
-                </a>
-              </article>
-            </div>
-            <!-- Post -->
-            <div class="grid-item post-holder">
-              <article class="post">
-                <a href="#" class="post-link">
-                  <!-- Post image -->
-                  <div class="post-image">
-                    <img src="images/5.jpg" alt="تصویر پروژه" />
-                  </div>
-                  <!-- Post content -->
-                  <div class="post-content">
-                    <!-- Post heading -->
-                    <div class="post-heading">
-                      <h2>طراحی و توسعه وب</h2>
-                      <!-- Post categories -->
-                      <ul class="post-categories">
-                        <li><span>قالب وردپرس</span></li>
-                        <li><span>لینوکس</span></li>
-                      </ul>
-                    </div>
-                    <!-- Post icons -->
-                    <div class="post-icons">
-                      <i class="lni lni-full-screen"></i>
-                      <i class="lni lni-link"></i>
-                    </div>
-                  </div>
-                </a>
-              </article>
-            </div>
-            <!-- Post -->
-            <div class="grid-item post-holder">
-              <article class="post">
-                <a href="#" class="post-link">
-                  <!-- Post image -->
-                  <div class="post-image">
-                    <img src="images/6.jpg" alt="تصویر پروژه" />
-                  </div>
-                  <!-- Post content -->
-                  <div class="post-content">
-                    <!-- Post heading -->
-                    <div class="post-heading">
-                      <h2>طراحی و توسعه وب</h2>
-                      <!-- Post categories -->
-                      <ul class="post-categories">
-                        <li><span>قالب وردپرس</span></li>
-                        <li><span>لینوکس</span></li>
-                      </ul>
-                    </div>
-                    <!-- Post icons -->
-                    <div class="post-icons">
-                      <i class="lni lni-full-screen"></i>
-                      <i class="lni lni-link"></i>
-                    </div>
-                  </div>
-                </a>
-              </article>
-            </div>
-            <!-- Post -->
-            <div class="grid-item post-holder">
-              <article class="post">
-                <a href="#" class="post-link">
-                  <!-- Post image -->
-                  <div class="post-image">
-                    <img src="images/7.jpg" alt="تصویر پروژه" />
-                  </div>
-                  <!-- Post content -->
-                  <div class="post-content">
-                    <!-- Post heading -->
-                    <div class="post-heading">
-                      <h2>طراحی و توسعه وب</h2>
-                      <!-- Post categories -->
-                      <ul class="post-categories">
-                        <li><span>قالب وردپرس</span></li>
-                        <li><span>لینوکس</span></li>
-                      </ul>
-                    </div>
-                    <!-- Post icons -->
-                    <div class="post-icons">
-                      <i class="lni lni-full-screen"></i>
-                      <i class="lni lni-link"></i>
-                    </div>
-                  </div>
-                </a>
-              </article>
-            </div>
-            <!-- Post -->
-            <div class="grid-item post-holder">
-              <article class="post">
-                <a href="#" class="post-link">
-                  <!-- Post image -->
-                  <div class="post-image">
-                    <img src="images/8.jpg" alt="تصویر پروژه" />
-                  </div>
-                  <!-- Post content -->
-                  <div class="post-content">
-                    <!-- Post heading -->
-                    <div class="post-heading">
-                      <h2>طراحی و توسعه وب</h2>
-                      <!-- Post categories -->
-                      <ul class="post-categories">
-                        <li><span>قالب وردپرس</span></li>
-                        <li><span>لینوکس</span></li>
-                      </ul>
-                    </div>
-                    <!-- Post icons -->
-                    <div class="post-icons">
-                      <i class="lni lni-full-screen"></i>
-                      <i class="lni lni-link"></i>
-                    </div>
-                  </div>
-                </a>
-              </article>
-            </div>
-            <!-- Post -->
-            <div class="grid-item post-holder">
-              <article class="post">
-                <a href="#" class="post-link">
-                  <!-- Post image -->
-                  <div class="post-image">
-                    <img src="images/9.jpg" alt="تصویر پروژه" />
-                  </div>
-                  <!-- Post content -->
-                  <div class="post-content">
-                    <!-- Post heading -->
-                    <div class="post-heading">
-                      <h2>طراحی و توسعه وب</h2>
-                      <!-- Post categories -->
-                      <ul class="post-categories">
-                        <li><span>قالب وردپرس</span></li>
-                        <li><span>لینوکس</span></li>
-                      </ul>
-                    </div>
-                    <!-- Post icons -->
-                    <div class="post-icons">
-                      <i class="lni lni-full-screen"></i>
-                      <i class="lni lni-link"></i>
-                    </div>
-                  </div>
-                </a>
-              </article>
-            </div>
+                  </a>
+                </article>
+              </div>
+            <?php endwhile; ?>
           </div>
         </div>
         <!-- Load more -->

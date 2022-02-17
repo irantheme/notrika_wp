@@ -7,19 +7,29 @@ if (!function_exists('irantheme_register_post_types')) {
    */
   function irantheme_register_post_types()
   {
-    // Register like post type
-    register_post_type('like', array(
-      'support' => array('title'),
-      'public' => false,
-      'show_ui' => true,
+
+    // Register projects post type
+    register_post_type('projects', array(
+      'public'             => true,
+      'publicly_queryable' => true,
+      'show_ui'            => true,
+      'show_in_menu'       => true,
+      'query_var'          => true,
+      'rewrite'            => array('slug' => 'projects'),
+      'capability_type'    => 'post',
+      'has_archive'        => true,
+      'hierarchical'       => false,
+      'menu_position'      => null,
+      'supports'           => array('title', 'editor', 'thumbnail'),
+      'taxonomies' => array('category', 'post_tag'),
       'labels' => array(
-        'name' => 'لایک ها',
-        'add_new_item' => 'لایک جدید',
-        'edit_item' => 'ویرایش لایک',
-        'all_items' => 'همه لایک ها',
-        'singular_name' => 'لایک'
+        'name' => 'پروژه ها',
+        'add_new_item' => 'پروژه جدید',
+        'edit_item' => 'ویرایش پروژه',
+        'all_items' => 'همه پروژه ها',
+        'singular_name' => 'پروژه'
       ),
-      'menu_icon' => 'dashicons-heart'
+      'menu_icon' => 'dashicons-schedule'
     ));
 
     // Register features post type
@@ -35,6 +45,21 @@ if (!function_exists('irantheme_register_post_types')) {
         'singular_name' => 'ویژگی'
       ),
       'menu_icon' => 'dashicons-screenoptions'
+    ));
+
+    // Register like post type
+    register_post_type('like', array(
+      'support' => array('title'),
+      'public' => false,
+      'show_ui' => true,
+      'labels' => array(
+        'name' => 'لایک ها',
+        'add_new_item' => 'لایک جدید',
+        'edit_item' => 'ویرایش لایک',
+        'all_items' => 'همه لایک ها',
+        'singular_name' => 'لایک'
+      ),
+      'menu_icon' => 'dashicons-heart'
     ));
   }
   add_action('init', 'irantheme_register_post_types');
