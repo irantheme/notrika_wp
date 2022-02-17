@@ -254,7 +254,7 @@
         </div>
         <!-- Load more -->
         <div class="load-more">
-          <button class="button-load">
+          <button id="loading-projects" class="button-load">
             پروژه های بیشتر<i class="lni lni-spinner"></i>
           </button>
         </div>

@@ -1202,6 +1202,9 @@ Projects
   visibility: hidden;
   transition: all 0.4s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
+#projects .post .post-link .post-content .post-heading {
+  margin-bottom: 0;
+}
 #projects .post .post-link .post-content .post-heading h2 {
   font-size: 1.2rem;
   color: #fff;
@@ -2487,7 +2490,7 @@ Blog content
   object-fit: cover;
 }
 
-.post-categories {
+.post-category {
   position: absolute;
   right: 0;
   top: 0;
@@ -2497,7 +2500,7 @@ Blog content
   padding: 1rem;
   z-index: 3;
 }
-.post-categories span {
+.post-category span {
   background: rgba(33, 33, 33, 0.65);
   color: #fff;
   font-size: 0.7rem;
@@ -2505,7 +2508,7 @@ Blog content
   border-radius: 3rem;
   margin-top: 0.25rem;
 }
-.post-categories span:not(:last-child) {
+.post-category span:not(:last-child) {
   margin-left: 0.25rem;
 }
 

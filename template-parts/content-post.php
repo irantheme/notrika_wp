@@ -46,7 +46,7 @@
             </div>
             <?php if (!empty($categories)) : ?>
               <!-- Post category -->
-              <div class="post-categories">
+              <div class="post-category">
                 <?php
                 foreach ($categories as $category) {
                   $categories_output .= '<span>' . __($category->name) . '</span>';
