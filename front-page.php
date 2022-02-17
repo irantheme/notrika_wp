@@ -115,12 +115,23 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
+            <?php
+            $front_about_img_1 = wp_get_attachment_image_src(get_option('irantheme_front_about_img_1'), 'full');
+            $front_about_img_2 = wp_get_attachment_image_src(get_option('irantheme_front_about_img_2'), 'full');
+            $front_about_img_3 = wp_get_attachment_image_src(get_option('irantheme_front_about_img_3'), 'full');
+            ?>
             <!-- About list image -->
             <aside class="about-list-image">
               <ul>
-                <li><img src="images/1.jpg" alt="تصویر اول" /></li>
-                <li><img src="images/2.jpg" alt="تصویر دوم" /></li>
-                <li><img src="images/3.jpg" alt="تصویر سوم" /></li>
+                <?php if ($front_about_img_1) : ?>
+                  <li><img src="<?php echo esc_url($front_about_img_1[0]); ?>" alt="تصویر اول" /></li>
+                <?php endif; ?>
+                <?php if ($front_about_img_2) : ?>
+                  <li><img src="<?php echo esc_url($front_about_img_2[0]); ?>" alt="تصویر دوم" /></li>
+                <?php endif; ?>
+                <?php if ($front_about_img_3) : ?>
+                  <li><img src="<?php echo esc_url($front_about_img_3[0]); ?>" alt="تصویر سوم" /></li>
+                <?php endif; ?>
               </ul>
             </aside>
           </div>
