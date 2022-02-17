@@ -86,3 +86,10 @@ input:disabled {
     width: 100%;
   }
 }
+
+/* Wp media custom admin settings */
+
+#plugin_settings .image_preview {
+  max-width: 150px;
+  height: auto;
+}

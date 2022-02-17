@@ -127,20 +127,11 @@
           <div class="col-lg-6">
             <!-- About content -->
             <aside class="about-content">
-              <q>درباره ما</q>
-              <h3>ما چه هستیم؟</h3>
-              <p>
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                استفاده از طراحان گرافیک است.
-              </p>
-              <blockquote>
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و
-                مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
-                تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای
-                کاربردی می باشد.
-              </blockquote>
-              <a href="#" class="button-style button-primary">بیشتر<i class="lni lni-chevron-left"></i></a>
+              <q><?php echo __(get_option('irantheme_front_about_little_title')); ?></q>
+              <h3><?php echo __(get_option('irantheme_front_about_title')); ?></h3>
+              <p><?php echo __(get_option('irantheme_front_about_description')); ?></p>
+              <blockquote><?php echo __(get_option('irantheme_about_excerpt')); ?></blockquote>
+              <a href="<?php echo esc_url(get_option('irantheme_about_link')); ?>" class="button-style button-primary">بیشتر<i class="lni lni-chevron-left"></i></a>
             </aside>
           </div>
         </div>

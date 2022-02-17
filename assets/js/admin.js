@@ -1,32 +1,3 @@
-// // Query admin for upload media
-// jQuery(document).ready(function ($) {
-//   var mediaUploader;
-//   $('.upload-button').on('click', function (e) {
-//     // Get upload hidden element
-//     $uploadHidden = $(this).parent().find('.upload-hidden');
-//     $uploadPreview = $(this).parent().find('.upload-preview');
-//     // And other story
-//     e.preventDefault();
-//     if (mediaUploader) {
-//       mediaUploader.open();
-//       return;
-//     }
-//     mediaUploader = wp.media.frames.file_frame = wp.media({
-//       title: 'تصویر اسلاید را انتخاب کنید',
-//       button: {
-//         text: 'انتخاب کردن',
-//       },
-//       multiple: false,
-//     });
-//     mediaUploader.on('select', function () {
-//       attachment = mediaUploader.state().get('selection').first().toJSON();
-//       $uploadHidden.val(attachment.url);
-//       $uploadPreview.val(attachment.url);
-//     });
-//     mediaUploader.open();
-//   });
-// });
-
 jQuery(document).ready(function ($) {
   /***** Colour picker *****/
 
@@ -48,27 +19,19 @@ jQuery(document).ready(function ($) {
 
   /***** Uploading images *****/
 
-  var file_frame;
-
   jQuery.fn.uploadMediaFile = function (button, preview_media) {
-    var button_id = button.attr('id');
-    var field_id = button_id.replace('_button', '');
-    var preview_id = button_id.replace('_button', '_preview');
-
-    // If the media frame already exists, reopen it.
-    if (file_frame) {
-      file_frame.open();
-      return;
-    }
+    let button_id = button.attr('id');
+    let field_id = button_id.replace('_button', '');
+    let preview_id = button_id.replace('_button', '_preview');
 
     // Create the media frame.
-    file_frame = wp.media.frames.file_frame = wp.media({
+    let file_frame = (wp.media.frames.file_frame = wp.media({
       title: jQuery(this).data('uploader_title'),
       button: {
         text: jQuery(this).data('uploader_button_text'),
       },
       multiple: false,
-    });
+    }));
 
     // When an image is selected, run a callback.
     file_frame.on('select', function () {
@@ -88,8 +51,8 @@ jQuery(document).ready(function ($) {
   });
 
   jQuery('.image_delete_button').click(function () {
-    jQuery(this).closest('td').find('.image_data_field').val('');
-    jQuery('.image_preview').remove();
+    jQuery(this).parent().find('.image_data_field').val('');
+    jQuery(this).parent().find('.image_preview').remove();
     return false;
   });
 

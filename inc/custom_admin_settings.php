@@ -82,8 +82,8 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 
 			// Front header page configuration fields data
 			$settings['front_header'] = array(
-				'title'					=> __('فرانت (قالب اصلی - هدر)', $this->textdomain),
-				'description'			=> __('برخی از تنظیمات هدر فرانت (قالب اصلی)', $this->textdomain),
+				'title'					=> __('(قالب اصلی - هدر)', $this->textdomain),
+				'description'			=> __('برخی از تنظیمات هدر (قالب اصلی)', $this->textdomain),
 				'fields'				=> array(
 					array(
 						'id' 			=> 'front_header_bg',
@@ -114,8 +114,8 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 
 			// Front features page configuration fields data
 			$settings['front_features'] = array(
-				'title'					=> __('فرانت (قالب اصلی - ویژگی ها)', $this->textdomain),
-				'description'			=> __('برخی از تنظیمات ویژگی های فرانت (قالب اصلی)', $this->textdomain),
+				'title'					=> __('(قالب اصلی - ویژگی ها)', $this->textdomain),
+				'description'			=> __('برخی از تنظیمات ویژگی های (قالب اصلی)', $this->textdomain),
 				'fields'				=> array(
 					array(
 						'id' 			=> 'front_features_title',
@@ -133,6 +133,62 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 						'default'		=> '',
 						'placeholder'	=> ''
 					),
+				),
+			);
+
+			// Front about page configuration fields data
+			$settings['front_about'] = array(
+				'title'					=> __('(قالب اصلی - درباره ما)', $this->textdomain),
+				'description'			=> __('برخی از تنظیمات درباره ما (قالب اصلی)', $this->textdomain),
+				'fields'				=> array(
+					array(
+						'id' 			=> 'front_about_little_title',
+						'label'			=> __('عنوان کوچک درباره ما', $this->textdomain),
+						'description'	=> __('عنوان کوچک قرار گرفته در بالای عنوان اصلی.', $this->textdomain),
+						'type'			=> 'text',
+						'default'		=> '',
+						'placeholder'	=> ''
+					),
+					array(
+						'id' 			=> 'front_about_title',
+						'label'			=> __('عنوان اصلی درباره ما', $this->textdomain),
+						'description'	=> __('عنوان اصلی درباره ما.', $this->textdomain),
+						'type'			=> 'text',
+						'default'		=> '',
+						'placeholder'	=> ''
+					),
+					array(
+						'id' 			=> 'front_about_description',
+						'label'			=> __('توضیحات مختصر درباره ما', $this->textdomain),
+						'description'	=> __('توضیحات اولیه قرار گرفته در زیر عنوان اصلی.', $this->textdomain),
+						'type'			=> 'textarea',
+						'default'		=> '',
+						'placeholder'	=> ''
+					),
+					array(
+						'id' 			=> 'front_about_img_1',
+						'label'			=> __('تصویر اول درباره ما', $this->textdomain),
+						'description'	=> __('تصویر قرار گرفته در کنار توضیحات درباره ما.', $this->textdomain),
+						'type'			=> 'image',
+						'default'		=> '',
+						'placeholder'	=> ''
+					),
+					array(
+						'id' 			=> 'front_about_img_2',
+						'label'			=> __('تصویر دوم درباره ما', $this->textdomain),
+						'description'	=> __('تصویر قرار گرفته در کنار توضیحات درباره ما.', $this->textdomain),
+						'type'			=> 'image',
+						'default'		=> '',
+						'placeholder'	=> ''
+					),
+					array(
+						'id' 			=> 'front_about_img_3',
+						'label'			=> __('تصویر سوم درباره ما', $this->textdomain),
+						'description'	=> __('تصویر قرار گرفته در کنار توضیحات درباره ما.', $this->textdomain),
+						'type'			=> 'image',
+						'default'		=> '',
+						'placeholder'	=> ''
+					)
 				),
 			);
 
