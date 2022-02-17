@@ -74,111 +74,42 @@
         </div>
       </div>
     </header>
+
+    <?php
+    $front_post_query = new WP_Query(array(
+      'post_type' => 'features',
+      'posts_per_page' => -1,
+    ));
+    ?>
     <!-- Features -->
     <section id="features">
       <div class="container">
         <!-- Heading mode -->
         <div class="heading-mode heading-mode-light text-center">
-          <h2>امکانات و خدمات</h2>
-          <p>
-            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-            استفاده از طراحان گرافیک است.
-          </p>
+          <h2><?php echo __(get_option('irantheme_front_features_title')); ?></h2>
+          <p><?php echo __(get_option('irantheme_front_features_description')); ?></p>
         </div>
         <div class="row">
-          <!-- Feature box -->
-          <div class="col-lg-4">
-            <aside class="feature-box">
-              <div class="feature-icon"><i class="lni lni-menu"></i></div>
-              <div class="feature-content">
-                <h3>رعایت اصل سادگی</h3>
-                <p>
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
-                  با استفاده از طراحان گرافیک است. لورم ایپسوم متن ساختگی با
-                  تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                  گرافیک است.
-                </p>
-              </div>
-            </aside>
-          </div>
-          <!-- Feature box -->
-          <div class="col-lg-4">
-            <aside class="feature-box">
-              <div class="feature-icon"><i class="lni lni-code"></i></div>
-              <div class="feature-content">
-                <h3>طراحی و توسعه مدرن</h3>
-                <p>
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
-                  با استفاده از طراحان گرافیک است. لورم ایپسوم متن ساختگی با
-                  تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                  گرافیک است.
-                </p>
-              </div>
-            </aside>
-          </div>
-          <!-- Feature box -->
-          <div class="col-lg-4">
-            <aside class="feature-box">
-              <div class="feature-icon"><i class="lni lni-display"></i></div>
-              <div class="feature-content">
-                <h3>هوشمند و واکنش گرا</h3>
-                <p>
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
-                  با استفاده از طراحان گرافیک است. لورم ایپسوم متن ساختگی با
-                  تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                  گرافیک است.
-                </p>
-              </div>
-            </aside>
-          </div>
-          <!-- Feature box -->
-          <div class="col-lg-4">
-            <aside class="feature-box">
-              <div class="feature-icon"><i class="lni lni-reload"></i></div>
-              <div class="feature-content">
-                <h3>به روزرسانی</h3>
-                <p>
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
-                  با استفاده از طراحان گرافیک است. لورم ایپسوم متن ساختگی با
-                  تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                  گرافیک است.
-                </p>
-              </div>
-            </aside>
-          </div>
-          <!-- Feature box -->
-          <div class="col-lg-4">
-            <aside class="feature-box">
-              <div class="feature-icon"><i class="lni lni-support"></i></div>
-              <div class="feature-content">
-                <h3>پشتیبانی مداوم</h3>
-                <p>
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
-                  با استفاده از طراحان گرافیک است. لورم ایپسوم متن ساختگی با
-                  تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                  گرافیک است.
-                </p>
-              </div>
-            </aside>
-          </div>
-          <!-- Feature box -->
-          <div class="col-lg-4">
-            <aside class="feature-box">
-              <div class="feature-icon"><i class="lni lni-network"></i></div>
-              <div class="feature-content">
-                <h3>هماهنگی گروه مهدسین</h3>
-                <p>
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
-                  با استفاده از طراحان گرافیک است. لورم ایپسوم متن ساختگی با
-                  تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                  گرافیک است.
-                </p>
-              </div>
-            </aside>
-          </div>
+          <?php
+          while ($front_post_query->have_posts()) :
+            $front_post_query->the_post();
+            $feature_icon = get_post_meta(get_the_ID(), 'features_meta_value_key', true);
+          ?>
+            <!-- Feature box -->
+            <div class="col-lg-4">
+              <aside class="feature-box">
+                <div class="feature-icon"><i class="lni <?php echo $feature_icon; ?>"></i></div>
+                <div class="feature-content">
+                  <h3><?php echo get_the_title(); ?></h3>
+                  <p><?php echo sanitize_text_field(get_the_content()); ?></p>
+                </div>
+              </aside>
+            </div>
+          <?php endwhile; ?>
         </div>
       </div>
     </section>
+
     <!-- About -->
     <section id="about">
       <div class="container">

@@ -21,6 +21,21 @@ if (!function_exists('irantheme_register_post_types')) {
       ),
       'menu_icon' => 'dashicons-heart'
     ));
+
+    // Register features post type
+    register_post_type('features', array(
+      'support' => array('title', 'editor'),
+      'public' => false,
+      'show_ui' => true,
+      'labels' => array(
+        'name' => 'ویژگی ها',
+        'add_new_item' => 'ویژگی جدید',
+        'edit_item' => 'ویرایش ویژگی',
+        'all_items' => 'همه ویژگی ها',
+        'singular_name' => 'ویژگی'
+      ),
+      'menu_icon' => 'dashicons-screenoptions'
+    ));
   }
   add_action('init', 'irantheme_register_post_types');
 }

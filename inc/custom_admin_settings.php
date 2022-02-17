@@ -80,10 +80,10 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 		private function settings_fields()
 		{
 
-			// Front page configuration fields data
-			$settings['front'] = array(
-				'title'					=> __('فرانت (قالب اصلی)', $this->textdomain),
-				'description'			=> __('برخی از تنظیمات فرانت (قالب اصلی)', $this->textdomain),
+			// Front header page configuration fields data
+			$settings['front_header'] = array(
+				'title'					=> __('فرانت (قالب اصلی - هدر)', $this->textdomain),
+				'description'			=> __('برخی از تنظیمات هدر فرانت (قالب اصلی)', $this->textdomain),
 				'fields'				=> array(
 					array(
 						'id' 			=> 'front_header_bg',
@@ -109,7 +109,31 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 						'default'		=> '',
 						'placeholder'	=> ''
 					),
-				)
+				),
+			);
+
+			// Front features page configuration fields data
+			$settings['front_features'] = array(
+				'title'					=> __('فرانت (قالب اصلی - ویژگی ها)', $this->textdomain),
+				'description'			=> __('برخی از تنظیمات ویژگی های فرانت (قالب اصلی)', $this->textdomain),
+				'fields'				=> array(
+					array(
+						'id' 			=> 'front_features_title',
+						'label'			=> __('عنوان اصلی ویژگی ها', $this->textdomain),
+						'description'	=> __('عنوان اصلی ویژگی ها که در بالای گزینه ها قرار دارد.', $this->textdomain),
+						'type'			=> 'text',
+						'default'		=> '',
+						'placeholder'	=> ''
+					),
+					array(
+						'id' 			=> 'front_features_description',
+						'label'			=> __('توضیحات عنوان اصلی ویژگی ها', $this->textdomain),
+						'description'	=> __('توضیحات عنوان اصلی ویژگی ها که در بالای گزینه ها قرار دارد.', $this->textdomain),
+						'type'			=> 'textarea',
+						'default'		=> '',
+						'placeholder'	=> ''
+					),
+				),
 			);
 
 			// Blog configuration fields data
