@@ -2,6 +2,8 @@
 @import 'base/variables';
 @import 'base/reset';
 @import 'base/initialize';
+@import 'base/btn';
+@import 'base/inputs';
 // Front modules
 @import 'modules/front/header';
 @import 'modules/front/features';
@@ -14,8 +16,6 @@
 @import 'modules/front/information';
 @import 'modules/front/footer';
 // Core modules (blog)
-@import 'modules/inputs';
-@import 'modules/btn';
 @import 'modules/extra';
 @import 'modules/navigation';
 @import 'modules/navbar';

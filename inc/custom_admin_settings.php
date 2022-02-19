@@ -216,6 +216,70 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 				),
 			);
 
+			// Front partners page configuration fields data
+			$settings['front_partners'] = array(
+				'title'					=> __('(قالب اصلی - مشتریان)', $this->textdomain),
+				'description'			=> __('برخی از تنظیمات مشتریان (قالب اصلی)', $this->textdomain),
+				'fields'				=> array(
+					array(
+						'id' 			=> 'front_partners_bg',
+						'label'			=> __('تصویر پس زمینه همکاران', $this->textdomain),
+						'description'	=> __('آپلود یا حذف تصویر پس زمینه همکاران | پیشنهاد ما استفاده از تصویر افقی می باشد.', $this->textdomain),
+						'type'			=> 'image',
+						'default'		=> '',
+						'placeholder'	=> ''
+					),
+					array(
+						'id' 			=> 'front_partners_title',
+						'label'			=> __('عنوان مشتریان', $this->textdomain),
+						'description'	=> __('عنوان اصلی که در بالای مشتریان قرار می گیرد.', $this->textdomain),
+						'type'			=> 'text',
+						'default'		=> '',
+						'placeholder'	=> ''
+					),
+					array(
+						'id' 			=> 'front_partners_description',
+						'label'			=> __('توضیحات مشتریان', $this->textdomain),
+						'description'	=> __('توضیحات عنوان اصلی که در بالای مشتریان قرار می گیرد.', $this->textdomain),
+						'type'			=> 'textarea',
+						'default'		=> '',
+						'placeholder'	=> ''
+					),
+				),
+			);
+
+			// Front cooperation page configuration fields data
+			$settings['front_cooperation'] = array(
+				'title'					=> __('(قالب اصلی - همکاری)', $this->textdomain),
+				'description'			=> __('برخی از تنظیمات همکاری (قالب اصلی)', $this->textdomain),
+				'fields'				=> array(
+					array(
+						'id' 			=> 'front_cooperation_title',
+						'label'			=> __('عنوان همکاری', $this->textdomain),
+						'description'	=> __('عنوان اصلی که در بالای همکاری قرار می گیرد.', $this->textdomain),
+						'type'			=> 'text',
+						'default'		=> '',
+						'placeholder'	=> ''
+					),
+					array(
+						'id' 			=> 'front_cooperation_description',
+						'label'			=> __('توضیحات همکاری', $this->textdomain),
+						'description'	=> __('توضیحات عنوان اصلی که در بالای همکاری قرار می گیرد.', $this->textdomain),
+						'type'			=> 'textarea',
+						'default'		=> '',
+						'placeholder'	=> ''
+					),
+					array(
+						'id' 			=> 'front_cooperation_link',
+						'label'			=> __('لینک شروع همکاری', $this->textdomain),
+						'description'	=> __('لینک دکمه ورود به صفحه شروع همکاری.', $this->textdomain),
+						'type'			=> 'text',
+						'default'		=> '',
+						'placeholder'	=> ''
+					),
+				),
+			);
+
 			// Blog configuration fields data
 			$settings['blog'] = array(
 				'title'					=> __('وبلاگ', $this->textdomain),
@@ -258,6 +322,30 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 						'label'			=> __('متن کپی رایت', $this->textdomain),
 						'description'	=> __('متن حقوقی و معنوی سایت که در آخر سایت نمایش داده میشود.', $this->textdomain),
 						'type'			=> 'textarea',
+						'default'		=> '',
+						'placeholder'	=> ''
+					),
+					array(
+						'id' 			=> 'general_email',
+						'label'			=> __('ایمیل سایت', $this->textdomain),
+						'description'	=> __('ایمیل عمومی جهت ارائه به مشتریان.', $this->textdomain),
+						'type'			=> 'text',
+						'default'		=> '',
+						'placeholder'	=> ''
+					),
+					array(
+						'id' 			=> 'general_telephone',
+						'label'			=> __('تلفن تماس', $this->textdomain),
+						'description'	=> __('شماره تماس جهت ارائه به مشتریان.', $this->textdomain),
+						'type'			=> 'text',
+						'default'		=> '',
+						'placeholder'	=> ''
+					),
+					array(
+						'id' 			=> 'general_address',
+						'label'			=> __('آدرس', $this->textdomain),
+						'description'	=> __('آدرس جهت ارائه به مشریان.', $this->textdomain),
+						'type'			=> 'text',
 						'default'		=> '',
 						'placeholder'	=> ''
 					),

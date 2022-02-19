@@ -34,7 +34,7 @@ if (!function_exists('irantheme_register_post_types')) {
 
     // Register features post type
     register_post_type('features', array(
-      'support' => array('title', 'editor'),
+      'supports' => array('title', 'editor'),
       'public' => false,
       'show_ui' => true,
       'labels' => array(
@@ -47,9 +47,43 @@ if (!function_exists('irantheme_register_post_types')) {
       'menu_icon' => 'dashicons-screenoptions'
     ));
 
+    // Register partners post type
+    register_post_type('partners', array(
+      'supports' => array('title', 'thumbnail'),
+      'public' => false,
+      'show_ui' => true,
+      'labels' => array(
+        'name' => 'همکاران',
+        'add_new_item' => 'همکار جدید',
+        'edit_item' => 'ویرایش همکار',
+        'all_items' => 'همه همکاران',
+        'singular_name' => 'همکاران',
+        'featured_image'        => 'لوگوی همکار',
+        'set_featured_image'    => 'انتخاب یا آپلود لوگو',
+        'remove_featured_image' => 'حذف لوگو',
+        'use_featured_image'    => 'استفاده از لوگو',
+      ),
+      'menu_icon' => 'dashicons-groups'
+    ));
+
+    // Register partners post type
+    register_post_type('viewpoint', array(
+      'supports' => array('title', 'editor'),
+      'public' => false,
+      'show_ui' => true,
+      'labels' => array(
+        'name' => 'دیدگاه مشتریان',
+        'add_new_item' => 'دیدگاه جدید',
+        'edit_item' => 'ویرایش دیدگاه',
+        'all_items' => 'همه دیدگاه مشتریان',
+        'singular_name' => 'دیدگاه مشتریان',
+      ),
+      'menu_icon' => 'dashicons-format-quote'
+    ));
+
     // Register like post type
     register_post_type('like', array(
-      'support' => array('title'),
+      'supports' => array('title'),
       'public' => false,
       'show_ui' => true,
       'labels' => array(

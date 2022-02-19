@@ -952,6 +952,308 @@ body {
 
 /*
 =====================================
+Button styles
+=====================================
+*/
+.button-style {
+  background: transparent;
+  display: inline-block;
+  margin: 1rem 0;
+  padding: 0;
+  border: 2px solid #0088cc;
+  color: #0088cc;
+  padding: 0.75rem 1.5rem 0.75rem 3rem;
+  height: auto;
+  line-height: 0.8rem;
+  font-size: 0.8rem;
+  border-radius: 25px;
+  position: relative;
+}
+.button-style i {
+  margin-right: 0.5rem;
+  background: #0088cc;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 0.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 1.25rem;
+  top: calc(50% - 0.625rem);
+  transition: 0.3s ease-in-out;
+}
+.button-style.button-primary {
+  border: 2px solid #0088cc;
+  color: #0088cc;
+}
+.button-style.button-primary i {
+  background: #0088cc;
+  color: #fff;
+  box-shadow: 0 0 0.5rem 1px #0088cc;
+}
+.button-style.button-primary:hover, .button-style.button-primary.active {
+  color: #fff;
+  border-color: #0088cc;
+  background: #0088cc;
+}
+.button-style.button-primary:hover i, .button-style.button-primary.active i {
+  background: #fff;
+  color: #0088cc;
+  box-shadow: none;
+  transform: translateX(-0.5rem);
+}
+.button-style.button-light {
+  border: 2px solid #fff;
+  color: #fff;
+}
+.button-style.button-light i {
+  background: #fff;
+  color: #0088cc;
+  box-shadow: 0 0 0.5rem 1px #fff;
+}
+.button-style.button-light:hover, .button-style.button-light.active {
+  color: #0088cc;
+  border-color: #fff;
+  background: #fff;
+}
+.button-style.button-light:hover i, .button-style.button-light.active i {
+  background: #0088cc;
+  color: #fff;
+  box-shadow: none;
+  transform: translateX(-0.5rem);
+}
+.button-style.button-dark {
+  border: 2px solid #1C2023;
+  color: #1C2023;
+}
+.button-style.button-dark i {
+  background: #1C2023;
+  color: #fff;
+  box-shadow: 0 0 0.5rem 1px #1C2023;
+}
+.button-style.button-dark:hover, .button-style.button-dark.active {
+  color: #fff;
+  border-color: #1C2023;
+  background: #1C2023;
+}
+.button-style.button-dark:hover i, .button-style.button-dark.active i {
+  background: #fff;
+  color: #1C2023;
+  box-shadow: none;
+  transform: translateX(-0.5rem);
+}
+
+/* Forms ---------------------------------------- */
+input[type=submit],
+input[type=reset],
+input[type=button],
+button,
+.button {
+  background-color: #6c757d;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "IRANSans", "iranyekan", sans-serif;
+  font-size: 0.8rem;
+  font-weight: normal;
+  line-height: 3rem;
+  margin: 1rem 0;
+  padding: 0 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+input[type=submit]:hover,
+input[type=reset]:hover,
+input[type=button]:hover,
+button:hover,
+.button:hover {
+  background: #495057;
+  color: #fff;
+}
+input[type=submit]:focus,
+input[type=reset]:focus,
+input[type=button]:focus,
+button:focus,
+.button:focus {
+  /* border-color: $color-white; */
+  /* background: $color-white */
+  color: #fff;
+  outline: none;
+}
+input[type=submit]:active,
+input[type=reset]:active,
+input[type=button]:active,
+button:active,
+.button:active {
+  /* border-color: $color-white; */
+  /* background: #fff; */
+  color: #fff;
+}
+
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=tel],
+input[type=search],
+input[type=url],
+select,
+textarea {
+  background: #fff;
+  border: solid 1px #e9ecef;
+  color: inherit;
+  font-family: "IRANSans", "iranyekan", sans-serif;
+  display: block;
+  outline: 0;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  width: 60%;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  color: #495057;
+  box-sizing: border-box;
+}
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus,
+input[type=tel]:focus,
+input[type=search]:focus,
+input[type=url]:focus,
+select:focus,
+textarea:focus {
+  border-color: #ced4da;
+}
+
+textarea {
+  width: 100% !important;
+  height: 20rem;
+  padding: 0.75rem 1rem;
+}
+
+label {
+  color: #495057;
+  display: block;
+  font-family: "IRANSans", "iranyekan", sans-serif;
+  font-size: 0.75rem;
+  font-weight: normal;
+  line-height: 1.75rem;
+  margin-top: 1rem;
+  text-transform: uppercase;
+}
+
+select {
+  background: #fff;
+  height: 3rem;
+  padding-right: 3rem;
+  text-overflow: ellipsis;
+}
+select option {
+  background-color: #fff;
+  color: #1C2023;
+}
+select:focus::-ms-value {
+  background-color: transparent;
+}
+select::-ms-expand {
+  display: none;
+}
+
+input[type=checkbox] + label,
+input[type=radio] + label {
+  text-decoration: none;
+  color: #495057;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: normal;
+  padding-left: 2.675rem;
+  padding-right: 0.875rem;
+  position: relative;
+  text-transform: none;
+}
+input[type=checkbox]:focus label::before,
+input[type=radio]:focus label::before {
+  border-color: #ced4da;
+  box-shadow: none;
+}
+
+/* input[type='checkbox'] + label:before,
+input[type='radio'] + label:before {
+  content: '\ea53';
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  text-transform: none !important;
+  font-family: $font-family-pack;
+  font-weight: 900;
+} */
+/* input[type='checkbox'] + label:before,
+input[type='radio'] + label:before {
+  border: solid 1px $color-dark;
+  content: '';
+  display: inline-block;
+  font-size: 0.8rem;
+  height: 1.5rem;
+  left: 0;
+  line-height: 1.5rem;
+  position: absolute;
+  text-align: center;
+  top: -0.15rem;
+  width: 1.5rem;
+} */
+/* input[type='checkbox']:checked + label:before,
+input[type='radio']:checked + label:before {
+  content: '\ea55';
+  font-family: iranyekan, iransansx, sans-serif;
+  background-color: $color-gray-400;
+  border-color: $color-gray-400;
+  color: $color-white;
+} */
+input[type=search]::-webkit-search-cancel-button,
+input[type=text]::-webkit-search-cancel-button {
+  display: none;
+}
+
+::-webkit-input-placeholder {
+  opacity: 1;
+  color: #1C2023;
+}
+
+:-moz-placeholder {
+  opacity: 1;
+  color: #1C2023;
+}
+
+::-moz-placeholder {
+  opacity: 1;
+  color: #1C2023;
+}
+
+:-ms-input-placeholder {
+  opacity: 1;
+  color: #1C2023;
+}
+
+/*
+=====================================
 Header
 =====================================
 */
@@ -1466,7 +1768,7 @@ Information
   /* justify-content: center; */
   padding: 1.5rem 0;
 }
-#information .info-item > i {
+#information .info-item i {
   font-size: 2.5rem;
   color: #0088cc;
 }
@@ -1529,308 +1831,6 @@ Footer
 }
 #footer .copyright a {
   color: #f8f9fa;
-}
-
-/* Forms ---------------------------------------- */
-input[type=submit],
-input[type=reset],
-input[type=button],
-button,
-.button {
-  background-color: #6c757d;
-  border: none;
-  cursor: pointer;
-  display: inline-block;
-  font-family: "IRANSans", "iranyekan", sans-serif;
-  font-size: 0.8rem;
-  font-weight: normal;
-  line-height: 3rem;
-  margin: 1rem 0;
-  padding: 0 1.5rem;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  white-space: nowrap;
-  color: #fff;
-  transition: all 0.2s ease-in-out;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  appearance: none;
-}
-input[type=submit]:hover,
-input[type=reset]:hover,
-input[type=button]:hover,
-button:hover,
-.button:hover {
-  background: #495057;
-  color: #fff;
-}
-input[type=submit]:focus,
-input[type=reset]:focus,
-input[type=button]:focus,
-button:focus,
-.button:focus {
-  /* border-color: $color-white; */
-  /* background: $color-white */
-  color: #fff;
-  outline: none;
-}
-input[type=submit]:active,
-input[type=reset]:active,
-input[type=button]:active,
-button:active,
-.button:active {
-  /* border-color: $color-white; */
-  /* background: #fff; */
-  color: #fff;
-}
-
-input[type=text],
-input[type=password],
-input[type=email],
-input[type=tel],
-input[type=search],
-input[type=url],
-select,
-textarea {
-  background: #fff;
-  border: solid 1px #e9ecef;
-  color: inherit;
-  font-family: "IRANSans", "iranyekan", sans-serif;
-  display: block;
-  outline: 0;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  width: 60%;
-  font-size: 1rem;
-  line-height: 1.2rem;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  appearance: none;
-  color: #495057;
-  box-sizing: border-box;
-}
-input[type=text]:focus,
-input[type=password]:focus,
-input[type=email]:focus,
-input[type=tel]:focus,
-input[type=search]:focus,
-input[type=url]:focus,
-select:focus,
-textarea:focus {
-  border-color: #ced4da;
-}
-
-textarea {
-  width: 100% !important;
-  height: 20rem;
-  padding: 0.75rem 1rem;
-}
-
-label {
-  color: #495057;
-  display: block;
-  font-family: "IRANSans", "iranyekan", sans-serif;
-  font-size: 0.75rem;
-  font-weight: normal;
-  line-height: 1.75rem;
-  margin-top: 1rem;
-  text-transform: uppercase;
-}
-
-select {
-  background: #fff;
-  height: 3rem;
-  padding-right: 3rem;
-  text-overflow: ellipsis;
-}
-select option {
-  background-color: #fff;
-  color: #1C2023;
-}
-select:focus::-ms-value {
-  background-color: transparent;
-}
-select::-ms-expand {
-  display: none;
-}
-
-input[type=checkbox] + label,
-input[type=radio] + label {
-  text-decoration: none;
-  color: #495057;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 0.8rem;
-  font-weight: normal;
-  padding-left: 2.675rem;
-  padding-right: 0.875rem;
-  position: relative;
-  text-transform: none;
-}
-input[type=checkbox]:focus label::before,
-input[type=radio]:focus label::before {
-  border-color: #ced4da;
-  box-shadow: none;
-}
-
-/* input[type='checkbox'] + label:before,
-input[type='radio'] + label:before {
-  content: '\ea53';
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  display: inline-block;
-  font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  line-height: 1;
-  text-transform: none !important;
-  font-family: $font-family-pack;
-  font-weight: 900;
-} */
-/* input[type='checkbox'] + label:before,
-input[type='radio'] + label:before {
-  border: solid 1px $color-dark;
-  content: '';
-  display: inline-block;
-  font-size: 0.8rem;
-  height: 1.5rem;
-  left: 0;
-  line-height: 1.5rem;
-  position: absolute;
-  text-align: center;
-  top: -0.15rem;
-  width: 1.5rem;
-} */
-/* input[type='checkbox']:checked + label:before,
-input[type='radio']:checked + label:before {
-  content: '\ea55';
-  font-family: iranyekan, iransansx, sans-serif;
-  background-color: $color-gray-400;
-  border-color: $color-gray-400;
-  color: $color-white;
-} */
-input[type=search]::-webkit-search-cancel-button,
-input[type=text]::-webkit-search-cancel-button {
-  display: none;
-}
-
-::-webkit-input-placeholder {
-  opacity: 1;
-  color: #1C2023;
-}
-
-:-moz-placeholder {
-  opacity: 1;
-  color: #1C2023;
-}
-
-::-moz-placeholder {
-  opacity: 1;
-  color: #1C2023;
-}
-
-:-ms-input-placeholder {
-  opacity: 1;
-  color: #1C2023;
-}
-
-/*
-=====================================
-Button styles
-=====================================
-*/
-.button-style {
-  background: transparent;
-  display: inline-block;
-  margin: 1rem 0;
-  padding: 0;
-  border: 2px solid #0088cc;
-  color: #0088cc;
-  padding: 0.75rem 1.5rem 0.75rem 3rem;
-  height: auto;
-  line-height: 0.8rem;
-  font-size: 0.8rem;
-  border-radius: 25px;
-  position: relative;
-}
-.button-style i {
-  margin-right: 0.5rem;
-  background: #0088cc;
-  border-radius: 50%;
-  color: #fff;
-  font-size: 0.5rem;
-  width: 1.25rem;
-  height: 1.25rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  left: 1.25rem;
-  top: calc(50% - 0.625rem);
-  transition: 0.3s ease-in-out;
-}
-.button-style.button-primary {
-  border: 2px solid #0088cc;
-  color: #0088cc;
-}
-.button-style.button-primary i {
-  background: #0088cc;
-  color: #fff;
-  box-shadow: 0 0 0.5rem 1px #0088cc;
-}
-.button-style.button-primary:hover, .button-style.button-primary.active {
-  color: #fff;
-  border-color: #0088cc;
-  background: #0088cc;
-}
-.button-style.button-primary:hover i, .button-style.button-primary.active i {
-  background: #fff;
-  color: #0088cc;
-  box-shadow: none;
-  transform: translateX(-0.5rem);
-}
-.button-style.button-light {
-  border: 2px solid #fff;
-  color: #fff;
-}
-.button-style.button-light i {
-  background: #fff;
-  color: #0088cc;
-  box-shadow: 0 0 0.5rem 1px #fff;
-}
-.button-style.button-light:hover, .button-style.button-light.active {
-  color: #0088cc;
-  border-color: #fff;
-  background: #fff;
-}
-.button-style.button-light:hover i, .button-style.button-light.active i {
-  background: #0088cc;
-  color: #fff;
-  box-shadow: none;
-  transform: translateX(-0.5rem);
-}
-.button-style.button-dark {
-  border: 2px solid #1C2023;
-  color: #1C2023;
-}
-.button-style.button-dark i {
-  background: #1C2023;
-  color: #fff;
-  box-shadow: 0 0 0.5rem 1px #1C2023;
-}
-.button-style.button-dark:hover, .button-style.button-dark.active {
-  color: #fff;
-  border-color: #1C2023;
-  background: #1C2023;
-}
-.button-style.button-dark:hover i, .button-style.button-dark.active i {
-  background: #fff;
-  color: #1C2023;
-  box-shadow: none;
-  transform: translateX(-0.5rem);
 }
 
 /*

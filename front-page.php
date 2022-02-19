@@ -260,101 +260,54 @@
         </div>
       </div>
     </section>
+    <?php
+    $front_partners_bg = wp_get_attachment_image_src(get_option('irantheme_front_partners_bg'), 'full');
+    ?>
     <!-- Partners -->
     <section id="partners">
-      <div class="parallax-container" data-speed="0.5" data-parallax="scroll" data-image-src="images/partner.jpg" data-position-x="left">
+      <div class="parallax-container" data-speed="0.5" data-parallax="scroll" data-image-src="<?php echo $front_partners_bg[0]; ?>" data-position-x="left">
         <div class="container">
           <!-- Heading mode -->
           <div class="heading-mode heading-mode-light text-center">
-            <h2>برخی از مشتریان و دیدگاهشان</h2>
-            <p>
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است.
-            </p>
+            <h2><?php echo __(get_option('irantheme_front_partners_title')); ?></h2>
+            <p><?php echo __(get_option('irantheme_front_partners_description')); ?></p>
           </div>
+          <?php
+          $front_post_partners = new WP_Query(array(
+            'post_type' => 'partners',
+            'posts_per_page' => -1,
+          ));
+          ?>
           <!-- Partners brands -->
           <div class="partners-brands">
             <!-- Swiper -->
             <div class="swiper partners-slider">
               <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <img src="images/logo-1.png" alt="تصویر برند" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/logo-2.png" alt="تصویر برند" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/logo-3.png" alt="تصویر برند" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/logo-4.png" alt="تصویر برند" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/logo-5.png" alt="تصویر برند" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/logo-6.png" alt="تصویر برند" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/logo-1.png" alt="تصویر برند" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/logo-2.png" alt="تصویر برند" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/logo-3.png" alt="تصویر برند" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/logo-4.png" alt="تصویر برند" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/logo-5.png" alt="تصویر برند" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="images/logo-6.png" alt="تصویر برند" />
-                </div>
+                <?php while ($front_post_partners->have_posts()) : $front_post_partners->the_post(); ?>
+                  <div class="swiper-slide">
+                    <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php echo get_the_title(); ?>" />
+                  </div>
+                <?php endwhile; ?>
               </div>
             </div>
           </div>
+          <?php
+          $front_post_viewpoint = new WP_Query(array(
+            'post_type' => 'viewpoint',
+            'posts_per_page' => -1,
+          ));
+          ?>
           <!-- Viewpoint -->
           <div class="swiper viewpoint">
             <div class="swiper-wrapper">
-              <!-- Viewpoint item -->
-              <div class="swiper-slide">
-                <blockquote>
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
-                  با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه
-                  و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
-                  تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای
-                  کاربردی می باشد.
-                </blockquote>
-                <b>ایمان ساسانی</b>
-                <cite>توسعه دهنده وب</cite>
-              </div>
-              <!-- Viewpoint item -->
-              <div class="swiper-slide">
-                <blockquote>
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
-                  با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه
-                  و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
-                  تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای
-                  کاربردی می باشد.
-                </blockquote>
-                <b>ایمان ساسانی</b>
-                <cite>توسعه دهنده وب</cite>
-              </div>
-              <!-- Viewpoint item -->
-              <div class="swiper-slide">
-                <blockquote>
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
-                  با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه
-                  و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
-                  تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای
-                  کاربردی می باشد.
-                </blockquote>
-                <b>ایمان ساسانی</b>
-                <cite>توسعه دهنده وب</cite>
-              </div>
+              <?php while ($front_post_viewpoint->have_posts()) : $front_post_viewpoint->the_post(); ?>
+                <!-- Viewpoint item -->
+                <div class="swiper-slide">
+                  <blockquote><?php echo get_the_content(); ?></blockquote>
+                  <b><?php echo get_the_title(); ?></b>
+                  <cite><?php echo get_post_meta(get_the_ID(), 'viewpoint_meta_value_key', true); ?></cite>
+                </div>
+              <?php endwhile; ?>
             </div>
             <div class="swiper-pagination"></div>
           </div>
@@ -368,18 +321,15 @@
           <div class="col-lg-6">
             <!-- Heading mode -->
             <div class="heading-mode heading-mode-light m-0">
-              <h2>شروع همکاری</h2>
-              <p>
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                استفاده از طراحان گرافیک است.
-              </p>
+              <h2><?php echo __(get_option('irantheme_front_cooperation_title')); ?></h2>
+              <p><?php echo __(get_option('irantheme_front_cooperation_description')); ?></p>
             </div>
           </div>
           <div class="col-lg-6">
             <!-- Button style -->
-            <button class="button-style button-light">
+            <a href="<?php echo esc_url(get_option('irantheme_front_cooperation_link')); ?>" class="button-style button-light">
               شروع کار<i class="lni lni-chevron-left"></i>
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -391,20 +341,20 @@
           <div class="col-lg-4">
             <!-- Email -->
             <div class="info-item">
-              <i class="lni lni-envelope"></i>
+              <a href="mail:<?php echo __(get_option('irantheme_general_email')); ?>"><i class="lni lni-envelope"></i></a>
               <div>
                 <cite>ایمیل</cite>
-                <span>youremail@email.com</span>
+                <span><?php echo __(get_option('irantheme_general_email')); ?></span>
               </div>
             </div>
           </div>
           <div class="col-lg-4">
             <!-- Phone -->
             <div class="info-item">
-              <i class="lni lni-phone"></i>
+              <a href="tel:<?php echo __(get_option('irantheme_general_telephone')); ?>"><i class="lni lni-phone"></i></a>
               <div>
                 <cite>تلفن</cite>
-                <span>031123456789</span>
+                <span><?php echo __(get_option('irantheme_general_telephone')); ?></span>
               </div>
             </div>
           </div>
@@ -414,7 +364,7 @@
               <i class="lni lni-map-marker"></i>
               <div>
                 <cite>آدرس</cite>
-                <span>ایران - اصفهان - مارنان - پل مارنان</span>
+                <span><?php echo __(get_option('irantheme_general_address')); ?></span>
               </div>
             </div>
           </div>
@@ -426,13 +376,14 @@
       <div class="container">
         <!-- Social media -->
         <div class="social-media-footer">
-          <a href=""><i class="lni lni-facebook"></i></a>
-          <a href=""><i class="lni lni-twitter"></i></a>
-          <a href=""><i class="lni lni-linkedin"></i></a>
+          <?php
+          // Get template part of social media
+          get_template_part('/template-parts/content', 'social-media');
+          ?>
         </div>
         <!-- Copyright -->
         <div class="copyright">
-          کلیه حقوق مادی و معنوی این سایت محفوظ است.
+          <?php echo __(get_option('irantheme_copyright')); ?>
         </div>
       </div>
     </footer>
