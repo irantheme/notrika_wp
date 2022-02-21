@@ -67,8 +67,8 @@
           <div class="post-thumbnail">
             <img src="<?php the_post_thumbnail_url('large'); ?>" alt="تصویر مطلب">
             <?php if (!empty($categories)) : ?>
-              <!-- Post categories -->
-              <div class="post-categories">
+              <!-- Post category -->
+              <div class="post-category">
                 <?php
                 foreach ($categories as $category) {
                   $categories_output .= '<span>' . __($category->name) . '</span>';
@@ -82,8 +82,8 @@
       </div>
       <?php else :
       if (!empty($categories)) : ?>
-        <!-- Post category -->
-        <div class="post-category">
+        <!-- Post category without thumbnail -->
+        <div class="post-category-no-thumbnail">
           <?php
           foreach ($categories as $category) {
             $categories_output .= '<a href=" ' . esc_attr($category->link) . '">' . __($category->name) . '</a>';

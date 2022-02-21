@@ -32,8 +32,8 @@
                   <div class="post-thumbnail">
                     <img src="<?php the_post_thumbnail_url('large'); ?>" alt="تصویر مطلب">
                     <?php if (!empty($categories)) : ?>
-                      <!-- Post categories -->
-                      <div class="post-categories">
+                      <!-- Post category -->
+                      <div class="post-category">
                         <?php
                         foreach ($categories as $category) {
                           $categories_output .= '<span>' . __($category->name) . '</span>';

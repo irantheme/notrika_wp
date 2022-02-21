@@ -22,6 +22,7 @@ class LoadProjects {
         this.hideLoadingButton();
       }, 1001);
     });
+    $(window).trigger('resize').trigger('scroll');
   }
 
   // Check remaining projects for hiding button load

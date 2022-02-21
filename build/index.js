@@ -118,6 +118,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_modules_SwiperJs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/modules/SwiperJs */ "./src/js/modules/SwiperJs.js");
 /* harmony import */ var _js_modules_CategoryTrigger__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js/modules/CategoryTrigger */ "./src/js/modules/CategoryTrigger.js");
 /* harmony import */ var _js_modules_Like__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./js/modules/Like */ "./src/js/modules/Like.js");
+/* harmony import */ var _js_modules_Parallax__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./js/modules/Parallax */ "./src/js/modules/Parallax.js");
+
 
 
 
@@ -133,8 +135,9 @@ let search = new _js_modules_Search__WEBPACK_IMPORTED_MODULE_3__["default"]();
 let loadProjects = new _js_modules_LoadProjects__WEBPACK_IMPORTED_MODULE_4__["default"]();
 let masonryJs = new _js_modules_MasonryJs__WEBPACK_IMPORTED_MODULE_5__["default"]();
 let swiper = new _js_modules_SwiperJs__WEBPACK_IMPORTED_MODULE_6__["default"]();
-let like = new _js_modules_Like__WEBPACK_IMPORTED_MODULE_8__["default"]();
 let categoryTrigger = new _js_modules_CategoryTrigger__WEBPACK_IMPORTED_MODULE_7__["default"]();
+let like = new _js_modules_Like__WEBPACK_IMPORTED_MODULE_8__["default"]();
+let parallax = new _js_modules_Parallax__WEBPACK_IMPORTED_MODULE_9__["default"]();
 
 /***/ }),
 
@@ -467,6 +470,7 @@ class LoadProjects {
         this.hideLoadingButton();
       }, 1001);
     });
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).trigger('resize').trigger('scroll');
   } // Check remaining projects for hiding button load
 
 
@@ -681,6 +685,44 @@ class MasonryJs {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (MasonryJs);
+
+/***/ }),
+
+/***/ "./src/js/modules/Parallax.js":
+/*!************************************!*\
+  !*** ./src/js/modules/Parallax.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+/* ===============================================================
+  Category Trigger (Toggle of posts)
+=============================================================== */
+
+class Parallax {
+  constructor() {
+    this.events();
+  }
+
+  events() {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).trigger('resize').trigger('scroll'); // $(window).on('scroll', () => {
+    //   console.log('sdljf');
+    //   $('.parallax-container').parallax({
+    //     parallax: 'scroll',
+    //     speed: 0.5,
+    //     positionX: 'left',
+    //   });
+    // });
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Parallax);
 
 /***/ }),
 

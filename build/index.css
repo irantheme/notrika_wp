@@ -2512,13 +2512,13 @@ Blog content
   margin-left: 0.25rem;
 }
 
-.post-category {
+.post-category-no-thumbnail {
   margin-bottom: 1rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-.post-category a {
+.post-category-no-thumbnail a {
   background: #212529;
   color: #fff;
   font-size: 0.7rem;
@@ -2526,10 +2526,10 @@ Blog content
   border-radius: 3rem;
   margin-bottom: 0.25rem;
 }
-.post-category a:hover {
+.post-category-no-thumbnail a:hover {
   background: #000000;
 }
-.post-category a:not(:last-child) {
+.post-category-no-thumbnail a:not(:last-child) {
   margin-left: 0.25rem;
 }
 
