@@ -18,7 +18,5 @@ require get_theme_file_path('/inc/like_route.php');
 require get_theme_file_path('/inc/register_post_types.php');
 // Adding custom fields
 require get_theme_file_path('/inc/custom_fields.php');
-// Adding register loading posts route
-// require get_theme_file_path( '/inc/loading_post_route.php' );
 
 $settings = new Irantheme_WordPress_Custom_Admin_Settings('تنظیمات قالب', 'irantheme', __FILE__, 'irantheme');

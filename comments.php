@@ -46,15 +46,15 @@ if (post_password_required())
         'fields' => array(
           //Author field
           'author' => '
-          <label for="author">' . $comment_author . '</label>
+          <label for="author">' . __($comment_author) . '</label>
           <input type="text" id="author" name="author" aria-required="true"></input>',
           //Email Field
           'email' => '
-          <label for="email">' . $comment_email . '</label>
+          <label for="email">' . __($comment_email) . '</label>
           <input type="email" id="email" name="email"></input>',
           //URL Field
           'url' => '
-          <label for="url">' . $comment_url . '</label>
+          <label for="url">' . __($comment_url) . '</label>
           <input type="url" id="url" name="url"></input>',
           //Cookies
           'cookies' => '',
@@ -69,7 +69,7 @@ if (post_password_required())
         'cancel_reply_link' => __($comment_cancel),
         // Redefine your own textarea (the comment body).
         'comment_field' => '
-        <label for="comment">' . $comment_body . '</label>
+        <label for="comment">' . __($comment_body) . '</label>
         <textarea id="comment" name="comment" aria-required="true"></textarea>',
         //Message Before Comment
         'comment_notes_before' => __($comment_before),

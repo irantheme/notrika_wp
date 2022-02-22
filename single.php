@@ -80,7 +80,7 @@
                   <!-- Comments & Likes -->
                   <div class="post-list-options">
                     <span><i class="lni lni-comments"></i><?php echo get_comments_number(); ?> دیدگاه</span>
-                    <span><i class="lni lni-heart"></i><?php echo $likeCount->found_posts; ?> پسندشده</span>
+                    <span><i class="lni lni-heart"></i><?php echo __($likeCount->found_posts); ?> پسندشده</span>
                   </div>
                   <!-- Author -->
                   <div class="post-author">
@@ -120,20 +120,20 @@
                         )
                       ));
                       ?>
-                      <button class="like-button" data-like="<?php echo $existQuery->posts[0]->ID; ?>" data-post="<?php echo get_the_ID(); ?>" data-exists="">
+                      <button class="like-button" data-like="<?php echo __($existQuery->posts[0]->ID); ?>" data-post="<?php echo get_the_ID(); ?>" data-exists="">
                         <i class="lni lni-heart like-heart-no"></i>
                         <i class="lni lni-heart-filled like-heart-yes"></i>
                         <span>
-                          <cite class="text-heart-yes">پسند شده</cite><cite class="text-heart-no">می پسندید ؟</cite><em class="like-count"><?php echo $likeCount->found_posts; ?></em>
+                          <cite class="text-heart-yes">پسند شده</cite><cite class="text-heart-no">می پسندید ؟</cite><em class="like-count"><?php echo __($likeCount->found_posts); ?></em>
                         </span>
                       </button>
                     </div>
                     <!-- Post share -->
                     <div class="post-share">
-                      <a href="#" data-toggle="tooltip" data-placement="top" title="اشتراک در فیس بوک"><i class="lni lni-facebook"></i></a>
-                      <a href="#" data-toggle="tooltip" data-placement="top" title="اشتراک در توئیتر"><i class="lni lni-twitter"></i></a>
-                      <a href="#" data-toggle="tooltip" data-placement="top" title="اشتراک در لینکدین"><i class="lni lni-linkedin"></i></a>
-                      <a href="#" data-toggle="tooltip" data-placement="top" title="اشتراک در پینترست"><i class="lni lni-pinterest"></i></a>
+                      <a target="_blank" href="http://www.facebook.com/share.php?u=<?php echo get_permalink(); ?>" data-toggle="tooltip" data-placement="top" title="اشتراک در فیس بوک"><i class="lni lni-facebook"></i></a>
+                      <a target="_blank" href="http://twitter.com/share?text=<?php echo get_the_title(); ?>&url=<?php echo get_permalink(); ?>" data-toggle="tooltip" data-placement="top" title="اشتراک در توئیتر"><i class="lni lni-twitter"></i></a>
+                      <a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo get_permalink(); ?>&title=<?php get_the_title(); ?>" data-toggle="tooltip" data-placement="top" title="اشتراک در لینکدین"><i class="lni lni-linkedin"></i></a>
+                      <a target="_blank" href="https://api.whatsapp.com/send?text=<?php the_title(); ?>:<?php the_permalink(); ?>" data-toggle="tooltip" data-placement="top" title="اشتراک در واتس آپ"><i class="lni lni-whatsapp"></i></a>
                     </div>
                   </div>
                 </div>
@@ -149,13 +149,24 @@
               foreach ($related_category as $individual_category) {
                 $category_ids[] = $individual_category->term_id;
               }
-              $args = array(
-                'category__in' => $category_ids,
-                'post__not_in' => array($post->ID),
-                'posts_per_page' => 8,
-                'ignore_sticky_posts' => 1
-              );
-              $my_query = new wp_query($args);
+              if (get_post_type() == 'post') {
+                $args = array(
+                  'post_type' => 'post',
+                  'category__in' => $category_ids,
+                  'post__not_in' => array($post->ID),
+                  'posts_per_page' => 8,
+                  'ignore_sticky_posts' => 1
+                );
+              } else if (get_post_type() == 'projects') {
+                $args = array(
+                  'post_type' => 'projects',
+                  'category__in' => $category_ids,
+                  'post__not_in' => array($post->ID),
+                  'posts_per_page' => 8,
+                  'ignore_sticky_posts' => 1
+                );
+              }
+              $my_query = new WP_Query($args);
 
               if ($my_query->have_posts()) : ?>
                 <!-- Related posts -->
@@ -203,7 +214,7 @@
                               <!-- Comments & Likes -->
                               <div class="post-list-options">
                                 <span><i class="lni lni-comments"></i><?php echo get_comments_number(); ?> دیدگاه</span>
-                                <span><i class="lni lni-heart"></i><?php echo $likeCountRel->found_posts; ?> پسندشده</span>
+                                <span><i class="lni lni-heart"></i><?php echo __($likeCountRel->found_posts); ?> پسندشده</span>
                               </div>
                             </div>
                           </div>

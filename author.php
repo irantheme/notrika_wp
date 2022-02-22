@@ -26,18 +26,18 @@
                   </div>
                   <!-- Author profile info -->
                   <div class="author-profile-info">
-                    <h3><?php echo $author->display_name; ?></h3>
-                    <cite><?php echo $author->nickname; ?></cite>
+                    <h3><?php echo __($author->display_name); ?></h3>
+                    <cite><?php echo __($author->nickname); ?></cite>
                     <span>
                       <?php
                       if ($date < 1) {
-                        echo 'کم تر از 1 سال عضویت در ' . get_bloginfo('name');
+                        echo __('کم تر از 1 سال عضویت در ' . get_bloginfo('name'));
                       } else {
-                        echo 'بیشتر از ' . $date . 'سال عضویت در ' . get_bloginfo('name');
+                        echo __('بیشتر از ' . $date . 'سال عضویت در ' . get_bloginfo('name'));
                       }
                       ?>
                     </span>
-                    <p><?php echo $author->description; ?></p>
+                    <p><?php echo __($author->description); ?></p>
                   </div>
                 </div>
               </div>
