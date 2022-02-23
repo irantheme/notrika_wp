@@ -87,7 +87,7 @@
                     'echo'                      => false
                   ));
                   foreach ($tags as $tag) {
-                    echo '<a href="' . get_term_link($tag) . '">' . $tag->name . '</a>';
+                    echo '<a href="' . get_term_link($tag) . '">' . __($tag->name) . '</a>';
                   }
                   ?>
                 </div>
