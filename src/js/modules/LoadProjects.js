@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import MasonryJs from './MasonryJs';
+import MasonryJs from './../libs/MasonryJs';
 /* ===============================================================
   Load Projects
 =============================================================== */
