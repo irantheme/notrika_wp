@@ -37,14 +37,12 @@
   <div id="wrapper">
     <!-- Wrapper mask -->
     <div id="wrapper-mask"></div>
+
     <!-- Header -->
     <header id="header">
       <div class="dark-mask"></div>
-      <?php
-      // Get image src (Full size)
-      $front_header_bg = wp_get_attachment_image_src(get_option('irantheme_front_header_bg'), 'full');
-      ?>
-      <div class="parallax-container" data-parallax="scroll" data-speed="0.5" data-image-src="<?php echo esc_url($front_header_bg[0]); ?>" data-position-x="left">
+
+      <div id="parallax-front-header" class="parallax-container">
         <div class="container-fluid p-0">
           <!-- Main menu -->
           <div class="main-menu">
@@ -148,6 +146,7 @@
         </div>
       </div>
     </section>
+
     <!-- Projects -->
     <section id="projects">
       <div class="container">
@@ -260,12 +259,10 @@
         </div>
       </div>
     </section>
-    <?php
-    $front_partners_bg = wp_get_attachment_image_src(get_option('irantheme_front_partners_bg'), 'full');
-    ?>
+
     <!-- Partners -->
     <section id="partners">
-      <div class="parallax-container" data-speed="0.5" data-parallax="scroll" data-image-src="<?php echo $front_partners_bg[0]; ?>" data-position-x="left">
+      <div id="parallax-front-partners" class="parallax-container">
         <div class="container">
           <!-- Heading mode -->
           <div class="heading-mode heading-mode-light text-center">
@@ -314,6 +311,7 @@
         </div>
       </div>
     </section>
+
     <!-- Cooperation -->
     <section id="cooperation">
       <div class="container">
@@ -334,6 +332,7 @@
         </div>
       </div>
     </section>
+
     <!-- Information -->
     <section id="information">
       <div class="container">
@@ -371,6 +370,7 @@
         </div>
       </div>
     </section>
+
     <!-- Footer -->
     <footer id="footer">
       <div class="container">

@@ -280,6 +280,30 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 				),
 			);
 
+			// Front latest blog post configuration fields data
+			$settings['front_latest_blog_post'] = array(
+				'title'					=> __('(قالب اصلی - آخرین پست های بلاگ)', $this->textdomain),
+				'description'			=> __('برخی از تنظیمات آخرین پست های وبلاگ (قالب اصلی)', $this->textdomain),
+				'fields'				=> array(
+					array(
+						'id' 			=> 'front_latest_blog_post_title',
+						'label'			=> __('عنوان آخرین پست ها', $this->textdomain),
+						'description'	=> __('عنوان اصلی که در بالای آخرین پست ها قرار می گیرد.', $this->textdomain),
+						'type'			=> 'text',
+						'default'		=> '',
+						'placeholder'	=> ''
+					),
+					array(
+						'id' 			=> 'front_latest_blog_post_description',
+						'label'			=> __('توضیحات آخرین پست ها', $this->textdomain),
+						'description'	=> __('توضیحات عنوان اصلی که در بالای آخرین پست ها قرار می گیرد.', $this->textdomain),
+						'type'			=> 'textarea',
+						'default'		=> '',
+						'placeholder'	=> ''
+					),
+				),
+			);
+
 			// Blog configuration fields data
 			$settings['blog'] = array(
 				'title'					=> __('وبلاگ', $this->textdomain),

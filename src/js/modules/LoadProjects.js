@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import MasonryJs from './../libs/MasonryJs';
+import ParallaxJs from './../libs/ParallaxJs';
 /* ===============================================================
   Load Projects
 =============================================================== */
@@ -7,6 +8,7 @@ class LoadProjects {
   constructor() {
     this.btnLoad = $('#loading-projects');
     this.masonryJs = new MasonryJs();
+    this.parallaxJs = new ParallaxJs();
     this.events();
   }
 
@@ -21,14 +23,16 @@ class LoadProjects {
         this.btnLoad.removeClass('active');
         this.hideLoadingButton();
       }, 1001);
+      setTimeout(() => {
+        this.parallaxJs.trigger();
+      }, 1500);
     });
-    $(window).trigger('resize').trigger('scroll');
   }
 
   // Check remaining projects for hiding button load
   hideLoadingButton() {
     // Get current body project length
-    $.getJSON(wpData.root_url + '/wp-json/json/v1/projects', (result) => {
+    $.getJSON(wpData.rootUrl + '/wp-json/json/v1/projects', (result) => {
       let projectCounts = $('#projects .post-holder').length;
       // Get unload project length
       var projectUnloadCount = 0;
@@ -42,7 +46,7 @@ class LoadProjects {
   // Get json data projects
   loadingProjects() {
     // Get json data with api
-    $.getJSON(wpData.root_url + '/wp-json/json/v1/projects', (result) => {
+    $.getJSON(wpData.rootUrl + '/wp-json/json/v1/projects', (result) => {
       // Temporary projects of result project
       let projects = result.projects;
       // Get length of body projects

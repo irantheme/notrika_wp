@@ -40,9 +40,15 @@ if (!function_exists('irantheme_add_theme_sources')) {
     // wp_enqueue_style( 'style', get_stylesheet_uri() );
 
     // Access to wordpress features with custom script js
+    $front_header_bg = wp_get_attachment_image_src(get_option('irantheme_front_header_bg'), 'full');
+    $front_partners_bg = wp_get_attachment_image_src(get_option('irantheme_front_partners_bg'), 'full');
+    $blog_header_bg = wp_get_attachment_image_src(get_option('irantheme_blog_header_bg'), 'full');
     wp_localize_script('main-irantheme-js', 'wpData', array(
-      'root_url' => get_site_url(),
-      'nonce' => wp_create_nonce('wp_rest')
+      'rootUrl' => get_site_url(),
+      'nonce' => wp_create_nonce('wp_rest'),
+      'frontHeaderBg' => esc_url($front_header_bg[0]),
+      'frontPartnersBg' => esc_url($front_partners_bg[0]),
+      'BlogHeaderBg' => esc_url($blog_header_bg[0]),
     ));
   }
   add_action('wp_enqueue_scripts', 'irantheme_add_theme_sources');

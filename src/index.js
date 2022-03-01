@@ -2,14 +2,14 @@ import './css/main.scss';
 
 // Libs
 import MasonryJs from './js/libs/MasonryJs';
-import MainMenu from './js/modules/MainMenu';
-import Parallax from './js/libs/Parallax';
+import Swiper from './js/libs/SwiperJs';
+import Parallax from './js/libs/ParallaxJs';
 
 // Modules
 import Extra from './js/modules/Extra';
 import Search from './js/modules/Search';
+import MainMenu from './js/modules/MainMenu';
 import LoadProjects from './js/modules/LoadProjects';
-import Swiper from './js/libs/SwiperJs';
 import CategoryTrigger from './js/modules/CategoryTrigger';
 import Like from './js/modules/Like';
 

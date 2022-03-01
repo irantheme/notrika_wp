@@ -67,7 +67,7 @@ class Search {
     this.searchResults.show();
     // Get json data with api
     $.getJSON(
-      wpData.root_url +
+      wpData.rootUrl +
         '/wp-json/json/v1/search/?term=' +
         this.searchInput.val(),
       (result) => {

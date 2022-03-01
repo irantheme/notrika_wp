@@ -43,7 +43,7 @@ class Like {
       beforeSend: (xhr) => {
         xhr.setRequestHeader('X-WP-Nonce', wpData.nonce);
       },
-      url: wpData.root_url + '/wp-json/irantheme/v1/manageLike',
+      url: wpData.rootUrl + '/wp-json/irantheme/v1/manageLike',
       type: 'POST',
       data: { postID: currentLikeBox.data('post') },
       success: (response) => {
@@ -67,7 +67,7 @@ class Like {
       beforeSend: (xhr) => {
         xhr.setRequestHeader('X-WP-Nonce', wpData.nonce);
       },
-      url: wpData.root_url + '/wp-json/irantheme/v1/manageLike',
+      url: wpData.rootUrl + '/wp-json/irantheme/v1/manageLike',
       data: { like: currentLikeBox.attr('data-like') },
       type: 'DELETE',
       success: (response) => {

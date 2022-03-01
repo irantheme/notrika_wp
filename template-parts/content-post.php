@@ -86,7 +86,7 @@
         <div class="post-category-no-thumbnail">
           <?php
           foreach ($categories as $category) {
-            $categories_output .= '<a href=" ' . esc_attr($category->link) . '">' . __($category->name) . '</a>';
+            $categories_output .= '<a href=" ' . get_category_link($category->term_id) . '">' . __($category->name) . '</a>';
           }
           echo trim($categories_output, '');
           ?>

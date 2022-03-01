@@ -1,3 +1,6 @@
+// Utils
+@import 'utils/mixins';
+
 // Base
 @import 'base/variables';
 @import 'base/reset';
@@ -26,5 +29,6 @@
 @import 'modules/core/comments';
 @import 'modules/core/author-profile';
 @import 'modules/core/gallery';
+@import 'modules/core/post-styles';
 @import 'modules/core/additional-styles';
 @import 'modules/core/blocks';

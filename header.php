@@ -39,11 +39,8 @@
     <!-- Header blog -->
     <header id="header-blog">
       <div class="dark-mask"></div>
-      <?php
-      // Get image src (Full size)
-      $blog_header_bg = wp_get_attachment_image_src(get_option('irantheme_blog_header_bg'), 'full');
-      ?>
-      <div class="parallax-container" data-parallax="scroll" data-speed="0.5" data-image-src="<?php echo esc_url($blog_header_bg[0]); ?>" data-position-x="left">
+
+      <div id="parallax-blog-header" class="parallax-container">
         <div class="container-fluid p-0">
           <!-- Main menu -->
           <div class="main-menu">

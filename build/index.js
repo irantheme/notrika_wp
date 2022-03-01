@@ -111,12 +111,12 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _css_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./css/main.scss */ "./src/css/main.scss");
 /* harmony import */ var _js_libs_MasonryJs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/libs/MasonryJs */ "./src/js/libs/MasonryJs.js");
-/* harmony import */ var _js_modules_MainMenu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/modules/MainMenu */ "./src/js/modules/MainMenu.js");
-/* harmony import */ var _js_libs_Parallax__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/libs/Parallax */ "./src/js/libs/Parallax.js");
+/* harmony import */ var _js_libs_SwiperJs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/libs/SwiperJs */ "./src/js/libs/SwiperJs.js");
+/* harmony import */ var _js_libs_ParallaxJs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/libs/ParallaxJs */ "./src/js/libs/ParallaxJs.js");
 /* harmony import */ var _js_modules_Extra__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js/modules/Extra */ "./src/js/modules/Extra.js");
 /* harmony import */ var _js_modules_Search__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/modules/Search */ "./src/js/modules/Search.js");
-/* harmony import */ var _js_modules_LoadProjects__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/modules/LoadProjects */ "./src/js/modules/LoadProjects.js");
-/* harmony import */ var _js_libs_SwiperJs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js/libs/SwiperJs */ "./src/js/libs/SwiperJs.js");
+/* harmony import */ var _js_modules_MainMenu__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/modules/MainMenu */ "./src/js/modules/MainMenu.js");
+/* harmony import */ var _js_modules_LoadProjects__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js/modules/LoadProjects */ "./src/js/modules/LoadProjects.js");
 /* harmony import */ var _js_modules_CategoryTrigger__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./js/modules/CategoryTrigger */ "./src/js/modules/CategoryTrigger.js");
 /* harmony import */ var _js_modules_Like__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./js/modules/Like */ "./src/js/modules/Like.js");
  // Libs
@@ -132,15 +132,15 @@ __webpack_require__.r(__webpack_exports__);
 
  // Init objects
 
-let mainMenu = new _js_modules_MainMenu__WEBPACK_IMPORTED_MODULE_2__["default"]();
+let mainMenu = new _js_modules_MainMenu__WEBPACK_IMPORTED_MODULE_6__["default"]();
 let extra = new _js_modules_Extra__WEBPACK_IMPORTED_MODULE_4__["default"]();
 let search = new _js_modules_Search__WEBPACK_IMPORTED_MODULE_5__["default"]();
-let loadProjects = new _js_modules_LoadProjects__WEBPACK_IMPORTED_MODULE_6__["default"]();
+let loadProjects = new _js_modules_LoadProjects__WEBPACK_IMPORTED_MODULE_7__["default"]();
 let masonryJs = new _js_libs_MasonryJs__WEBPACK_IMPORTED_MODULE_1__["default"]();
-let swiper = new _js_libs_SwiperJs__WEBPACK_IMPORTED_MODULE_7__["default"]();
+let swiper = new _js_libs_SwiperJs__WEBPACK_IMPORTED_MODULE_2__["default"]();
 let categoryTrigger = new _js_modules_CategoryTrigger__WEBPACK_IMPORTED_MODULE_8__["default"]();
 let like = new _js_modules_Like__WEBPACK_IMPORTED_MODULE_9__["default"]();
-let parallax = new _js_libs_Parallax__WEBPACK_IMPORTED_MODULE_3__["default"]();
+let parallax = new _js_libs_ParallaxJs__WEBPACK_IMPORTED_MODULE_3__["default"]();
 
 /***/ }),
 
@@ -199,10 +199,10 @@ class MasonryJs {
 
 /***/ }),
 
-/***/ "./src/js/libs/Parallax.js":
-/*!*********************************!*\
-  !*** ./src/js/libs/Parallax.js ***!
-  \*********************************/
+/***/ "./src/js/libs/ParallaxJs.js":
+/*!***********************************!*\
+  !*** ./src/js/libs/ParallaxJs.js ***!
+  \***********************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -217,18 +217,52 @@ __webpack_require__.r(__webpack_exports__);
 
 class Parallax {
   constructor() {
+    this.frontHeader();
+    this.frontPartners();
+    this.blogHeader();
     this.events();
   }
 
   events() {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).trigger('resize').trigger('scroll'); // $(window).on('scroll', () => {
-    //   console.log('sdljf');
-    //   $('.parallax-container').parallax({
-    //     parallax: 'scroll',
-    //     speed: 0.5,
-    //     positionX: 'left',
-    //   });
-    // });
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scroll(() => {
+      this.trigger();
+    });
+  }
+
+  trigger() {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).trigger('resize.px.parallax');
+  } // Front header init
+
+
+  frontHeader() {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#parallax-front-header').parallax({
+      imageSrc: wpData.frontHeaderBg,
+      speed: 0.5,
+      parallax: 'scroll',
+      positionX: 'left'
+    });
+  } // Front partners init
+
+
+  frontPartners() {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#parallax-front-partners').parallax({
+      imageSrc: wpData.frontPartnersBg,
+      speed: 0.5,
+      parallax: 'scroll',
+      positionX: 'left',
+      // mirrorContainer: '#wrapper',
+      overScrollFix: true
+    });
+  } // Blog header init
+
+
+  blogHeader() {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#parallax-blog-header').parallax({
+      imageSrc: wpData.BlogHeaderBg,
+      speed: 0.5,
+      parallax: 'scroll',
+      positionX: 'left'
+    });
   }
 
 }
@@ -568,7 +602,7 @@ class Like {
       beforeSend: xhr => {
         xhr.setRequestHeader('X-WP-Nonce', wpData.nonce);
       },
-      url: wpData.root_url + '/wp-json/irantheme/v1/manageLike',
+      url: wpData.rootUrl + '/wp-json/irantheme/v1/manageLike',
       type: 'POST',
       data: {
         postID: currentLikeBox.data('post')
@@ -594,7 +628,7 @@ class Like {
       beforeSend: xhr => {
         xhr.setRequestHeader('X-WP-Nonce', wpData.nonce);
       },
-      url: wpData.root_url + '/wp-json/irantheme/v1/manageLike',
+      url: wpData.rootUrl + '/wp-json/irantheme/v1/manageLike',
       data: {
         like: currentLikeBox.attr('data-like')
       },
@@ -667,6 +701,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _libs_MasonryJs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../libs/MasonryJs */ "./src/js/libs/MasonryJs.js");
+/* harmony import */ var _libs_ParallaxJs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../libs/ParallaxJs */ "./src/js/libs/ParallaxJs.js");
+
 
 
 /* ===============================================================
@@ -677,6 +713,7 @@ class LoadProjects {
   constructor() {
     this.btnLoad = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#loading-projects');
     this.masonryJs = new _libs_MasonryJs__WEBPACK_IMPORTED_MODULE_1__["default"]();
+    this.parallaxJs = new _libs_ParallaxJs__WEBPACK_IMPORTED_MODULE_2__["default"]();
     this.events();
   }
 
@@ -691,14 +728,16 @@ class LoadProjects {
         this.btnLoad.removeClass('active');
         this.hideLoadingButton();
       }, 1001);
+      setTimeout(() => {
+        this.parallaxJs.trigger();
+      }, 1500);
     });
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).trigger('resize').trigger('scroll');
   } // Check remaining projects for hiding button load
 
 
   hideLoadingButton() {
     // Get current body project length
-    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.getJSON(wpData.root_url + '/wp-json/json/v1/projects', result => {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.getJSON(wpData.rootUrl + '/wp-json/json/v1/projects', result => {
       let projectCounts = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#projects .post-holder').length; // Get unload project length
 
       var projectUnloadCount = 0; // Assign length unload project
@@ -712,7 +751,7 @@ class LoadProjects {
 
   loadingProjects() {
     // Get json data with api
-    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.getJSON(wpData.root_url + '/wp-json/json/v1/projects', result => {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.getJSON(wpData.rootUrl + '/wp-json/json/v1/projects', result => {
       // Temporary projects of result project
       let projects = result.projects; // Get length of body projects
 
@@ -935,7 +974,7 @@ class Search {
   trigger() {
     this.searchResults.show(); // Get json data with api
 
-    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.getJSON(wpData.root_url + '/wp-json/json/v1/search/?term=' + this.searchInput.val(), result => {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.getJSON(wpData.rootUrl + '/wp-json/json/v1/search/?term=' + this.searchInput.val(), result => {
       jquery__WEBPACK_IMPORTED_MODULE_0___default()('.search-results').html(`
           <div class="row">
           ${result.generalInfo.length ? '' : '<div class="search-not-found">نتیجه ای برای کلمات جستجو شده یافت نشد</div>'}
