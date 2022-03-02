@@ -4,8 +4,8 @@
 <section id="blog-content">
   <div class="container-holder">
     <div class="container-fluid">
-      <?php while (have_posts()) : the_post(); ?>
-        <div class="row flex-lg-row-reverse">
+      <div class="row flex-lg-row-reverse">
+        <?php while (have_posts()) : the_post(); ?>
           <div class="col-lg-8">
             <!-- Single post -->
             <article class="single-post">
@@ -178,22 +178,22 @@
                       while ($my_query->have_posts()) : $my_query->the_post(); ?>
                         <!-- Item -->
                         <div class="swiper-slide">
-                          <div class="post-box">
+                          <div class="post-box-space">
                             <?php if (has_post_thumbnail()) : ?>
                               <!-- Post image -->
-                              <div class="post-image">
+                              <div class="post-image-space">
                                 <a href="<?php echo get_the_permalink(); ?>" class="post-image-link">
                                   <!-- Post thumbnail -->
-                                  <div class="post-thumbnail">
+                                  <div class="post-thumbnail-space">
                                     <img src="<?php the_post_thumbnail_url('large'); ?>" alt="تصویر مطلب">
                                   </div>
                                 </a>
                               </div>
                             <?php endif; ?>
                             <!-- Holder -->
-                            <div class="post-content text-right">
+                            <div class="post-content-space text-right">
                               <!-- Heading -->
-                              <div class="post-heading">
+                              <div class="post-heading-space">
                                 <!-- Date -->
                                 <span><i class="lni lni-calendar"></i><?php echo get_the_date('j, F Y'); ?></span>
                                 <h2><a href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?></a></h2>
@@ -212,7 +212,7 @@
                               ));
                               ?>
                               <!-- Comments & Likes -->
-                              <div class="post-list-options">
+                              <div class="post-list-options-space">
                                 <span><i class="lni lni-comments"></i><?php echo get_comments_number(); ?> دیدگاه</span>
                                 <span><i class="lni lni-heart"></i><?php echo __($likeCountRel->found_posts); ?> پسندشده</span>
                               </div>
@@ -240,13 +240,13 @@
             ?>
           </div>
 
-          <!-- Sidebar -->
-          <div class="col-lg-4">
-            <?php get_sidebar(); ?>
-          </div>
+        <?php endwhile; ?>
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+          <?php get_sidebar(); ?>
         </div>
+      </div>
 
-      <?php endwhile; ?>
     </div>
   </div>
 </section>

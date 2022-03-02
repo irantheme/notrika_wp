@@ -913,13 +913,13 @@ __webpack_require__.r(__webpack_exports__);
 class Search {
   // Initialize
   constructor() {
-    this.searchForm = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#search-form');
+    this.searchBox = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#search-box');
     this.searchAltButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#header-blog .social-networks .search-alt');
-    this.searchCloseButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#search-form-close');
-    this.searchInput = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#search-form .search-input');
+    this.searchCloseButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#search-box-close');
+    this.searchInput = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#search-box .search-input');
     this.spinnerAlt = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#spinner-alt');
     this.searchAlt = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#search-alt');
-    this.searchResults = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#search-form .search-results');
+    this.searchResults = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#search-box .search-results');
     this.events();
     this.timer;
     this.previousSearchInputValue = '';
@@ -966,8 +966,10 @@ class Search {
       this.previousSearchInputValue = searchInputValue;
     }); // Hide search results
 
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#wrapper > *').not('#search-form').on('click', () => {
-      this.searchResults.hide();
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('click', e => {
+      if (!jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.target).closest('.search-form').length) {
+        this.searchResults.hide();
+      }
     });
   }
 
@@ -1002,7 +1004,7 @@ class Search {
 
 
   open() {
-    this.searchForm.fadeIn(500);
+    this.searchBox.fadeIn(500);
     this.isOpen = true;
     setTimeout(() => {
       this.searchInput.focus();
@@ -1011,7 +1013,7 @@ class Search {
 
 
   close() {
-    this.searchForm.fadeOut(500);
+    this.searchBox.fadeOut(500);
     this.isOpen = false;
   } // Open & close with keypress
 

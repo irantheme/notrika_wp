@@ -5,13 +5,13 @@ import $ from 'jquery';
 class Search {
   // Initialize
   constructor() {
-    this.searchForm = $('#search-form');
+    this.searchBox = $('#search-box');
     this.searchAltButton = $('#header-blog .social-networks .search-alt');
-    this.searchCloseButton = $('#search-form-close');
-    this.searchInput = $('#search-form .search-input');
+    this.searchCloseButton = $('#search-box-close');
+    this.searchInput = $('#search-box .search-input');
     this.spinnerAlt = $('#spinner-alt');
     this.searchAlt = $('#search-alt');
-    this.searchResults = $('#search-form .search-results');
+    this.searchResults = $('#search-box .search-results');
     this.events();
     this.timer;
     this.previousSearchInputValue = '';
@@ -56,11 +56,11 @@ class Search {
       this.previousSearchInputValue = searchInputValue;
     });
     // Hide search results
-    $('#wrapper > *')
-      .not('#search-form')
-      .on('click', () => {
+    $(document).on('click', (e) => {
+      if (!$(e.target).closest('.search-form').length) {
         this.searchResults.hide();
-      });
+      }
+    });
   }
 
   trigger() {
@@ -117,7 +117,7 @@ class Search {
 
   // Open search form
   open() {
-    this.searchForm.fadeIn(500);
+    this.searchBox.fadeIn(500);
     this.isOpen = true;
     setTimeout(() => {
       this.searchInput.focus();
@@ -126,7 +126,7 @@ class Search {
 
   // Close search form
   close() {
-    this.searchForm.fadeOut(500);
+    this.searchBox.fadeOut(500);
     this.isOpen = false;
   }
 

@@ -603,10 +603,22 @@ Post box space
 =====================================
 */
 
+// Related post
+
+.related-post {
+  padding-bottom: 30px;
+
+  .related-post-slider {
+    position: relative;
+  }
+}
+
+
 .post-box-space {
   padding: 1rem;
   background: $color-white;
   height: 100%;
+  width: 100%;
 }
 
 .post-image-space {
@@ -614,16 +626,17 @@ Post box space
 }
 
 .post-thumbnail-space {
-  height: 10rem;
+  height: 14rem;
   overflow: hidden;
 
   img {
-    height: inherit;
+    height: 100%;
     width: 100%;
+    object-fit: cover;
     @include transition(all, 0.3s, ease-out);
 
     &:hover {
-      opacity: 0.75;
+      @include transform(scale(1.1) rotate(-2.5deg));
     }
   }
 }

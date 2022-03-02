@@ -1,10 +1,10 @@
 /*
 =====================================
-Search form
+Search box
 =====================================
 */
 
-#search-form {
+#search-box {
   background: $color-white;
   display: none;
   padding: 2rem;
@@ -18,7 +18,7 @@ Search form
     padding: 2rem 0;
   }
 
-  .search-box {
+  .search-form {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -55,11 +55,11 @@ Search form
       align-items: center;
       font-size: 0.9rem;
 
-      &#search-form-close {
+      &#search-box-close {
         cursor: pointer;
       }
 
-      &#search-form-close:hover {
+      &#search-box-close:hover {
         background: $color-gray-300;
       }
 

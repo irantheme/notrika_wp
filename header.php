@@ -123,8 +123,9 @@
         </div>
       </div>
     </header>
-    <!-- Search form -->
-    <section id="search-form">
+
+    <!-- Search box -->
+    <section id="search-box">
       <div class="container-holder">
         <div class="container">
           <?php get_search_form(); ?>

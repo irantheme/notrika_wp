@@ -4,8 +4,8 @@
 <section id="blog-content">
   <div class="container-holder">
     <div class="container-fluid">
-      <?php while (have_posts()) : the_post(); ?>
-        <div class="row flex-lg-row-reverse">
+      <div class="row flex-lg-row-reverse">
+        <?php while (have_posts()) : the_post(); ?>
           <div class="col-lg-8">
             <!-- Single post -->
             <article class="single-post">
@@ -60,14 +60,14 @@
             endif;
             ?>
           </div>
+        <?php endwhile; ?>
 
-          <!-- Sidebar -->
-          <div class="col-lg-4">
-            <?php get_sidebar(); ?>
-          </div>
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+          <?php get_sidebar(); ?>
         </div>
+      </div>
 
-      <?php endwhile; ?>
     </div>
   </div>
 </section>

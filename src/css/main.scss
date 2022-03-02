@@ -1,10 +1,12 @@
 // Utils
 @import 'utils/mixins';
+@import 'utils/animations';
 
 // Base
 @import 'base/variables';
 @import 'base/reset';
 @import 'base/initialize';
+@import 'base/wrappers';
 @import 'base/btn';
 @import 'base/inputs';
 
@@ -23,12 +25,13 @@
 // Core core (blog)
 @import 'modules/core/extra';
 @import 'modules/core/navigation';
+@import 'modules/core/header-blog';
 @import 'modules/core/navbar';
 @import 'modules/core/search';
-@import 'modules/core/blog';
 @import 'modules/core/comments';
 @import 'modules/core/author-profile';
 @import 'modules/core/gallery';
 @import 'modules/core/post-styles';
 @import 'modules/core/additional-styles';
 @import 'modules/core/blocks';
+@import 'modules/core/footer-blog';
