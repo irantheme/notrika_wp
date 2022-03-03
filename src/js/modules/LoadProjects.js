@@ -23,9 +23,13 @@ class LoadProjects {
         this.btnLoad.removeClass('active');
         this.hideLoadingButton();
       }, 1001);
-      setTimeout(() => {
+      // Trigger parallax
+      let triggerCounter = 0;
+      let triggerInterval = setInterval(() => {
         this.parallaxJs.trigger();
-      }, 1500);
+        triggerCounter++;
+        if (triggerCounter >= 300) clearInterval(triggerInterval);
+      }, 10);
     });
   }
 

@@ -10,11 +10,7 @@ class Parallax {
     this.events();
   }
 
-  events() {
-    $(window).scroll(() => {
-      this.trigger();
-    });
-  }
+  events() {}
 
   trigger() {
     $(window).trigger('resize.px.parallax');

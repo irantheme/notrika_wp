@@ -1798,6 +1798,19 @@ Load more
 }
 /*
 =====================================
+Latest blog posts
+=====================================
+*/
+#latest-blog-posts {
+  background: #1C2023;
+  padding: 3rem 0;
+}
+#latest-blog-posts div[class*=col-] {
+  margin-bottom: 30px;
+}
+
+/*
+=====================================
 Partners
 =====================================
 */
@@ -2091,7 +2104,7 @@ Heading mode
 }
 .heading-mode h2 {
   font-size: 1.6rem;
-  display: blcok;
+  display: block;
   margin-bottom: 0.9rem;
 }
 .heading-mode p {
@@ -3100,6 +3113,9 @@ Post box space
 .related-post .related-post-slider {
   position: relative;
 }
+.related-post .swiper-slide {
+  height: 100%;
+}
 
 .post-box-space {
   padding: 1rem;
@@ -3125,6 +3141,7 @@ Post box space
 }
 .post-thumbnail-space img:hover {
   transform: scale(1.1) rotate(-2.5deg);
+  opacity: 0.9;
 }
 
 .post-content-space {
@@ -3155,6 +3172,53 @@ Post box space
   margin-left: 1rem;
 }
 .post-list-options-space span i {
+  margin-left: 0.5rem;
+  color: #0088cc;
+  font-size: 0.8rem;
+  position: relative;
+  top: 2px;
+}
+
+/*
+=====================================
+Post little box
+=====================================
+*/
+.post-box-little {
+  background: #212529;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  height: 100%;
+  display: block;
+}
+.post-box-little:hover {
+  background: #343a40;
+}
+.post-box-little .post-heading-little {
+  margin-bottom: 0.5rem;
+}
+.post-box-little .post-heading-little span {
+  font-size: 0.7rem;
+  color: #dee2e6;
+}
+.post-box-little .post-heading-little span i {
+  margin-left: 0.5rem;
+  color: #0088cc;
+}
+.post-box-little .post-heading-little h3 {
+  font-size: 0.9rem;
+  line-height: 1.4rem;
+  color: #e9ecef;
+}
+.post-box-little .post-options-little span {
+  cursor: default;
+  font-size: 0.7rem;
+  color: #adb5bd;
+}
+.post-box-little .post-options-little span:not(:last-child) {
+  margin-left: 1rem;
+}
+.post-box-little .post-options-little span i {
   margin-left: 0.5rem;
   color: #0088cc;
   font-size: 0.8rem;

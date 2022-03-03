@@ -1,0 +1,14 @@
+/*
+=====================================
+Latest blog posts
+=====================================
+*/
+
+#latest-blog-posts {
+  background: $color-dark;
+  padding: 3rem 0;
+
+  div[class*="col-"] {
+    margin-bottom: 30px;
+  }
+}

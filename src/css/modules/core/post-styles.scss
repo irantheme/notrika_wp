@@ -611,6 +611,10 @@ Post box space
   .related-post-slider {
     position: relative;
   }
+
+  .swiper-slide {
+    height: 100%;
+  }
 }
 
 
@@ -637,6 +641,7 @@ Post box space
 
     &:hover {
       @include transform(scale(1.1) rotate(-2.5deg));
+      opacity: 0.9;
     }
   }
 }
@@ -679,6 +684,66 @@ Post box space
       font-size: 0.8rem;
       position: relative;
       top: 2px;
+    }
+  }
+}
+
+/*
+=====================================
+Post little box
+=====================================
+*/
+
+.post-box-little {
+  background: $color-gray-900;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  height: 100%;
+  display: block;
+
+  &:hover {
+    background: $color-gray-800;
+  }
+
+  // Heading
+  .post-heading-little {
+    margin-bottom: 0.5rem;
+
+    span {
+      font-size: 0.7rem;
+      color: $color-gray-300;
+
+      i {
+        margin-left: 0.5rem;
+        color: $color-primary;
+      }
+    }
+
+    h3 {
+      font-size: 0.9rem;
+      line-height: 1.4rem;
+      color: $color-gray-200;      
+    }
+  }
+
+  // Options
+  .post-options-little {
+    span {
+      cursor: default;
+      font-size: 0.7rem;
+      color: $color-gray-500;
+
+      &:not(:last-child) {
+        margin-left: 1rem;
+      }
+
+      i {
+        margin-left: 0.5rem;
+        color: $color-primary;
+        font-size: 0.8rem;
+        position: relative;
+        top: 2px;
+      }
     }
   }
 }

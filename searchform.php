@@ -1,6 +1,6 @@
 <!-- Search form -->
-<div class="search-form">
-  <input type="text" class="search-input" placeholder="به دنبال چیزی هستید؟">
+<form class="search-form" role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+  <input type="text" class="search-input" value="<?php echo get_search_query(); ?>" autocomplete="off" name="s" id="s" placeholder="به دنبال چیزی هستید؟">
   <span class="search-case search-case-alt">
     <i id="search-alt" class="lni lni-search-alt"></i>
     <i id="spinner-alt" class="animate-rotate"></i>
@@ -10,4 +10,4 @@
   <div class="search-results">
     <div class="row"></div>
   </div>
-</div>
+</form>

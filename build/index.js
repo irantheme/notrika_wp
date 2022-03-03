@@ -223,11 +223,7 @@ class Parallax {
     this.events();
   }
 
-  events() {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scroll(() => {
-      this.trigger();
-    });
-  }
+  events() {}
 
   trigger() {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).trigger('resize.px.parallax');
@@ -727,10 +723,14 @@ class LoadProjects {
       setTimeout(() => {
         this.btnLoad.removeClass('active');
         this.hideLoadingButton();
-      }, 1001);
-      setTimeout(() => {
+      }, 1001); // Trigger parallax
+
+      let triggerCounter = 0;
+      let triggerInterval = setInterval(() => {
         this.parallaxJs.trigger();
-      }, 1500);
+        triggerCounter++;
+        if (triggerCounter >= 300) clearInterval(triggerInterval);
+      }, 10);
     });
   } // Check remaining projects for hiding button load
 

@@ -5,8 +5,8 @@
   <div class="container-holder">
     <div class="container-fluid">
       <div class="row flex-lg-row-reverse">
-        <?php while (have_posts()) : the_post(); ?>
-          <div class="col-lg-8">
+        <div class="col-lg-8">
+          <?php while (have_posts()) : the_post(); ?>
             <!-- Single post -->
             <article class="single-post">
               <?php
@@ -238,9 +238,8 @@
               comments_template();
             endif;
             ?>
-          </div>
-
-        <?php endwhile; ?>
+          <?php endwhile; ?>
+        </div>
         <!-- Sidebar -->
         <div class="col-lg-4">
           <?php get_sidebar(); ?>

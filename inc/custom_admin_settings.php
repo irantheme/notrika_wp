@@ -213,6 +213,14 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 						'default'		=> '',
 						'placeholder'	=> ''
 					),
+					array(
+						'id' 			=> 'front_projects_count',
+						'label'			=> __('تعداد مطالب پروژه ها', $this->textdomain),
+						'description'	=> __('تنظیم تعداد مطالب قابل مشاهده در پروژه ها.', $this->textdomain),
+						'type'			=> 'number',
+						'default'		=> 6,
+						'placeholder'	=> ''
+					),
 				),
 			);
 
