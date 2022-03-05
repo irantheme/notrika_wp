@@ -1,0 +1,15 @@
+<!-- Copyright -->
+<div class="copyright">
+  <div class="container-holder">
+    <div class="container-fluid">
+      <!-- Social networks -->
+      <ul class="social-networks">
+        <?php
+        // Get template part of social media
+        get_template_part('/template-parts/content', 'social-media');
+        ?>
+      </ul>
+      <p><?php echo __(get_option('irantheme_copyright')); ?></p>
+    </div>
+  </div>
+</div>

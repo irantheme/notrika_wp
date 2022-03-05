@@ -335,17 +335,20 @@ Blog content
   cursor: default;
 
   span {
-    background: $color-gray-200;
+    cursor: default;
     font-size: 0.7rem;
-    padding-left: 1rem;
-    display: flex;
+    color: $color-gray-600;
+
+    &:not(:last-child) {
+      margin-left: 1rem;
+    }
 
     i {
-      padding: 0 0.5rem;
-      background: $color-gray-500;
-      line-height: inherit;
-      margin-left: 1rem;
-      color: $color-white;
+      margin-left: 0.5rem;
+      color: $color-primary;
+      font-size: 0.8rem;
+      position: relative;
+      top: 2px;
     }
   }
 }
@@ -665,26 +668,6 @@ Post box space
   h2 {
     font-size: 0.9rem;
     line-height: 1.4rem;
-  }
-}
-
-.post-list-options-space {
-  span {
-    cursor: default;
-    font-size: 0.7rem;
-    color: $color-gray-600;
-
-    &:not(:last-child) {
-      margin-left: 1rem;
-    }
-
-    i {
-      margin-left: 0.5rem;
-      color: $color-primary;
-      font-size: 0.8rem;
-      position: relative;
-      top: 2px;
-    }
   }
 }
 

@@ -1,0 +1,111 @@
+<!-- Projects -->
+<section id="projects">
+  <div class="container">
+    <!-- Heading mode -->
+    <div class="heading-mode heading-mode-dark text-right">
+      <h2><?php echo __(get_option('irantheme_front_projects_title')); ?></h2>
+      <p><?php echo __(get_option('irantheme_front_projects_description')); ?></p>
+    </div>
+    <?php
+    $categories = get_categories(array('parent' => 0, 'hide_empty' => 0));
+    if (count($categories)) : ?>
+      <!-- Categories -->
+      <div class="categories">
+        <ul>
+          <li>
+            <span id="all-categories" class="active">همه</span>
+          </li>
+          <?php
+          $categories = get_categories(array(
+            'orderby' => 'name',
+            'parent' => 0
+          ));
+          foreach ($categories as $category) {
+            echo '<li><span data-cate="' . esc_attr($category->term_id) . '">' . __($category->name) . '</span></li>';
+          }
+          ?>
+        </ul>
+      </div>
+    <?php endif; ?>
+  </div>
+  <div class="container">
+    <?php
+    $front_projects_post = new WP_Query(array(
+      'post_type' => 'projects',
+      'posts_per_page' => intval(esc_html__(get_option('irantheme_front_projects_count'))),
+    ));
+    ?>
+    <div class="row">
+      <!-- Grid masonry -->
+      <div class="grid-masonry">
+        <div class="grid-sizer"></div>
+        <?php while ($front_projects_post->have_posts()) : $front_projects_post->the_post();
+          // Get parent id category of post
+          $category = get_the_category();
+          // $category_parent_list = array();
+          $category_parents_id = '';
+          foreach ($category as $cate) {
+            if ($cate->parent) {
+              // From your child category, grab parent ID
+              $parent = $cate->parent;
+
+              // Load object for parent category
+              $parent_id = get_category($parent);
+
+              // Grab a category name
+              $parent_id = $parent_id->term_id;
+              $category_parents_id .= strval($parent_id) . ',';
+            } else {
+              $category_parents_id .= strval($cate->term_id) . ',';
+            }
+          }
+          // Get all category of posts
+          $categories = get_the_category();
+          $categories_output = '';
+        ?>
+          <!-- Post -->
+          <div class="grid-item post-holder" data-cate="<?php echo esc_attr($category_parents_id); ?>">
+            <article class="post">
+              <a href="<?php echo get_the_permalink(); ?>" class="post-link">
+                <?php if (has_post_thumbnail()) : ?>
+                  <!-- Post image -->
+                  <div class="post-image">
+                    <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="تصویر پروژه" />
+                  </div>
+                <?php endif; ?>
+                <!-- Post content -->
+                <div class="post-content">
+                  <!-- Post heading -->
+                  <div class="post-heading">
+                    <h2><?php echo get_the_title(); ?></h2>
+                    <?php if (count($categories)) : ?>
+                      <!-- Post categories -->
+                      <ul class="post-categories">
+                        <?php
+                        foreach ($categories as $category) {
+                          $categories_output .= '<li><span>' . __($category->name) . '</span></li>';
+                        }
+                        echo trim($categories_output, '');
+                        ?>
+                      </ul>
+                    <?php endif; ?>
+                  </div>
+                </div>
+              </a>
+              <!-- Post icons -->
+              <div class="post-icons">
+                <i class="lni lni-full-screen"></i>
+              </div>
+            </article>
+          </div>
+        <?php endwhile; ?>
+      </div>
+    </div>
+    <!-- Load more -->
+    <div class="load-more">
+      <button id="loading-projects" class="button-load">
+        پروژه های بیشتر<i class="lni lni-spinner"></i>
+      </button>
+    </div>
+  </div>
+</section>
