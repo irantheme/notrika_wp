@@ -8,18 +8,20 @@ if (!function_exists('irantheme_register_post_types')) {
   function irantheme_register_post_types()
   {
 
-    // Register projects post type
-    register_post_type('projects', array(
+    // Register project post type
+    register_post_type('project', array(
       'public'             => true,
-      'publicly_queryable' => true,
-      'show_ui'            => true,
-      'show_in_menu'       => true,
-      'query_var'          => true,
+      'map_meta_cap' => true,
+      'show_in_rest' => true,
+      // 'publicly_queryable' => true,
+      // 'show_ui'            => true,
+      // 'show_in_menu'       => true,
+      // 'query_var'          => true,
       'rewrite'            => array('slug' => 'projects'),
-      'capability_type'    => 'post',
-      'has_archive'        => true,
-      'hierarchical'       => false,
-      'menu_position'      => null,
+      'capability_type'    => 'project',
+      // 'has_archive'        => true,
+      // 'hierarchical'       => false,
+      // 'menu_position'      => null,
       'supports'           => array('title', 'editor', 'thumbnail'),
       'taxonomies' => array('category', 'post_tag'),
       'labels' => array(
@@ -32,8 +34,8 @@ if (!function_exists('irantheme_register_post_types')) {
       'menu_icon' => 'dashicons-schedule'
     ));
 
-    // Register features post type
-    register_post_type('features', array(
+    // Register feature post type
+    register_post_type('feature', array(
       'supports' => array('title', 'editor'),
       'public' => false,
       'show_ui' => true,
@@ -47,8 +49,8 @@ if (!function_exists('irantheme_register_post_types')) {
       'menu_icon' => 'dashicons-screenoptions'
     ));
 
-    // Register partners post type
-    register_post_type('partners', array(
+    // Register partner post type
+    register_post_type('partner', array(
       'supports' => array('title', 'thumbnail'),
       'public' => false,
       'show_ui' => true,
@@ -66,7 +68,7 @@ if (!function_exists('irantheme_register_post_types')) {
       'menu_icon' => 'dashicons-groups'
     ));
 
-    // Register partners post type
+    // Register viewpoint post type
     register_post_type('viewpoint', array(
       'supports' => array('title', 'editor'),
       'public' => false,

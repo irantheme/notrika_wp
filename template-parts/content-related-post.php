@@ -15,9 +15,9 @@ if ($related_category) :
       'posts_per_page' => 8,
       'ignore_sticky_posts' => 1
     );
-  } else if (get_post_type() == 'projects') {
+  } else if (get_post_type() == 'project') {
     $args = array(
-      'post_type' => 'projects',
+      'post_type' => 'project',
       'category__in' => $category_ids,
       'post__not_in' => array($post->ID),
       'posts_per_page' => 8,

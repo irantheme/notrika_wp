@@ -2443,8 +2443,11 @@ Search box
   top: 100%;
   right: 0;
   width: 100%;
+  max-height: 30rem;
   padding: 2rem;
   background: #f8f9fa;
+  overflow-y: auto;
+  overflow-x: hidden;
   z-index: 4;
   display: none;
 }
@@ -2910,8 +2913,6 @@ Blog content
 
 .post-author > div {
   display: flex;
-  padding: 1rem;
-  background: #f8f9fa;
   transition: 0.3s;
 }
 .post-author > div:hover {
@@ -2929,13 +2930,13 @@ Blog content
   padding-top: 0.85rem;
 }
 .post-author > div > div a {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-style: normal;
   color: #1C2023;
   line-height: 1.2;
 }
 .post-author > div > div span {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: #6c757d;
 }
 .post-author > div > div p {
@@ -2946,7 +2947,6 @@ Blog content
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding-top: 1rem;
 }
 .post-tags a {
   background: #e9ecef;

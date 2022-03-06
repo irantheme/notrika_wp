@@ -6,6 +6,13 @@
     <div class="container-fluid">
       <div class="row flex-lg-row-reverse">
         <div class="col-lg-8 px-0">
+          <?php
+          $allQueryPosts = new WP_Query(array(
+            'post_type' => array('post', 'project'),
+            'order' => 'DESC',
+            'orderby' => 'date'
+          ));
+          ?>
           <?php if (have_posts()) : ?>
             <!-- All posts -->
             <main class="grid-masonry">

@@ -357,8 +357,6 @@ Blog content
 .post-author {
   &>div {
     display: flex;
-    padding: 1rem;
-    background: $color-gray-100;
     transition: 0.3s;
 
     &:hover {
@@ -378,14 +376,14 @@ Blog content
       padding-top: 0.85rem;
 
       a {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         font-style: normal;
         color: $color-dark;
         line-height: 1.2;
       }
 
       span {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
         color: $color-gray-600;
       }
 
@@ -401,7 +399,6 @@ Blog content
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding-top: 1rem;
 
   a {
     background: $color-gray-200;

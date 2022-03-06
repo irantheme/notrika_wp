@@ -1,6 +1,6 @@
 <?php
 $front_post_query = new WP_Query(array(
-  'post_type' => 'features',
+  'post_type' => 'feature',
   'posts_per_page' => -1,
 ));
 ?>

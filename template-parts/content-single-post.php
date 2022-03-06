@@ -74,17 +74,6 @@
           <span><i class="lni lni-comments"></i><?php echo get_comments_number(); ?> دیدگاه</span>
           <span><i class="lni lni-heart"></i><?php echo __($likeCount->found_posts); ?> پسندشده</span>
         </div>
-        <!-- Author -->
-        <div class="post-author">
-          <div>
-            <img src="<?php echo get_avatar_url(get_the_author_meta('ID')); ?>" alt="آواتاز نویسنده">
-            <div>
-              <?php echo get_the_author_posts_link(); ?>
-              <span><?php echo get_the_author_meta('nickname'); ?></span>
-              <p><?php echo get_the_author_meta('description'); ?></p>
-            </div>
-          </div>
-        </div>
         <?php if (has_tag()) : ?>
           <!-- Tags -->
           <div class="post-tags">

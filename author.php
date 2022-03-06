@@ -12,11 +12,19 @@
           get_template_part('/template-parts/content', 'author-profile');
           ?>
 
-          <?php if (have_posts()) : ?>
+          <?php
+          $allQueryPosts = new WP_Query(array(
+            'post_type' => array('post', 'project'),
+            'order' => 'DESC',
+            'orderby' => 'date'
+          ));
+          ?>
+
+          <?php if ($allQueryPosts->have_posts()) : ?>
             <!-- All posts -->
             <main class="grid-masonry">
               <div class="grid-sizer"></div>
-              <?php while (have_posts()) : the_post(); ?>
+              <?php while ($allQueryPosts->have_posts()) : $allQueryPosts->the_post(); ?>
 
                 <?php
                 // Get template part of post

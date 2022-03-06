@@ -27,7 +27,7 @@ function resultsProjects($data)
 
   // Getting new query for post and page type
   $mainQuery = new WP_Query(array(
-    'post_type' => array('projects'),
+    'post_type' => array('project'),
     's' => sanitize_text_field($data['term']), // Sanitize is more security for wordpress functions
     'posts_per_page' => 99999999
   ));
@@ -69,7 +69,7 @@ function resultsProjects($data)
       }
     }
     // Appending data to results array
-    if (get_post_type() == 'projects') {
+    if (get_post_type() == 'project') {
       array_push($results['projects'], array(
         'title' => get_the_title(),
         'content' => wp_trim_words(strip_shortcodes(get_the_excerpt()), 43),

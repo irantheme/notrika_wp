@@ -14,6 +14,11 @@
             ?>
 
             <?php
+            // Get template part of post author
+            get_template_part('/template-parts/content', 'post-author');
+            ?>
+
+            <?php
             // Get template part of related post
             get_template_part('/template-parts/content', 'related-post');
             ?>

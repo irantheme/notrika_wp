@@ -43,7 +43,7 @@ if (!function_exists('irantheme_create_like')) {
     //   )
     // ));
 
-    if (get_post_type($postID) == 'post' || get_post_type($postID) == 'projects') {
+    if (get_post_type($postID) == 'post' || get_post_type($postID) == 'project') {
       return wp_insert_post(array(
         'post_type' => 'like',
         'post_status' => 'publish',
