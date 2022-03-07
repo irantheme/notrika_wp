@@ -10,7 +10,7 @@ if (!function_exists('irantheme_register_post_types')) {
 
     // Register project post type
     register_post_type('project', array(
-      'public'             => true,
+      'public' => true,
       'map_meta_cap' => true,
       'show_in_rest' => true,
       // 'publicly_queryable' => true,
@@ -18,11 +18,11 @@ if (!function_exists('irantheme_register_post_types')) {
       // 'show_in_menu'       => true,
       // 'query_var'          => true,
       'rewrite'            => array('slug' => 'projects'),
-      'capability_type'    => 'project',
-      // 'has_archive'        => true,
+      // 'capability_type'    => 'project',
+      'has_archive'        => true,
       // 'hierarchical'       => false,
       // 'menu_position'      => null,
-      'supports'           => array('title', 'editor', 'thumbnail'),
+      'supports'           => array('title', 'editor', 'thumbnail', 'comments'),
       'taxonomies' => array('category', 'post_tag'),
       'labels' => array(
         'name' => 'پروژه ها',

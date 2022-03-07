@@ -7,23 +7,30 @@ if ($related_category) :
   foreach ($related_category as $individual_category) {
     $category_ids[] = $individual_category->term_id;
   }
-  if (get_post_type() == 'post') {
-    $args = array(
-      'post_type' => 'post',
-      'category__in' => $category_ids,
-      'post__not_in' => array($post->ID),
-      'posts_per_page' => 8,
-      'ignore_sticky_posts' => 1
-    );
-  } else if (get_post_type() == 'project') {
-    $args = array(
-      'post_type' => 'project',
-      'category__in' => $category_ids,
-      'post__not_in' => array($post->ID),
-      'posts_per_page' => 8,
-      'ignore_sticky_posts' => 1
-    );
-  }
+  // if (get_post_type() == 'post') {
+  //   $args = array(
+  //     'post_type' => 'post',
+  //     'category__in' => $category_ids,
+  //     'post__not_in' => array($post->ID),
+  //     'posts_per_page' => 4,
+  //     'ignore_sticky_posts' => 1
+  //   );
+  // } else if (get_post_type() == 'project') {
+  //   $args = array(
+  //     'post_type' => 'project',
+  //     'category__in' => $category_ids,
+  //     'post__not_in' => array($post->ID),
+  //     'posts_per_page' => 4,
+  //     'ignore_sticky_posts' => 1
+  //   );
+  // }
+  $args = array(
+    'post_type' => array('post', 'project'),
+    'category__in' => $category_ids,
+    'post__not_in' => array($post->ID),
+    'posts_per_page' => 4,
+    'ignore_sticky_posts' => 1
+  );
   $my_query = new WP_Query($args);
 
   if ($my_query->have_posts()) : ?>

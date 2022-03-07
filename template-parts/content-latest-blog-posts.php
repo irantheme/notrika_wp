@@ -39,8 +39,8 @@ if ($front_latest_blog_posts->have_posts()) :
               ?>
               <!-- Comments & Likes -->
               <div class="post-options-little">
-                <span><i class="lni lni-comments"></i><?php echo get_comments_number(); ?> دیدگاه</span>
-                <span><i class="lni lni-heart"></i><?php echo __($likeCountRel->found_posts); ?> پسندشده</span>
+                <span><i class="lni lni-comments"></i>دیدگاه<em><?php echo get_comments_number(); ?></em></span>
+                <span><i class="lni lni-heart"></i>پسندشده<em><?php echo $likeCountRel->found_posts; ?></em></span>
               </div>
             </a>
           </div>

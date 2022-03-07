@@ -232,3 +232,30 @@ if (!function_exists('irantheme_custom_avatar_comments_user')) {
   }
   add_filter('avatar_defaults', 'irantheme_custom_avatar_comments_user');
 }
+
+
+if (!function_exists('irantheme_add_custom_post_types_namespace')) {
+  /**
+   * Add custom post type to archive & namespace
+   * ###########################################################
+   * @return void
+   * @param $query
+   */
+  function irantheme_add_custom_post_types_namespace($query)
+  {
+    if (is_single() && get_post_type() == 'project') {
+      $query->set('post_type', array(
+        'post', 'nav_menu_item', 'project'
+      ));
+      return $query;
+    }
+
+    if (is_category() || is_tag() && empty($query->query_vars['suppress_filters'])) {
+      $query->set('post_type', array(
+        'post', 'nav_menu_item', 'project'
+      ));
+      return $query;
+    }
+  }
+  add_filter('pre_get_posts', 'irantheme_add_custom_post_types_namespace');
+}

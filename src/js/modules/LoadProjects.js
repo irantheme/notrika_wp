@@ -96,7 +96,6 @@ class LoadProjects {
                       </div>
                       <div class="post-icons">
                         <i class="lni lni-full-screen"></i>
-                        <i class="lni lni-link"></i>
                       </div>
                       </div>
                       `;

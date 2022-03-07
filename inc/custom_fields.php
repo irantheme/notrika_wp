@@ -120,7 +120,7 @@ if (!function_exists('irantheme_features_member_add_meta_box')) {
   function irantheme_features_member_add_meta_box()
   {
     //this will add the metabox for the member post type
-    $screens = array('features');
+    $screens = array('feature');
 
     foreach ($screens as $screen) {
 

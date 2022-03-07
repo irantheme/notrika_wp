@@ -350,6 +350,11 @@ Blog content
       position: relative;
       top: 2px;
     }
+
+    em {
+      margin-right: 0.5rem;
+      font-style: normal;
+    }
   }
 }
 
@@ -723,6 +728,11 @@ Post little box
         font-size: 0.8rem;
         position: relative;
         top: 2px;
+      }
+
+      em {
+        margin-right: 0.5rem;
+        font-style: normal;
       }
     }
   }

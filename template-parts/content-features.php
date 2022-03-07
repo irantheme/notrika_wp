@@ -21,7 +21,7 @@ $front_post_query = new WP_Query(array(
         <!-- Feature box -->
         <div class="col-lg-4">
           <aside class="feature-box">
-            <div class="feature-icon"><i class="lni <?php echo $feature_icon; ?>"></i></div>
+            <div class="feature-icon"><i class="lni <?php echo esc_html__($feature_icon); ?>"></i></div>
             <div class="feature-content">
               <h3><?php echo get_the_title(); ?></h3>
               <p><?php echo sanitize_text_field(get_the_content()); ?></p>

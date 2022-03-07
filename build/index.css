@@ -2910,6 +2910,10 @@ Blog content
   position: relative;
   top: 2px;
 }
+.post-list-options span em {
+  margin-right: 0.5rem;
+  font-style: normal;
+}
 
 .post-author > div {
   display: flex;
@@ -3213,6 +3217,10 @@ Post little box
   font-size: 0.8rem;
   position: relative;
   top: 2px;
+}
+.post-box-little .post-options-little span em {
+  margin-right: 0.5rem;
+  font-style: normal;
 }
 
 /*

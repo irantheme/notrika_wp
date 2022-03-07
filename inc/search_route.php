@@ -27,7 +27,7 @@ if (!function_exists('irantheme_results_search')) {
   {
     // Getting new query for post and page type
     $mainQuery = new WP_Query(array(
-      'post_type' => array('post'),
+      'post_type' => array('post', 'project'),
       's' => sanitize_text_field($data['term']), // Sanitize is more security for wordpress functions
       'posts_per_page' => 99999999
     ));
@@ -41,7 +41,7 @@ if (!function_exists('irantheme_results_search')) {
     while ($mainQuery->have_posts()) {
       $mainQuery->the_post();
       // Appending data to results array
-      if (get_post_type() == 'post' || get_post_type() == 'page') {
+      if (get_post_type() == 'post' || get_post_type() == 'project') {
         array_push($results['generalInfo'], array(
           'title' => get_the_title(),
           'permalink' => get_the_permalink(),

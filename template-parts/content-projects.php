@@ -102,7 +102,8 @@ $front_projects_post = new WP_Query(array(
           <?php endwhile; ?>
         </div>
       </div>
-      <?php if (is_paged()) : ?>
+
+      <?php if ($front_projects_post->found_posts > $front_projects_post->post_count) : ?>
         <!-- Load more -->
         <div class="load-more">
           <button id="loading-projects" class="button-load">
@@ -110,6 +111,8 @@ $front_projects_post = new WP_Query(array(
           </button>
         </div>
       <?php endif; ?>
+
     </div>
   </section>
-<?php endif; ?>
+<?php endif;
+wp_reset_query(); ?>
