@@ -9,7 +9,7 @@
 
           <?php
           // Get template part of author profile
-          get_template_part('/template-parts/content', 'author-profile');
+          get_template_part('/template-parts/components/component', 'author-profile');
           ?>
 
           <?php if (have_posts()) : ?>
@@ -20,7 +20,7 @@
 
                 <?php
                 // Get template part of post
-                get_template_part('/template-parts/content', 'post');
+                get_template_part('/template-parts/content/content', 'post');
                 ?>
 
               <?php endwhile; ?>

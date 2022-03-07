@@ -12,7 +12,7 @@
             <main class="grid-masonry">
               <div class="grid-sizer"></div>
               <?php while (have_posts()) : the_post(); ?>
-                <?php get_template_part('/template-parts/content', 'post'); ?>
+                <?php get_template_part('/template-parts/content/content', 'post'); ?>
               <?php endwhile; ?>
             </main>
           <?php endif; ?>

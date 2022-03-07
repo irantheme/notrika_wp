@@ -11,7 +11,7 @@
 
             <?php
             // Get template part of single post
-            get_template_part('/template-parts/content', 'single-post');
+            get_template_part('/template-parts/content/content', 'single-post');
             ?>
 
             <?php

@@ -15,7 +15,7 @@
 
                 <?php
                 // Get template part of post
-                get_template_part('/template-parts/content', 'post');
+                get_template_part('/template-parts/content/content', 'post');
                 ?>
 
               <?php endwhile; ?>

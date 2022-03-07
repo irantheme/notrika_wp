@@ -10,17 +10,17 @@
           <?php while (have_posts()) : the_post(); ?>
             <?php
             // Get template part of single post
-            get_template_part('/template-parts/content', 'single-post');
+            get_template_part('/template-parts/content/content', 'single-post');
             ?>
 
             <?php
             // Get template part of post author
-            get_template_part('/template-parts/content', 'post-author');
+            get_template_part('/template-parts/components/component', 'post-author');
             ?>
 
             <?php
             // Get template part of related post
-            get_template_part('/template-parts/content', 'related-post');
+            get_template_part('/template-parts/content/content', 'related-post');
             ?>
 
             <?php

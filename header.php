@@ -12,7 +12,7 @@
 
   <?php
   // Get template part of navigation
-  get_template_part('/template-parts/content', 'navigation');
+  get_template_part('/template-parts/hooks/hook', 'navigation');
   ?>
 
   <!-- Wrapper -->
@@ -22,10 +22,10 @@
 
     <?php
     // Get template part of header blog
-    get_template_part('/template-parts/content', 'header-blog');
+    get_template_part('/template-parts/components/component', 'header-blog');
     ?>
 
     <?php
     // Get template part of search box
-    get_template_part('/template-parts/content', 'search-box');
+    get_template_part('/template-parts/hooks/hook', 'search-box');
     ?>
