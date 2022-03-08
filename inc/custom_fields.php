@@ -156,12 +156,98 @@ if (!function_exists('irantheme_features_member_meta_box_callback')) {
     _e('آیکن مورد نظر', 'member_textdomain');
     echo '</label> ';
     echo '<select id="features_post_icon" name="features_post_icon">
-    <option value="lni-menu" ' . ($value == 'lni-menu' ? 'selected' : '') . '>Menu</option>
+
+    <option value="lni-apartment" ' . ($value == 'lni-apartment' ? 'selected' : '') . '>Apartment</option>
+    <option value="lni-alarm" ' . ($value == 'lni-alarm' ? 'selected' : '') . '>Alarm</option>
+    <option value="lni-ambulance" ' . ($value == 'lni-ambulance' ? 'selected' : '') . '>Ambulance</option>
+
+    <option value="lni-brush" ' . ($value == 'lni-brush' ? 'selected' : '') . '>Brush</option>
+    <option value="lni-bar-chart" ' . ($value == 'lni-bar-chart' ? 'selected' : '') . '>Bar Chart</option>
+    <option value="lni-bolt" ' . ($value == 'lni-bolt' ? 'selected' : '') . '>Bolt</option>
+    <option value="lni-bug" ' . ($value == 'lni-bug' ? 'selected' : '') . '>Bug</option>
+    <option value="lni-bullhorn" ' . ($value == 'lni-bullhorn' ? 'selected' : '') . '>Bullhorn</option>
+    <option value="lni-bluetooth" ' . ($value == 'lni-bluetooth' ? 'selected' : '') . '>Bluetooth</option>
+
+    <option value="lni-cloud" ' . ($value == 'lni-cloud' ? 'selected' : '') . '>Cloud</option>
+    <option value="lni-camera" ' . ($value == 'lni-camera' ? 'selected' : '') . '>Camera</option>
+    <option value="lni-cool" ' . ($value == 'lni-cool' ? 'selected' : '') . '>Cool</option>
+    <option value="lni-calendar" ' . ($value == 'lni-calendar' ? 'selected' : '') . '>Calendar</option>
+    <option value="lni-coffee-cup" ' . ($value == 'lni-coffee-cup' ? 'selected' : '') . '>Coffee Cup</option>
+    <option value="lni-checkmark" ' . ($value == 'lni-checkmark' ? 'selected' : '') . '>Checkmark</option>
+    <option value="lni-cart" ' . ($value == 'lni-cart' ? 'selected' : '') . '>Cart</option>
     <option value="lni-code" ' . ($value == 'lni-code' ? 'selected' : '') . '>Code</option>
+    <option value="lni-calculator" ' . ($value == 'lni-calculator' ? 'selected' : '') . '>Calculator</option>
+
+    <option value="lni-delivery" ' . ($value == 'lni-delivery' ? 'selected' : '') . '>Delivery</option>
+    <option value="lni-dollar" ' . ($value == 'lni-dollar' ? 'selected' : '') . '>Dollar</option>
     <option value="lni-display" ' . ($value == 'lni-display' ? 'selected' : '') . '>Display</option>
-    <option value="lni-reload" ' . ($value == 'lni-reload' ? 'selected' : '') . '>Reload</option>
-    <option value="lni-support" ' . ($value == 'lni-support' ? 'selected' : '') . '>Support</option>
+    <option value="lni-download" ' . ($value == 'lni-download' ? 'selected' : '') . '>Download</option>
+    <option value="lni-diamond" ' . ($value == 'lni-diamond' ? 'selected' : '') . '>Diamond</option>
+    <option value="lni-database" ' . ($value == 'lni-database' ? 'selected' : '') . '>Database</option>
+
+    <option value="lni-euro" ' . ($value == 'lni-euro' ? 'selected' : '') . '>Euro</option>
+    <option value="lni-envelope" ' . ($value == 'lni-envelope' ? 'selected' : '') . '>Envelope</option>
+
+    <option value="lni-first-aid" ' . ($value == 'lni-first-aid' ? 'selected' : '') . '>First Aid</option>
+    <option value="lni-fullscreen" ' . ($value == 'lni-fullscreen' ? 'selected' : '') . '>Fullscreen</option>
+
+    <option value="lni-grid-alt" ' . ($value == 'lni-grid-alt' ? 'selected' : '') . '>Grid Alt</option>
+    <option value="lni-gallery" ' . ($value == 'lni-gallery' ? 'selected' : '') . '>Gallery</option>
+    <option value="lni-grid" ' . ($value == 'lni-grid' ? 'selected' : '') . '>Grid</option>
+    <option value="lni-graph" ' . ($value == 'lni-graph' ? 'selected' : '') . '>Graph</option>
+
+    <option value="lni-happy" ' . ($value == 'lni-happy' ? 'selected' : '') . '>Happy</option>
+    <option value="lni-hand" ' . ($value == 'lni-hand' ? 'selected' : '') . '>Hand</option>
+    <option value="lni-heart" ' . ($value == 'lni-heart' ? 'selected' : '') . '>Heart</option>
+
+    <option value="lni-inbox" ' . ($value == 'lni-inbox' ? 'selected' : '') . '>Inbox</option>
+
+    <option value="lni-keyword-research" ' . ($value == 'lni-keyword-research' ? 'selected' : '') . '>Keyword Research</option>
+
+    <option value="lni-layers" ' . ($value == 'lni-layers' ? 'selected' : '') . '>Layers</option>
+    <option value="lni-layout" ' . ($value == 'lni-layout' ? 'selected' : '') . '>Layout</option>
+    <option value="lni-lock" ' . ($value == 'lni-lock' ? 'selected' : '') . '>Lock</option>
+    <option value="lni-list" ' . ($value == 'lni-list' ? 'selected' : '') . '>List</option>
+
+    <option value="lni-menu" ' . ($value == 'lni-menu' ? 'selected' : '') . '>Menu</option>
+    <option value="lni-more" ' . ($value == 'lni-more' ? 'selected' : '') . '>More</option>
+    <option value="lni-move" ' . ($value == 'lni-move' ? 'selected' : '') . '>Move</option>
+
     <option value="lni-network" ' . ($value == 'lni-network' ? 'selected' : '') . '>Network</option>
+
+    <option value="lni-phone" ' . ($value == 'lni-phone' ? 'selected' : '') . '>Phone</option>
+    <option value="lni-pencil" ' . ($value == 'lni-pencil' ? 'selected' : '') . '>Pencil</option>
+    <option value="lni-pencil-alt" ' . ($value == 'lni-pencil-alt' ? 'selected' : '') . '>Pencil Alt</option>
+    <option value="lni-protection" ' . ($value == 'lni-protection' ? 'selected' : '') . '>Protection</option>
+    <option value="lni-power-switch" ' . ($value == 'lni-power-switch' ? 'selected' : '') . '>Power Switch</option>
+
+    <option value="lni-quotation" ' . ($value == 'lni-quotation' ? 'selected' : '') . '>Quotation</option>
+
+    <option value="lni-reload" ' . ($value == 'lni-reload' ? 'selected' : '') . '>Reload</option>
+    <option value="lni-reply" ' . ($value == 'lni-reply' ? 'selected' : '') . '>Reply</option>
+    <option value="lni-rss-feed" ' . ($value == 'lni-rss-feed' ? 'selected' : '') . '>Rss Feed</option>
+
+    <option value="lni-search" ' . ($value == 'lni-search' ? 'selected' : '') . '>Search</option>
+    <option value="lni-signal" ' . ($value == 'lni-signal' ? 'selected' : '') . '>Signal</option>
+    <option value="lni-support" ' . ($value == 'lni-support' ? 'selected' : '') . '>Support</option>
+    <option value="lni-slice" ' . ($value == 'lni-slice' ? 'selected' : '') . '>Slice</option>
+    <option value="lni-spinner" ' . ($value == 'lni-spinner' ? 'selected' : '') . '>Spinner</option>
+    <option value="lni-seo" ' . ($value == 'lni-seo' ? 'selected' : '') . '>Seo</option>
+    <option value="lni-star" ' . ($value == 'lni-star' ? 'selected' : '') . '>Star</option>
+
+    <option value="lni-tag" ' . ($value == 'lni-tag' ? 'selected' : '') . '>Tag</option>
+
+    <option value="lni-unlock" ' . ($value == 'lni-unlock' ? 'selected' : '') . '>Unlock</option>
+
+    <option value="lni-upload" ' . ($value == 'lni-upload' ? 'selected' : '') . '>Upload</option>
+    <option value="lni-user" ' . ($value == 'lni-user' ? 'selected' : '') . '>User</option>
+    <option value="lni-users" ' . ($value == 'lni-users' ? 'selected' : '') . '>Users</option>
+
+    <option value="lni-video" ' . ($value == 'lni-video' ? 'selected' : '') . '>Video</option>
+    <option value="lni-volume" ' . ($value == 'lni-volume' ? 'selected' : '') . '>Volume</option>
+    
+    <option value="lni-world" ' . ($value == 'lni-world' ? 'selected' : '') . '>World</option>
+    
     </select>';
   }
 }

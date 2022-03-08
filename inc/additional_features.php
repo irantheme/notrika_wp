@@ -130,22 +130,6 @@ if (!function_exists('irantheme_better_comments')) {
 }
 
 
-if (!function_exists('irantheme_new_default_user_avatar')) {
-  /**
-   * Change default gravatar
-   * @param array
-   * @return string (url user.png)
-   */
-  function irantheme_new_default_user_avatar($avatar_defaults)
-  {
-    $customAvatar = get_template_directory_uri() . '/images/user.png';
-    $avatar_defaults[$customAvatar] = "Default Gravatar";
-    return $avatar_defaults;
-  }
-  add_filter('avatar_defaults', 'irantheme_new_default_user_avatar');
-}
-
-
 if (!function_exists('irantheme_redirect_subs_to_fronted')) {
   /**
    * Redirect subscriber user to home after login
@@ -215,22 +199,6 @@ if (!function_exists('irantheme_our_login_title')) {
     return get_bloginfo('name');
   }
   add_filter('login_headertext', 'irantheme_our_login_title');
-}
-
-
-if (!function_exists('irantheme_custom_avatar_comments_user')) {
-  /**
-   * Custom avatar comments user
-   * ###########################################################
-   * @return void
-   */
-  function irantheme_custom_avatar_comments_user($avatar_defaults)
-  {
-    $custom_avatar = get_stylesheet_directory_uri() . '/images/user.png';
-    $avatar_defaults[$custom_avatar] = "My Default Avatar";
-    return $avatar_defaults;
-  }
-  add_filter('avatar_defaults', 'irantheme_custom_avatar_comments_user');
 }
 
 

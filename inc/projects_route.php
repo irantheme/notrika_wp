@@ -71,6 +71,7 @@ function resultsProjects($data)
     // Appending data to results array
     if (get_post_type() == 'project') {
       array_push($results['projects'], array(
+        'id' => get_the_ID(),
         'title' => get_the_title(),
         'content' => wp_trim_words(strip_shortcodes(get_the_excerpt()), 43),
         'permalink' => get_the_permalink(),

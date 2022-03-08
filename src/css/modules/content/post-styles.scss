@@ -670,6 +670,9 @@ Post box space
   h2 {
     font-size: 0.9rem;
     line-height: 1.4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 
@@ -707,7 +710,10 @@ Post little box
     h3 {
       font-size: 0.9rem;
       line-height: 1.4rem;
-      color: $color-gray-200;      
+      color: $color-gray-200;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 

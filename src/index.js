@@ -13,6 +13,9 @@ import LoadProjects from './js/modules/LoadProjects';
 import CategoryTrigger from './js/modules/CategoryTrigger';
 import Like from './js/modules/Like';
 
+// Hooks
+import FullscreenSlider from './js/modules/FullscreenSlider';
+
 // Init objects
 let mainMenu = new MainMenu();
 let extra = new Extra();
@@ -23,3 +26,4 @@ let swiper = new Swiper();
 let categoryTrigger = new CategoryTrigger();
 let like = new Like();
 let parallax = new Parallax();
+let fullscreenSlider = new FullscreenSlider();

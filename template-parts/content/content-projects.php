@@ -65,7 +65,7 @@ $front_projects_post = new WP_Query(array(
             $categories_output = '';
           ?>
             <!-- Post -->
-            <div class="grid-item post-holder" data-cate="<?php echo esc_attr($category_parents_id); ?>">
+            <div class="grid-item post-holder" data-cate="<?php echo esc_attr($category_parents_id); ?>" data-id="<?php echo get_the_ID(); ?>">
               <article class="post">
                 <a href="<?php echo get_the_permalink(); ?>" class="post-link">
                   <?php if (has_post_thumbnail()) : ?>
@@ -94,7 +94,7 @@ $front_projects_post = new WP_Query(array(
                   </div>
                 </a>
                 <!-- Post icons -->
-                <div class="post-icons">
+                <div class="post-icons fullscreen-trigger">
                   <i class="lni lni-full-screen"></i>
                 </div>
               </article>

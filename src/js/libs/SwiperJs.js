@@ -108,6 +108,23 @@ class SwiperJs {
       },
     });
   }
+
+  fullscreenSliderInit(initialSlideData = 0) {
+    let fullScreenSlider = new Swiper('.fullscreen-slider', {
+      slidesPerView: 1,
+      // spaceBetween: 30,
+      // slidesPerGroup: 1,
+      // loop: true,
+      // loopFillGroupWithBlank: true,
+      centeredSlides: true,
+      // roundLengths: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      initialSlide: initialSlideData,
+    });
+  }
 }
 
 export default SwiperJs;

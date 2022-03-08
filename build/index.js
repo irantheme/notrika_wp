@@ -119,6 +119,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_modules_LoadProjects__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js/modules/LoadProjects */ "./src/js/modules/LoadProjects.js");
 /* harmony import */ var _js_modules_CategoryTrigger__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./js/modules/CategoryTrigger */ "./src/js/modules/CategoryTrigger.js");
 /* harmony import */ var _js_modules_Like__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./js/modules/Like */ "./src/js/modules/Like.js");
+/* harmony import */ var _js_modules_FullscreenSlider__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./js/modules/FullscreenSlider */ "./src/js/modules/FullscreenSlider.js");
  // Libs
 
 
@@ -129,6 +130,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+ // Hooks
 
  // Init objects
 
@@ -141,6 +144,7 @@ let swiper = new _js_libs_SwiperJs__WEBPACK_IMPORTED_MODULE_2__["default"]();
 let categoryTrigger = new _js_modules_CategoryTrigger__WEBPACK_IMPORTED_MODULE_8__["default"]();
 let like = new _js_modules_Like__WEBPACK_IMPORTED_MODULE_9__["default"]();
 let parallax = new _js_libs_ParallaxJs__WEBPACK_IMPORTED_MODULE_3__["default"]();
+let fullscreenSlider = new _js_modules_FullscreenSlider__WEBPACK_IMPORTED_MODULE_10__["default"]();
 
 /***/ }),
 
@@ -387,6 +391,24 @@ class SwiperJs {
     });
   }
 
+  fullscreenSliderInit() {
+    let initialSlideData = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+    let fullScreenSlider = new Swiper('.fullscreen-slider', {
+      slidesPerView: 1,
+      // spaceBetween: 30,
+      // slidesPerGroup: 1,
+      // loop: true,
+      // loopFillGroupWithBlank: true,
+      centeredSlides: true,
+      // roundLengths: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      initialSlide: initialSlideData
+    });
+  }
+
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (SwiperJs);
@@ -537,6 +559,82 @@ class Extra {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Extra);
+
+/***/ }),
+
+/***/ "./src/js/modules/FullscreenSlider.js":
+/*!********************************************!*\
+  !*** ./src/js/modules/FullscreenSlider.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _libs_SwiperJs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../libs/SwiperJs */ "./src/js/libs/SwiperJs.js");
+
+
+/* ===============================================================
+  Fullscreen image slider
+=============================================================== */
+
+class FullscreenSlider {
+  constructor() {
+    this.fullscreen = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#fullscreen-image-slider');
+    this.closeButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#fullscreen-close');
+    this.openButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#projects .post .fullscreen-trigger');
+    this.thumbnails = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#projects .post .post-image img');
+    this.src = [];
+    this.wrapper = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#fullscreen-image-slider .swiper-wrapper');
+    this.swiper = new _libs_SwiperJs__WEBPACK_IMPORTED_MODULE_1__["default"]();
+    this.addDataCounter();
+    this.events();
+  }
+
+  events() {
+    this.openButton.on('click', e => {
+      this.open(); // Initialize slider (Thumbnails)
+
+      this.initSlider(); // Add counter to open button
+
+      this.addDataCounter(); // Initialize swiper
+
+      let counter = jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.currentTarget).attr('data-counter');
+      this.swiper.fullscreenSliderInit(counter);
+    });
+    this.closeButton.on('click', () => {
+      this.close();
+    });
+  }
+
+  initSlider() {
+    this.thumbnails.each((index, el) => {
+      this.src.push(jquery__WEBPACK_IMPORTED_MODULE_0___default()(el).attr('src'));
+    });
+    this.thumbnails.each((index, el) => {
+      this.wrapper.append(`<div class="swiper-slide"><img src="${this.src[index]}" alt=""></div>`);
+    });
+  }
+
+  addDataCounter() {
+    this.openButton.each((index, el) => {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(el).attr('data-counter', index);
+    });
+  }
+
+  open() {
+    this.fullscreen.fadeIn(500);
+  }
+
+  close() {
+    this.fullscreen.fadeOut(500);
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (FullscreenSlider);
 
 /***/ }),
 
@@ -698,6 +796,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _libs_MasonryJs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../libs/MasonryJs */ "./src/js/libs/MasonryJs.js");
 /* harmony import */ var _libs_ParallaxJs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../libs/ParallaxJs */ "./src/js/libs/ParallaxJs.js");
+/* harmony import */ var _modules_FullscreenSlider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../modules/FullscreenSlider */ "./src/js/modules/FullscreenSlider.js");
+
 
 
 
@@ -710,6 +810,7 @@ class LoadProjects {
     this.btnLoad = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#loading-projects');
     this.masonryJs = new _libs_MasonryJs__WEBPACK_IMPORTED_MODULE_1__["default"]();
     this.parallaxJs = new _libs_ParallaxJs__WEBPACK_IMPORTED_MODULE_2__["default"]();
+    this.fullscreenSlider;
     this.events();
   }
 
@@ -731,6 +832,10 @@ class LoadProjects {
         triggerCounter++;
         if (triggerCounter >= 300) clearInterval(triggerInterval);
       }, 10);
+      setTimeout(() => {
+        // Initialize fullscreen slider
+        this.fullscreenSlider = new _modules_FullscreenSlider__WEBPACK_IMPORTED_MODULE_3__["default"]();
+      }, 2000);
     });
   } // Check remaining projects for hiding button load
 
@@ -763,7 +868,7 @@ class LoadProjects {
 
       jquery__WEBPACK_IMPORTED_MODULE_0___default()('#projects .container .grid-masonry').append(`
           ${projects.map(item => `
-              <div class="grid-item post-holder" data-cate="${item.dataCategory}">
+              <div class="grid-item post-holder" data-cate="${item.dataCategory}" data-id="${item.id}">
                 <article class="post">
                   <a href="${item.permalink}" class="post-link">
                   ${(() => {
@@ -793,14 +898,14 @@ class LoadProjects {
           return cate_temp;
         })()}
                       </div>
-                      <div class="post-icons">
-                        <i class="lni lni-full-screen"></i>
-                      </div>
                       </div>
                       `;
         return output;
       })()}
                   <a/>
+                  <div class="post-icons fullscreen-trigger">
+                    <i class="lni lni-full-screen"></i>
+                  </div>
                 </article>
               </div>
             `).join('')}

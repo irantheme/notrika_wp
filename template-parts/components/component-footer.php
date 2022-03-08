@@ -5,7 +5,7 @@
     <ul class="social-media-footer">
       <?php
       // Get template part of social media
-      get_template_part('/template-parts/content', 'social-media');
+      get_template_part('/template-parts/hooks/hook', 'social-media');
       ?>
     </ul>
     <!-- Copyright -->

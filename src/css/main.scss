@@ -10,29 +10,33 @@
 @import 'base/btn';
 @import 'base/inputs';
 
-// Home (Front) modules
-@import 'modules/home/header';
-@import 'modules/home/features';
-@import 'modules/home/about';
-@import 'modules/home/categories';
-@import 'modules/home/projects';
-@import 'modules/home/load-more';
-@import 'modules/home/latest-blog-posts';
-@import 'modules/home/partners';
-@import 'modules/home/cooperation';
-@import 'modules/home/information';
-@import 'modules/home/footer';
+// Components
+@import 'modules/components/extra';
+@import 'modules/components/header';
+@import 'modules/components/header-blog';
+@import 'modules/components/header-blog';
+@import 'modules/components/author-profile';
+@import 'modules/components/about';
+@import 'modules/components/additional-styles';
+@import 'modules/components/footer-blog';
+@import 'modules/components/footer';
+@import 'modules/components/blocks';
+@import 'modules/components/information';
 
-// Core core (blog)
-@import 'modules/core/extra';
-@import 'modules/core/navigation';
-@import 'modules/core/header-blog';
-@import 'modules/core/navbar';
-@import 'modules/core/search';
-@import 'modules/core/comments';
-@import 'modules/core/author-profile';
-@import 'modules/core/gallery';
-@import 'modules/core/post-styles';
-@import 'modules/core/additional-styles';
-@import 'modules/core/blocks';
-@import 'modules/core/footer-blog';
+// Content
+@import 'modules/content/latest-blog-posts';
+@import 'modules/content/cooperation';
+@import 'modules/content/categories';
+@import 'modules/content/projects';
+@import 'modules/content/partners';
+@import 'modules/content/features';
+@import 'modules/content/post-styles';
+
+// Hooks
+@import 'modules/hooks/navigation';
+@import 'modules/hooks/search-box';
+@import 'modules/hooks/navbar';
+@import 'modules/hooks/fullscreen-image-slider';
+@import 'modules/hooks/comments';
+@import 'modules/hooks/load-more';
+@import 'modules/hooks/gallery';

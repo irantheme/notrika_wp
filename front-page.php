@@ -47,6 +47,11 @@
     ?>
 
     <?php
+    // Get template part of fullscreen image slider
+    get_template_part('/template-parts/hooks/hook', 'fullscreen-image-slider');
+    ?>
+
+    <?php
     // Get template part of cooperation
     get_template_part('/template-parts/content/content', 'cooperation');
     ?>

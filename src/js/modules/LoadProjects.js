@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import MasonryJs from './../libs/MasonryJs';
 import ParallaxJs from './../libs/ParallaxJs';
+import FullscreenSlider from './../modules/FullscreenSlider';
 /* ===============================================================
   Load Projects
 =============================================================== */
@@ -9,6 +10,7 @@ class LoadProjects {
     this.btnLoad = $('#loading-projects');
     this.masonryJs = new MasonryJs();
     this.parallaxJs = new ParallaxJs();
+    this.fullscreenSlider;
     this.events();
   }
 
@@ -30,6 +32,10 @@ class LoadProjects {
         triggerCounter++;
         if (triggerCounter >= 300) clearInterval(triggerInterval);
       }, 10);
+      setTimeout(() => {
+        // Initialize fullscreen slider
+        this.fullscreenSlider = new FullscreenSlider();
+      }, 2000);
     });
   }
 
@@ -66,7 +72,7 @@ class LoadProjects {
               (item) => `
               <div class="grid-item post-holder" data-cate="${
                 item.dataCategory
-              }">
+              }" data-id="${item.id}">
                 <article class="post">
                   <a href="${item.permalink}" class="post-link">
                   ${(() => {
@@ -94,14 +100,14 @@ class LoadProjects {
                           return cate_temp;
                         })()}
                       </div>
-                      <div class="post-icons">
-                        <i class="lni lni-full-screen"></i>
-                      </div>
                       </div>
                       `;
                     return output;
                   })()}
                   <a/>
+                  <div class="post-icons fullscreen-trigger">
+                    <i class="lni lni-full-screen"></i>
+                  </div>
                 </article>
               </div>
             `

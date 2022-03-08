@@ -6,7 +6,7 @@
       <ul class="social-networks">
         <?php
         // Get template part of social media
-        get_template_part('/template-parts/content', 'social-media');
+        get_template_part('/template-parts/hooks/hook', 'social-media');
         ?>
       </ul>
       <p><?php echo __(get_option('irantheme_copyright')); ?></p>
