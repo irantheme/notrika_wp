@@ -2565,6 +2565,8 @@ Projects
 #projects .post .post-link {
   display: block;
   position: relative;
+  min-height: 200px;
+  background-color: #1C2023;
   overflow: hidden;
 }
 #projects .post .post-link .post-image img {

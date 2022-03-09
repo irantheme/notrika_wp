@@ -68,12 +68,14 @@ $front_projects_post = new WP_Query(array(
             <div class="grid-item post-holder" data-cate="<?php echo esc_attr($category_parents_id); ?>" data-id="<?php echo get_the_ID(); ?>">
               <article class="post">
                 <a href="<?php echo get_the_permalink(); ?>" class="post-link">
-                  <?php if (has_post_thumbnail()) : ?>
-                    <!-- Post image -->
-                    <div class="post-image">
+                  <!-- Post image -->
+                  <div class="post-image">
+                    <?php if (has_post_thumbnail()) : ?>
                       <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="تصویر پروژه" />
-                    </div>
-                  <?php endif; ?>
+                    <?php else : ?>
+                      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/no-image.jpg" alt="تصویر پروژه" />
+                    <?php endif; ?>
+                  </div>
                   <!-- Post content -->
                   <div class="post-content">
                     <!-- Post heading -->
@@ -93,10 +95,12 @@ $front_projects_post = new WP_Query(array(
                     </div>
                   </div>
                 </a>
-                <!-- Post icons -->
-                <div class="post-icons fullscreen-trigger">
-                  <i class="lni lni-full-screen"></i>
-                </div>
+                <?php if (has_post_thumbnail()) : ?>
+                  <!-- Post icons -->
+                  <div class="post-icons fullscreen-trigger">
+                    <i class="lni lni-full-screen"></i>
+                  </div>
+                <?php endif; ?>
               </article>
             </div>
           <?php endwhile; ?>
