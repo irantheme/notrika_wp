@@ -9,8 +9,8 @@ $front_post_query = new WP_Query(array(
   <div class="container">
     <!-- Heading mode -->
     <div class="heading-mode heading-mode-light text-center">
-      <h2><?php echo __(get_option('irantheme_front_features_title')); ?></h2>
-      <p><?php echo __(get_option('irantheme_front_features_description')); ?></p>
+      <h2><?php echo esc_html__(get_option('irantheme_front_features_title')); ?></h2>
+      <p><?php echo esc_html__(get_option('irantheme_front_features_description')); ?></p>
     </div>
     <div class="row">
       <?php

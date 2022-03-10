@@ -7,7 +7,7 @@
           <!-- About -->
           <div class="footer-heading">درباره</div>
           <div class="footer-about">
-            <p><?php echo __(get_option('irantheme_about_excerpt')); ?></p>
+            <p><?php echo esc_html__(get_option('irantheme_about_excerpt')); ?></p>
             <a href="<?php echo esc_url(get_option('irantheme_about_link')); ?>">مشاهده بیشتر<i class="lni lni-chevron-left"></i></a>
           </div>
         </div>
@@ -24,11 +24,13 @@
           ?>
             <!-- List post item -->
             <div class="list-post-style">
-              <div class="list-post-style-img">
-                <a href="<?php echo get_the_permalink(); ?>">
-                  <img src="<?php the_post_thumbnail_url(); ?>" alt="تصویر پست">
-                </a>
-              </div>
+              <?php if (has_post_thumbnail()) : ?>
+                <div class="list-post-style-img">
+                  <a href="<?php echo get_the_permalink(); ?>">
+                    <img src="<?php the_post_thumbnail_url(); ?>" alt="تصویر پست">
+                  </a>
+                </div>
+              <?php endif; ?>
               <div class="list-post-style-content">
                 <h3><a href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?></a></h3>
                 <span><?php echo get_the_date('j, F Y'); ?></span>
@@ -85,7 +87,7 @@
               'echo'                      => false
             ));
             foreach ($tags as $tag) {
-              echo '<a href="' . get_term_link($tag) . '">' . __($tag->name) . '</a>';
+              echo '<a href="' . get_term_link($tag) . '">' . esc_html__($tag->name) . '</a>';
             }
             ?>
           </div>

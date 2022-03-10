@@ -15,7 +15,7 @@
 
             <?php
             // Get template part of post author
-            get_template_part('/template-parts/components/component', 'post-author');
+            get_template_part('/template-parts/components/component', 'author-post-single');
             ?>
 
             <?php

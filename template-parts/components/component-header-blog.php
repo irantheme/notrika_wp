@@ -38,7 +38,7 @@
                 $today = date('F j Y');
               }
               ?>
-              <span>امروز‌ : <?php echo __($today); ?></span>
+              <span>امروز‌ : <?php echo esc_html__($today); ?></span>
             </div>
           </div>
           <!-- Main info -->
@@ -74,11 +74,11 @@
           ?>
           <div class="heading-main-info">
             <?php if ($args['link']) : ?>
-              <h1><a href="<?php echo esc_url($args['link']); ?>"><?php echo __($args['title']); ?></a></h1>
+              <h1><a href="<?php echo esc_url($args['link']); ?>"><?php echo esc_html__($args['title']); ?></a></h1>
             <?php else : ?>
-              <h1><?php echo __($args['title']); ?></h1>
+              <h1><?php echo esc_html__($args['title']); ?></h1>
             <?php endif; ?>
-            <p><?php echo __($args['subtitle']); ?></p>
+            <p><?php echo esc_html__($args['subtitle']); ?></p>
           </div>
         </div>
       </div>

@@ -17,8 +17,8 @@ $front_post_viewpoint = new WP_Query(array(
       <div class="container">
         <!-- Heading mode -->
         <div class="heading-mode heading-mode-light text-center">
-          <h2><?php echo __(get_option('irantheme_front_partners_title')); ?></h2>
-          <p><?php echo __(get_option('irantheme_front_partners_description')); ?></p>
+          <h2><?php echo esc_html__(get_option('irantheme_front_partners_title')); ?></h2>
+          <p><?php echo esc_html__(get_option('irantheme_front_partners_description')); ?></p>
         </div>
         <?php if ($front_post_partners->have_posts()) : ?>
           <!-- Partners brands -->

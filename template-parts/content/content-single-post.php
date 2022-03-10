@@ -27,28 +27,29 @@
           <div class="post-category">
             <?php
             foreach ($categories as $category) {
-              $categories_output .= '<span>' . __($category->name) . '</span>';
+              $categories_output .= '<span>' . esc_html__($category->name) . '</span>';
             }
             echo trim($categories_output, '');
             ?>
           </div>
         <?php endif; ?>
       </div>
-      <?php else :
-      if (!empty($categories)) : ?>
-        <!-- Post category -->
-        <div class="post-category">
-          <?php
-          foreach ($categories as $category) {
-            $categories_output .= '<a href=" ' . esc_attr($category->link) . '">' . __($category->name) . '</a>';
-          }
-          echo trim($categories_output, '');
-          ?>
-        </div>
-      <?php endif; ?>
     <?php endif; ?>
     <!-- Holder -->
     <div class="post-content">
+      <?php if (!has_post_thumbnail()) :
+        if (!empty($categories)) : ?>
+          <!-- Post category -->
+          <div class="post-category-no-thumbnail">
+            <?php
+            foreach ($categories as $category) {
+              $categories_output .= '<a href=" ' . esc_attr(get_category_link($category->term_id)) . '">' . esc_html__($category->name) . '</a>';
+            }
+            echo trim($categories_output, '');
+            ?>
+          </div>
+        <?php endif; ?>
+      <?php endif; ?>
       <!-- Heading -->
       <div class="post-heading">
         <!-- Date -->
@@ -72,7 +73,7 @@
         <!-- Comments & Likes -->
         <div class="post-list-options">
           <span><i class="lni lni-comments"></i><?php echo get_comments_number(); ?> دیدگاه</span>
-          <span><i class="lni lni-heart"></i><?php echo __($likeCount->found_posts); ?> پسندشده</span>
+          <span><i class="lni lni-heart"></i><?php echo esc_html__($likeCount->found_posts); ?> پسندشده</span>
         </div>
         <?php if (has_tag()) : ?>
           <!-- Tags -->
@@ -103,11 +104,11 @@
               )
             ));
             ?>
-            <button class="like-button" data-like="<?php echo __($existQuery->posts[0]->ID); ?>" data-post="<?php echo get_the_ID(); ?>" data-exists="">
+            <button class="like-button" data-like="<?php echo esc_html__($existQuery->posts[0]->ID); ?>" data-post="<?php echo get_the_ID(); ?>" data-exists="">
               <i class="lni lni-heart like-heart-no"></i>
               <i class="lni lni-heart-filled like-heart-yes"></i>
               <span>
-                <cite class="text-heart-yes">پسند شده</cite><cite class="text-heart-no">می پسندید ؟</cite><em class="like-count"><?php echo __($likeCount->found_posts); ?></em>
+                <cite class="text-heart-yes">پسند شده</cite><cite class="text-heart-no">می پسندید ؟</cite><em class="like-count"><?php echo esc_html__($likeCount->found_posts); ?></em>
               </span>
             </button>
           </div>

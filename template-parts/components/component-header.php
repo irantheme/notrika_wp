@@ -16,8 +16,8 @@
     <div class="container">
       <!-- Banner -->
       <div class="banner">
-        <h2><?php echo __(get_option('irantheme_front_header_title')); ?></h2>
-        <p><?php echo __(get_option('irantheme_front_header_description')); ?></p>
+        <h2><?php echo esc_html__(get_option('irantheme_front_header_title')); ?></h2>
+        <p><?php echo esc_html__(get_option('irantheme_front_header_description')); ?></p>
         <a href="#features" id="go-down" class="button-style button-light">شروع کنید<i class="lni lni-chevron-left"></i></a>
       </div>
     </div>

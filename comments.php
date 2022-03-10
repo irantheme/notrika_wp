@@ -36,7 +36,7 @@ if (post_password_required())
       $comment_cookies_1 = ' نظر شما در دست بررسی است.';
       $comment_cookies_2 = ' سیاست حفظ حریم خصوصی';
 
-      $comment_before = '<p class="text-description">ایمیل شما منتشر نخواهد شد، ورودی های ضروری با علامت (*) علامت گذاری شده اند.</p>';
+      $comment_before = '<p class="text-description">ایمیل شما منتشر نخواهد شد، ورودی های ضروری با (*) علامت گذاری شده اند.</p>';
 
       $comment_cancel = 'لغو پاسخ';
 
@@ -46,37 +46,37 @@ if (post_password_required())
         'fields' => array(
           //Author field
           'author' => '
-          <label for="author">' . __($comment_author) . '</label>
+          <label for="author">' . esc_html__($comment_author) . '</label>
           <input type="text" id="author" name="author" aria-required="true"></input>',
           //Email Field
           'email' => '
-          <label for="email">' . __($comment_email) . '</label>
+          <label for="email">' . esc_html__($comment_email) . '</label>
           <input type="email" id="email" name="email"></input>',
           //URL Field
           'url' => '
-          <label for="url">' . __($comment_url) . '</label>
+          <label for="url">' . esc_url($comment_url) . '</label>
           <input type="url" id="url" name="url"></input>',
           //Cookies
           'cookies' => '',
         ),
         // Change the title of send button
-        'label_submit' => __($comment_send),
+        'label_submit' => esc_html__($comment_send),
         // Change the title of the reply section
-        'title_reply' => __($comment_reply),
+        'title_reply' => esc_html__($comment_reply),
         // Change the title of the reply section
-        'title_reply_to' => __($comment_reply_to),
+        'title_reply_to' => esc_html__($comment_reply_to),
         //Cancel Reply Text
-        'cancel_reply_link' => __($comment_cancel),
+        'cancel_reply_link' => esc_html__($comment_cancel),
         // Redefine your own textarea (the comment body).
         'comment_field' => '
-        <label for="comment">' . __($comment_body) . '</label>
+        <label for="comment">' . esc_html__($comment_body) . '</label>
         <textarea id="comment" name="comment" aria-required="true"></textarea>',
         //Message Before Comment
-        'comment_notes_before' => __($comment_before),
+        'comment_notes_before' => esc_html__($comment_before),
         // Remove "Text or HTML to be displayed after the set of comment fields".
         'comment_notes_after' => '',
         //Submit Button ID
-        'id_submit' => __('comment-submit'),
+        'id_submit' => esc_html__('comment-submit'),
       );
       comment_form($comments_args);
       ?>

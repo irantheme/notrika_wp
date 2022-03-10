@@ -49,7 +49,7 @@
               <div class="post-category">
                 <?php
                 foreach ($categories as $category) {
-                  $categories_output .= '<span>' . __($category->name) . '</span>';
+                  $categories_output .= '<span>' . esc_html__($category->name) . '</span>';
                 }
                 echo trim($categories_output, '');
                 ?>
@@ -71,7 +71,7 @@
               <div class="post-category">
                 <?php
                 foreach ($categories as $category) {
-                  $categories_output .= '<span>' . __($category->name) . '</span>';
+                  $categories_output .= '<span>' . esc_html__($category->name) . '</span>';
                 }
                 echo trim($categories_output, '');
                 ?>
@@ -80,21 +80,22 @@
           </div>
         </a>
       </div>
-      <?php else :
-      if (!empty($categories)) : ?>
-        <!-- Post category without thumbnail -->
-        <div class="post-category-no-thumbnail">
-          <?php
-          foreach ($categories as $category) {
-            $categories_output .= '<a href=" ' . get_category_link($category->term_id) . '">' . __($category->name) . '</a>';
-          }
-          echo trim($categories_output, '');
-          ?>
-        </div>
-      <?php endif; ?>
     <?php endif; ?>
     <!-- Post content -->
     <div class="post-content">
+      <?php if (!has_post_thumbnail()) :
+        if (!empty($categories)) : ?>
+          <!-- Post category without thumbnail -->
+          <div class="post-category-no-thumbnail">
+            <?php
+            foreach ($categories as $category) {
+              $categories_output .= '<a href=" ' . get_category_link($category->term_id) . '">' . esc_html__($category->name) . '</a>';
+            }
+            echo trim($categories_output, '');
+            ?>
+          </div>
+        <?php endif; ?>
+      <?php endif; ?>
       <!-- Post heading -->
       <div class="post-heading">
         <span><i class="lni lni-calendar"></i><?php echo get_the_date('j, F Y'); ?></span>
@@ -120,7 +121,7 @@
       <!-- Comments & Likes -->
       <div class="post-list-options">
         <span><i class="lni lni-comments"></i>دیدگاه<em><?php echo get_comments_number(); ?></em></span>
-        <span><i class="lni lni-heart"></i>پسندشده<em><?php echo $likeCount->found_posts; ?></em></span>
+        <span><i class="lni lni-heart"></i>پسندشده<em><?php echo esc_html__($likeCount->found_posts); ?></em></span>
       </div>
       <!-- Post author -->
       <div class="post-author">

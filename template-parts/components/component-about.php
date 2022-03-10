@@ -26,10 +26,10 @@
       <div class="col-lg-6">
         <!-- About content -->
         <aside class="about-content">
-          <q><?php echo __(get_option('irantheme_front_about_little_title')); ?></q>
-          <h3><?php echo __(get_option('irantheme_front_about_title')); ?></h3>
-          <p><?php echo __(get_option('irantheme_front_about_description')); ?></p>
-          <blockquote><?php echo __(get_option('irantheme_about_excerpt')); ?></blockquote>
+          <q><?php echo esc_html__(get_option('irantheme_front_about_little_title')); ?></q>
+          <h3><?php echo esc_html__(get_option('irantheme_front_about_title')); ?></h3>
+          <p><?php echo esc_html__(get_option('irantheme_front_about_description')); ?></p>
+          <blockquote><?php echo esc_html__(get_option('irantheme_about_excerpt')); ?></blockquote>
           <a href="<?php echo esc_url(get_option('irantheme_about_link')); ?>" class="button-style button-primary">بیشتر<i class="lni lni-chevron-left"></i></a>
         </aside>
       </div>

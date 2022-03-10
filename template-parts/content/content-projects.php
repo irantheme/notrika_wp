@@ -10,8 +10,8 @@ $front_projects_post = new WP_Query(array(
     <div class="container">
       <!-- Heading mode -->
       <div class="heading-mode heading-mode-dark text-right">
-        <h2><?php echo __(get_option('irantheme_front_projects_title')); ?></h2>
-        <p><?php echo __(get_option('irantheme_front_projects_description')); ?></p>
+        <h2><?php echo esc_html__(get_option('irantheme_front_projects_title')); ?></h2>
+        <p><?php echo esc_html__(get_option('irantheme_front_projects_description')); ?></p>
       </div>
       <?php
       $categories = get_categories(array('parent' => 0, 'hide_empty' => 0));
@@ -28,7 +28,7 @@ $front_projects_post = new WP_Query(array(
               'parent' => 0
             ));
             foreach ($categories as $category) {
-              echo '<li><span data-cate="' . esc_attr($category->term_id) . '">' . __($category->name) . '</span></li>';
+              echo '<li><span data-cate="' . esc_attr($category->term_id) . '">' . esc_html__($category->name) . '</span></li>';
             }
             ?>
           </ul>
@@ -86,7 +86,7 @@ $front_projects_post = new WP_Query(array(
                         <ul class="post-categories">
                           <?php
                           foreach ($categories as $category) {
-                            $categories_output .= '<li><span>' . __($category->name) . '</span></li>';
+                            $categories_output .= '<li><span>' . esc_html__($category->name) . '</span></li>';
                           }
                           echo trim($categories_output, '');
                           ?>

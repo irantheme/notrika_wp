@@ -79,7 +79,7 @@ if ($related_category) :
                   <!-- Comments & Likes -->
                   <div class="post-list-options">
                     <span><i class="lni lni-comments"></i><?php echo get_comments_number(); ?> دیدگاه</span>
-                    <span><i class="lni lni-heart"></i><?php echo __($likeCountRel->found_posts); ?> پسندشده</span>
+                    <span><i class="lni lni-heart"></i><?php echo esc_html__($likeCountRel->found_posts); ?> پسندشده</span>
                   </div>
                 </div>
               </div>

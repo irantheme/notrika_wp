@@ -369,8 +369,8 @@ Blog content
     }
 
     img {
-      width: 4rem;
-      height: 4rem;
+      width: 3.5rem;
+      height: 3.5rem;
       border-radius: 50%;
     }
 
@@ -378,22 +378,18 @@ Blog content
       margin-right: 1rem;
       display: flex;
       flex-direction: column;
-      padding-top: 0.85rem;
+      padding-top: 0.75rem;
 
       a {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         font-style: normal;
         color: $color-dark;
         line-height: 1.2;
       }
 
       span {
-        font-size: 0.8rem;
-        color: $color-gray-600;
-      }
-
-      p {
         font-size: 0.7rem;
+        color: $color-gray-600;
       }
     }
   }

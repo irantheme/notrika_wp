@@ -10,7 +10,7 @@
     </ul>
     <!-- Copyright -->
     <div class="copyright">
-      <?php echo __(get_option('irantheme_copyright')); ?>
+      <?php echo esc_html__(get_option('irantheme_copyright')); ?>
     </div>
   </div>
 </footer>
