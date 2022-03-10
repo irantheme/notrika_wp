@@ -52,7 +52,7 @@
           } else if (is_author()) {
             $author = get_user_by('slug', get_query_var('author_name'));
             $args['title'] = get_the_archive_title();
-            $args['subtitle'] = $author->nickname;
+            $args['subtitle'] = esc_html__($author->nickname);
             $args['link'] = null;
           } else if (is_archive()) {
             $args['title'] = get_the_archive_title();
@@ -76,9 +76,9 @@
             <?php if ($args['link']) : ?>
               <h1><a href="<?php echo esc_url($args['link']); ?>"><?php echo esc_html__($args['title']); ?></a></h1>
             <?php else : ?>
-              <h1><?php echo esc_html__($args['title']); ?></h1>
+              <h1><?php echo __($args['title']); ?></h1>
             <?php endif; ?>
-            <p><?php echo esc_html__($args['subtitle']); ?></p>
+            <p><?php echo __($args['subtitle']); ?></p>
           </div>
         </div>
       </div>
