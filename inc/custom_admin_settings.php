@@ -639,7 +639,7 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 			$html .= '<li><a class="tab all current" href="#all">' . __('همه', $this->textdomain) . '</a></li>' . "\n";
 
 			foreach ($this->settings as $section => $data) {
-				$html .= '<li>| <a class="tab" href="#' . $section . '">' . $data['title'] . '</a></li>' . "\n";
+				$html .= '<li><a class="tab" href="#' . $section . '">' . $data['title'] . '</a></li>' . "\n";
 			}
 
 			$html .= '</ul>' . "\n";
