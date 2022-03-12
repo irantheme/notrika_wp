@@ -686,7 +686,47 @@ Post little box
   display: block;
 
   &:hover {
-    background: $color-gray-800;
+    background: $color-primary;
+
+    .post-thumbnail-little {
+      img {
+        @include transform(scale(1.1) rotate(-2.5deg));
+        opacity: 0.9;
+      }
+    }
+
+    .post-heading-little {
+      span {
+        color: $color-gray-400;
+
+        i {
+          color: $color-white;
+        }
+      }
+    }
+
+    .post-options-little {
+      span {
+        color: $color-gray-400;
+
+        i {
+          color: $color-white;
+        }
+      }
+    }
+  }
+
+  .post-thumbnail-little {
+    width: 100%;
+    height: 9rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      @include transition(all, 0.3s, ease-out);
+    }
   }
 
   // Heading
@@ -696,10 +736,12 @@ Post little box
     span {
       font-size: 0.7rem;
       color: $color-gray-300;
+      @include transition(all, 0.3s, ease-out);
 
       i {
         margin-left: 0.5rem;
         color: $color-primary;
+        @include transition(all, 0.3s, ease-out);
       }
     }
 
@@ -719,6 +761,7 @@ Post little box
       cursor: default;
       font-size: 0.7rem;
       color: $color-gray-500;
+      @include transition(all, 0.3s, ease-out);
 
       &:not(:last-child) {
         margin-left: 1rem;
@@ -730,6 +773,7 @@ Post little box
         font-size: 0.8rem;
         position: relative;
         top: 2px;
+        @include transition(all, 0.3s, ease-out);
       }
 
       em {

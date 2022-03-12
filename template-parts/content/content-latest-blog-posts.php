@@ -1,7 +1,7 @@
 <?php
 $front_latest_blog_posts = new WP_Query(array(
   'post_type' => 'post',
-  'posts_per_page' => 4
+  'posts_per_page' => esc_html__(get_option('irantheme_front_latest_blog_post_count')),
 ));
 if ($front_latest_blog_posts->have_posts()) :
 ?>
@@ -16,11 +16,17 @@ if ($front_latest_blog_posts->have_posts()) :
       <div class="row">
         <?php while ($front_latest_blog_posts->have_posts()) : $front_latest_blog_posts->the_post(); ?>
           <!-- Item -->
-          <div class="col-lg-6">
+          <div class="col-lg-4">
             <a href="<?php the_permalink(); ?>" class="post-box-little">
+              <?php if (has_post_thumbnail()) : ?>
+                <!-- Image -->
+                <div class="post-thumbnail-little">
+                  <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="">
+                </div>
+              <?php endif; ?>
               <!-- Heading -->
               <div class="post-heading-little">
-                <span><i class="lni lni-calendar"></i><?php echo get_the_date('j, F Y'); ?></span>
+                <span><i class="lni lni-calendar"></i><?php echo get_the_date('j F Y'); ?></span>
                 <h3><?php the_title(); ?></h3>
               </div>
               <!-- Options -->

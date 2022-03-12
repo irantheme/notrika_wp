@@ -53,7 +53,7 @@
       <!-- Heading -->
       <div class="post-heading">
         <!-- Date -->
-        <span><i class="lni lni-calendar"></i><?php echo get_the_date('j, F Y'); ?></span>
+        <span><i class="lni lni-calendar"></i><?php echo get_the_date('j F Y'); ?></span>
         <h2><?php echo get_the_title(); ?></h2>
       </div>
       <?php

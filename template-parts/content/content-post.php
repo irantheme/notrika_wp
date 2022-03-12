@@ -98,7 +98,7 @@
       <?php endif; ?>
       <!-- Post heading -->
       <div class="post-heading">
-        <span><i class="lni lni-calendar"></i><?php echo get_the_date('j, F Y'); ?></span>
+        <span><i class="lni lni-calendar"></i><?php echo get_the_date('j F Y'); ?></span>
         <h2><a href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?></a></h2>
       </div>
       <!-- Post text -->

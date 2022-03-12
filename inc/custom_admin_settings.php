@@ -57,6 +57,11 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 			// Generate retonak settings
 			add_menu_page(__($this->settings_title, $this->textdomain), __($this->settings_title, $this->textdomain), 'manage_options', 'plugin_settings', array($this, 'settings_page'), 'dashicons-admin-generic', 110);
 
+			// add_submenu_page('plugin_settings', 'Title', 'Title', 'manage_options', 'plugin_settings', array($this, 'settings_page'));
+			// foreach ($this->settings as $section) {
+			// 	// add_submenu_page('plugin_settings' . $section['id'], $section['title'], $section['title'], 'manage_options', 'plugin_settings' . $section['id'], array($this, 'settings_page'));
+			// }
+
 			// $page = add_options_page( __( $this->settings_title, $this->textdomain ) , __( $this->settings_title, $this->textdomain ) , 'manage_options' , 'plugin_settings' ,  array( $this, 'settings_page' ) );
 			// add_action( 'admin_print_styles-' . $page, array( $this, 'settings_assets' ) );
 		}
@@ -115,12 +120,12 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 			// Front features page configuration fields data
 			$settings['front_features'] = array(
 				'title'					=> __('(قالب اصلی - ویژگی ها)', $this->textdomain),
-				'description'			=> __('برخی از تنظیمات ویژگی های (قالب اصلی)', $this->textdomain),
+				'description'			=> __('برخی از تنظیمات ویژگی ها (قالب اصلی)', $this->textdomain),
 				'fields'				=> array(
 					array(
 						'id' 			=> 'front_features_title',
 						'label'			=> __('عنوان اصلی ویژگی ها', $this->textdomain),
-						'description'	=> __('عنوان اصلی ویژگی ها که در بالای گزینه ها قرار دارد.', $this->textdomain),
+						'description'	=> __('عنوان اصلی ویژگی ها که در بالای مطالب ویژگی ها قرار دارد.', $this->textdomain),
 						'type'			=> 'text',
 						'default'		=> '',
 						'placeholder'	=> ''
@@ -128,7 +133,7 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 					array(
 						'id' 			=> 'front_features_description',
 						'label'			=> __('توضیحات عنوان اصلی ویژگی ها', $this->textdomain),
-						'description'	=> __('توضیحات عنوان اصلی ویژگی ها که در بالای گزینه ها قرار دارد.', $this->textdomain),
+						'description'	=> __('توضیحات عنوان اصلی ویژگی ها که در بالای مطالب ویژگی ها قرار دارد.', $this->textdomain),
 						'type'			=> 'textarea',
 						'default'		=> '',
 						'placeholder'	=> ''
@@ -161,6 +166,14 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 						'id' 			=> 'front_about_description',
 						'label'			=> __('توضیحات مختصر درباره ما', $this->textdomain),
 						'description'	=> __('توضیحات اولیه قرار گرفته در زیر عنوان اصلی.', $this->textdomain),
+						'type'			=> 'textarea',
+						'default'		=> '',
+						'placeholder'	=> ''
+					),
+					array(
+						'id' 			=> 'front_about_long_description',
+						'label'			=> __('توضیحات درباره ما', $this->textdomain),
+						'description'	=> __('توضیحات قرار گرفته در زیر توضیحات مختصر درباره ما.', $this->textdomain),
 						'type'			=> 'textarea',
 						'default'		=> '',
 						'placeholder'	=> ''
@@ -309,6 +322,14 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 						'default'		=> '',
 						'placeholder'	=> ''
 					),
+					array(
+						'id' 			=> 'front_latest_blog_post_count',
+						'label'			=> __('تعداد آخرین مطالب وبلاگ', $this->textdomain),
+						'description'	=> __('تنظیم تعداد مطالب قابل مشاهده در آخرین مطالب وبلاگ.', $this->textdomain),
+						'type'			=> 'number',
+						'default'		=> 3,
+						'placeholder'	=> ''
+					),
 				),
 			);
 
@@ -336,7 +357,7 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 					array(
 						'id' 			=> 'about_excerpt',
 						'label'			=> __('درباره سایت', $this->textdomain),
-						'description'	=> __('متن درباره سایت که به صورت منتخب در صفحه اصلی سایت و وبلاگ نمایش داده می شود.', $this->textdomain),
+						'description'	=> __('متن درباره سایت که در فوتر وبلاگ نمایش داده می شود.', $this->textdomain),
 						'type'			=> 'textarea',
 						'default'		=> '',
 						'placeholder'	=> ''
@@ -344,7 +365,7 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 					array(
 						'id' 			=> 'about_link',
 						'label'			=> __('لینک درباره ما', $this->textdomain),
-						'description'	=> __('لینک اصلی صفحه درباره ما برای ارائه ادامه مطلب', $this->textdomain),
+						'description'	=> __('لینک اصلی صفحه درباره ما برای ارائه ادامه مطالب در فوتر وبلاگ.', $this->textdomain),
 						'type'			=> 'text',
 						'default'		=> '',
 						'placeholder'	=> ''
@@ -360,7 +381,7 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 					array(
 						'id' 			=> 'general_email',
 						'label'			=> __('ایمیل سایت', $this->textdomain),
-						'description'	=> __('ایمیل عمومی جهت ارائه به مشتریان.', $this->textdomain),
+						'description'	=> __('ایمیل عمومی جهت ارائه به کاربران.', $this->textdomain),
 						'type'			=> 'text',
 						'default'		=> '',
 						'placeholder'	=> ''
@@ -368,7 +389,7 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 					array(
 						'id' 			=> 'general_telephone',
 						'label'			=> __('تلفن تماس', $this->textdomain),
-						'description'	=> __('شماره تماس جهت ارائه به مشتریان.', $this->textdomain),
+						'description'	=> __('شماره تماس جهت ارائه به کاربران.', $this->textdomain),
 						'type'			=> 'text',
 						'default'		=> '',
 						'placeholder'	=> ''
@@ -376,7 +397,7 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 					array(
 						'id' 			=> 'general_address',
 						'label'			=> __('آدرس', $this->textdomain),
-						'description'	=> __('آدرس جهت ارائه به مشریان.', $this->textdomain),
+						'description'	=> __('آدرس جهت ارائه به کاربران.', $this->textdomain),
 						'type'			=> 'text',
 						'default'		=> '',
 						'placeholder'	=> ''
@@ -392,7 +413,7 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 					array(
 						'id' 			=> 'social_facebook',
 						'label'			=> __('فیس بوک', $this->textdomain),
-						'description'	=> __('لینک صفحه یا پروفایل خود را وارد کنید.', $this->textdomain),
+						'description'	=> __('لینک صفحه مورد نظر خود را وارد کنید.', $this->textdomain),
 						'type'			=> 'text',
 						'default'		=> '',
 						'placeholder'	=> ''
@@ -400,7 +421,7 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 					array(
 						'id' 			=> 'social_twitter',
 						'label'			=> __('توئیتر', $this->textdomain),
-						'description'	=> __('لینک صفحه یا پروفایل خود را وارد کنید.', $this->textdomain),
+						'description'	=> __('لینک صفحه مورد نظر خود را وارد کنید.', $this->textdomain),
 						'type'			=> 'text',
 						'default'		=> '',
 						'placeholder'	=> ''
@@ -408,7 +429,7 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 					array(
 						'id' 			=> 'social_linkedin',
 						'label'			=> __('لینکدین', $this->textdomain),
-						'description'	=> __('لینک صفحه یا پروفایل خود را وارد کنید.', $this->textdomain),
+						'description'	=> __('لینک صفحه مورد نظر خود را وارد کنید.', $this->textdomain),
 						'type'			=> 'text',
 						'default'		=> '',
 						'placeholder'	=> ''
@@ -416,7 +437,7 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 					array(
 						'id' 			=> 'social_instagram',
 						'label'			=> __('اینستاگرام', $this->textdomain),
-						'description'	=> __('لینک صفحه یا پروفایل خود را وارد کنید.', $this->textdomain),
+						'description'	=> __('لینک صفحه مورد نظر خود را وارد کنید.', $this->textdomain),
 						'type'			=> 'text',
 						'default'		=> '',
 						'placeholder'	=> ''
@@ -424,7 +445,7 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 					array(
 						'id' 			=> 'social_whatsapp',
 						'label'			=> __('واتس آپ', $this->textdomain),
-						'description'	=> __('لینک صفحه یا پروفایل خود را وارد کنید.', $this->textdomain),
+						'description'	=> __('لینک صفحه مورد نظر خود را وارد کنید.', $this->textdomain),
 						'type'			=> 'text',
 						'default'		=> '',
 						'placeholder'	=> ''
@@ -432,7 +453,7 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 					array(
 						'id' 			=> 'social_telegram',
 						'label'			=> __('تلگرام', $this->textdomain),
-						'description'	=> __('لینک صفحه یا پروفایل خود را وارد کنید.', $this->textdomain),
+						'description'	=> __('لینک صفحه مورد نظر خود را وارد کنید.', $this->textdomain),
 						'type'			=> 'text',
 						'default'		=> '',
 						'placeholder'	=> ''

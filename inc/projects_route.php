@@ -77,7 +77,7 @@ function resultsProjects($data)
         'permalink' => get_the_permalink(),
         'imageSrc' => get_the_post_thumbnail_url(get_the_ID(), 'large'),
         'category' => $category_temp,
-        'date' => get_the_date('j, F Y'),
+        'date' => get_the_date('j F Y'),
         'author' => get_the_author_posts_link(),
         'authorNickname' => get_the_author_meta('nickname'),
         'authorAvatar' => get_avatar_url(get_the_author_meta('ID')),

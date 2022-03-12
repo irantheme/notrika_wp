@@ -2534,6 +2534,7 @@ Latest blog posts
 #latest-blog-posts {
   background: #1C2023;
   padding: 3rem 0;
+  border-bottom: 1px solid #343a40;
 }
 #latest-blog-posts div[class*=col-] {
   margin-bottom: 30px;
@@ -3387,7 +3388,34 @@ Post little box
   display: block;
 }
 .post-box-little:hover {
-  background: #343a40;
+  background: #0088cc;
+}
+.post-box-little:hover .post-thumbnail-little img {
+  transform: scale(1.1) rotate(-2.5deg);
+  opacity: 0.9;
+}
+.post-box-little:hover .post-heading-little span {
+  color: #ced4da;
+}
+.post-box-little:hover .post-heading-little span i {
+  color: #fff;
+}
+.post-box-little:hover .post-options-little span {
+  color: #ced4da;
+}
+.post-box-little:hover .post-options-little span i {
+  color: #fff;
+}
+.post-box-little .post-thumbnail-little {
+  width: 100%;
+  height: 9rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+.post-box-little .post-thumbnail-little img {
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease-out;
 }
 .post-box-little .post-heading-little {
   margin-bottom: 0.5rem;
@@ -3395,10 +3423,12 @@ Post little box
 .post-box-little .post-heading-little span {
   font-size: 0.7rem;
   color: #dee2e6;
+  transition: all 0.3s ease-out;
 }
 .post-box-little .post-heading-little span i {
   margin-left: 0.5rem;
   color: #0088cc;
+  transition: all 0.3s ease-out;
 }
 .post-box-little .post-heading-little h3 {
   font-size: 0.9rem;
@@ -3412,6 +3442,7 @@ Post little box
   cursor: default;
   font-size: 0.7rem;
   color: #adb5bd;
+  transition: all 0.3s ease-out;
 }
 .post-box-little .post-options-little span:not(:last-child) {
   margin-left: 1rem;
@@ -3422,6 +3453,7 @@ Post little box
   font-size: 0.8rem;
   position: relative;
   top: 2px;
+  transition: all 0.3s ease-out;
 }
 .post-box-little .post-options-little span em {
   margin-right: 0.5rem;

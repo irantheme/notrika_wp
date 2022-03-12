@@ -33,7 +33,7 @@
               <?php endif; ?>
               <div class="list-post-style-content">
                 <h3><a href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?></a></h3>
-                <span><?php echo get_the_date('j, F Y'); ?></span>
+                <span><?php echo get_the_date('j F Y'); ?></span>
               </div>
             </div>
           <?php endwhile; ?>
