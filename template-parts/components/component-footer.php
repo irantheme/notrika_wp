@@ -14,3 +14,6 @@
     </div>
   </div>
 </footer>
+
+<!-- Go to top -->
+<a href="#top" id="go-to-top"><i class="lni lni-chevron-up"></i></a>

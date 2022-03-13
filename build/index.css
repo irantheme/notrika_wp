@@ -1540,6 +1540,29 @@ Holding table
 
 /*
 =====================================
+Go to top
+=====================================
+*/
+#go-to-top {
+  position: fixed;
+  bottom: 0;
+  left: 2rem;
+  background: #000000;
+  color: #fff;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+}
+#go-to-top:hover {
+  color: #0088cc;
+}
+
+/*
+=====================================
 Header
 =====================================
 */
@@ -3095,7 +3118,6 @@ Blog content
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-bottom: 1rem;
   cursor: default;
 }
 .post-list-options span {
@@ -3151,6 +3173,7 @@ Blog content
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  padding-top: 0.5rem;
 }
 .post-tags a {
   background: #e9ecef;
@@ -3388,23 +3411,10 @@ Post little box
   display: block;
 }
 .post-box-little:hover {
-  background: #0088cc;
+  background: #343a40;
 }
 .post-box-little:hover .post-thumbnail-little img {
-  transform: scale(1.1) rotate(-2.5deg);
-  opacity: 0.9;
-}
-.post-box-little:hover .post-heading-little span {
-  color: #ced4da;
-}
-.post-box-little:hover .post-heading-little span i {
-  color: #fff;
-}
-.post-box-little:hover .post-options-little span {
-  color: #ced4da;
-}
-.post-box-little:hover .post-options-little span i {
-  color: #fff;
+  opacity: 0.75;
 }
 .post-box-little .post-thumbnail-little {
   width: 100%;
@@ -3423,12 +3433,10 @@ Post little box
 .post-box-little .post-heading-little span {
   font-size: 0.7rem;
   color: #dee2e6;
-  transition: all 0.3s ease-out;
 }
 .post-box-little .post-heading-little span i {
   margin-left: 0.5rem;
   color: #0088cc;
-  transition: all 0.3s ease-out;
 }
 .post-box-little .post-heading-little h3 {
   font-size: 0.9rem;
@@ -3442,7 +3450,6 @@ Post little box
   cursor: default;
   font-size: 0.7rem;
   color: #adb5bd;
-  transition: all 0.3s ease-out;
 }
 .post-box-little .post-options-little span:not(:last-child) {
   margin-left: 1rem;
@@ -3453,7 +3460,6 @@ Post little box
   font-size: 0.8rem;
   position: relative;
   top: 2px;
-  transition: all 0.3s ease-out;
 }
 .post-box-little .post-options-little span em {
   margin-right: 0.5rem;

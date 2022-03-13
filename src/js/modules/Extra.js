@@ -12,6 +12,7 @@ class Extra {
     this.setHeightAboutImages();
     this.tooltips();
     $(window).resize(this.setHeightAboutImages);
+    $(window).scroll(this.hideGoToTop);
   }
 
   scrollSpy() {
@@ -47,6 +48,15 @@ class Extra {
 
   tooltips() {
     $('[data-toggle="tooltip"]').tooltip();
+  }
+
+  // Hide go to top button
+  hideGoToTop() {
+    if ($(window).scrollTop() > $(window).height()) {
+      $('#go-to-top').fadeIn(250);
+    } else {
+      $('#go-to-top').fadeOut(250);
+    }
   }
 }
 

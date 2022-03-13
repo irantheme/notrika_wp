@@ -115,7 +115,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_libs_ParallaxJs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/libs/ParallaxJs */ "./src/js/libs/ParallaxJs.js");
 /* harmony import */ var _js_modules_Extra__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js/modules/Extra */ "./src/js/modules/Extra.js");
 /* harmony import */ var _js_modules_Search__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/modules/Search */ "./src/js/modules/Search.js");
-/* harmony import */ var _js_modules_MainMenu__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/modules/MainMenu */ "./src/js/modules/MainMenu.js");
+/* harmony import */ var _js_modules_Navigation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/modules/Navigation */ "./src/js/modules/Navigation.js");
 /* harmony import */ var _js_modules_LoadProjects__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js/modules/LoadProjects */ "./src/js/modules/LoadProjects.js");
 /* harmony import */ var _js_modules_CategoryTrigger__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./js/modules/CategoryTrigger */ "./src/js/modules/CategoryTrigger.js");
 /* harmony import */ var _js_modules_Like__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./js/modules/Like */ "./src/js/modules/Like.js");
@@ -135,7 +135,7 @@ __webpack_require__.r(__webpack_exports__);
 
  // Init objects
 
-let mainMenu = new _js_modules_MainMenu__WEBPACK_IMPORTED_MODULE_6__["default"]();
+let navigation = new _js_modules_Navigation__WEBPACK_IMPORTED_MODULE_6__["default"]();
 let extra = new _js_modules_Extra__WEBPACK_IMPORTED_MODULE_4__["default"]();
 let search = new _js_modules_Search__WEBPACK_IMPORTED_MODULE_5__["default"]();
 let loadProjects = new _js_modules_LoadProjects__WEBPACK_IMPORTED_MODULE_7__["default"]();
@@ -521,6 +521,7 @@ class Extra {
     this.setHeightAboutImages();
     this.tooltips();
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).resize(this.setHeightAboutImages);
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scroll(this.hideGoToTop);
   }
 
   scrollSpy() {
@@ -554,6 +555,15 @@ class Extra {
 
   tooltips() {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-toggle="tooltip"]').tooltip();
+  } // Hide go to top button
+
+
+  hideGoToTop() {
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scrollTop() > jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).height()) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#go-to-top').fadeIn(250);
+    } else {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#go-to-top').fadeOut(250);
+    }
   }
 
 }
@@ -920,10 +930,10 @@ class LoadProjects {
 
 /***/ }),
 
-/***/ "./src/js/modules/MainMenu.js":
-/*!************************************!*\
-  !*** ./src/js/modules/MainMenu.js ***!
-  \************************************/
+/***/ "./src/js/modules/Navigation.js":
+/*!**************************************!*\
+  !*** ./src/js/modules/Navigation.js ***!
+  \**************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 

@@ -8,7 +8,7 @@ import Parallax from './js/libs/ParallaxJs';
 // Modules
 import Extra from './js/modules/Extra';
 import Search from './js/modules/Search';
-import MainMenu from './js/modules/MainMenu';
+import Navigation from './js/modules/Navigation';
 import LoadProjects from './js/modules/LoadProjects';
 import CategoryTrigger from './js/modules/CategoryTrigger';
 import Like from './js/modules/Like';
@@ -17,7 +17,7 @@ import Like from './js/modules/Like';
 import FullscreenSlider from './js/modules/FullscreenSlider';
 
 // Init objects
-let mainMenu = new MainMenu();
+let navigation = new Navigation();
 let extra = new Extra();
 let search = new Search();
 let loadProjects = new LoadProjects();
