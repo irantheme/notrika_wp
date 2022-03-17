@@ -113,14 +113,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_libs_MasonryJs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/libs/MasonryJs */ "./src/js/libs/MasonryJs.js");
 /* harmony import */ var _js_libs_SwiperJs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/libs/SwiperJs */ "./src/js/libs/SwiperJs.js");
 /* harmony import */ var _js_libs_ParallaxJs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/libs/ParallaxJs */ "./src/js/libs/ParallaxJs.js");
-/* harmony import */ var _js_modules_Extra__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js/modules/Extra */ "./src/js/modules/Extra.js");
-/* harmony import */ var _js_modules_Search__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/modules/Search */ "./src/js/modules/Search.js");
-/* harmony import */ var _js_modules_Navigation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/modules/Navigation */ "./src/js/modules/Navigation.js");
-/* harmony import */ var _js_modules_LoadProjects__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js/modules/LoadProjects */ "./src/js/modules/LoadProjects.js");
-/* harmony import */ var _js_modules_CategoryTrigger__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./js/modules/CategoryTrigger */ "./src/js/modules/CategoryTrigger.js");
-/* harmony import */ var _js_modules_Like__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./js/modules/Like */ "./src/js/modules/Like.js");
-/* harmony import */ var _js_modules_FullscreenSlider__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./js/modules/FullscreenSlider */ "./src/js/modules/FullscreenSlider.js");
+/* harmony import */ var _js_libs_AosJs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js/libs/AosJs */ "./src/js/libs/AosJs.js");
+/* harmony import */ var _js_modules_Extra__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/modules/Extra */ "./src/js/modules/Extra.js");
+/* harmony import */ var _js_modules_Search__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/modules/Search */ "./src/js/modules/Search.js");
+/* harmony import */ var _js_modules_Navigation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./js/modules/Navigation */ "./src/js/modules/Navigation.js");
+/* harmony import */ var _js_modules_LoadProjects__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./js/modules/LoadProjects */ "./src/js/modules/LoadProjects.js");
+/* harmony import */ var _js_modules_CategoryTrigger__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./js/modules/CategoryTrigger */ "./src/js/modules/CategoryTrigger.js");
+/* harmony import */ var _js_modules_Like__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./js/modules/Like */ "./src/js/modules/Like.js");
+/* harmony import */ var _js_modules_FullscreenSlider__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./js/modules/FullscreenSlider */ "./src/js/modules/FullscreenSlider.js");
  // Libs
+
 
 
 
@@ -135,16 +137,82 @@ __webpack_require__.r(__webpack_exports__);
 
  // Init objects
 
-let navigation = new _js_modules_Navigation__WEBPACK_IMPORTED_MODULE_6__["default"]();
-let extra = new _js_modules_Extra__WEBPACK_IMPORTED_MODULE_4__["default"]();
-let search = new _js_modules_Search__WEBPACK_IMPORTED_MODULE_5__["default"]();
-let loadProjects = new _js_modules_LoadProjects__WEBPACK_IMPORTED_MODULE_7__["default"]();
+let navigation = new _js_modules_Navigation__WEBPACK_IMPORTED_MODULE_7__["default"]();
+let extra = new _js_modules_Extra__WEBPACK_IMPORTED_MODULE_5__["default"]();
+let search = new _js_modules_Search__WEBPACK_IMPORTED_MODULE_6__["default"]();
+let loadProjects = new _js_modules_LoadProjects__WEBPACK_IMPORTED_MODULE_8__["default"]();
 let masonryJs = new _js_libs_MasonryJs__WEBPACK_IMPORTED_MODULE_1__["default"]();
 let swiper = new _js_libs_SwiperJs__WEBPACK_IMPORTED_MODULE_2__["default"]();
-let categoryTrigger = new _js_modules_CategoryTrigger__WEBPACK_IMPORTED_MODULE_8__["default"]();
-let like = new _js_modules_Like__WEBPACK_IMPORTED_MODULE_9__["default"]();
+let categoryTrigger = new _js_modules_CategoryTrigger__WEBPACK_IMPORTED_MODULE_9__["default"]();
+let like = new _js_modules_Like__WEBPACK_IMPORTED_MODULE_10__["default"]();
 let parallax = new _js_libs_ParallaxJs__WEBPACK_IMPORTED_MODULE_3__["default"]();
-let fullscreenSlider = new _js_modules_FullscreenSlider__WEBPACK_IMPORTED_MODULE_10__["default"]();
+let fullscreenSlider = new _js_modules_FullscreenSlider__WEBPACK_IMPORTED_MODULE_11__["default"]();
+let aosJs = new _js_libs_AosJs__WEBPACK_IMPORTED_MODULE_4__["default"]();
+
+/***/ }),
+
+/***/ "./src/js/libs/AosJs.js":
+/*!******************************!*\
+  !*** ./src/js/libs/AosJs.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+/* ===============================================================
+  Category Trigger (Toggle of posts)
+=============================================================== */
+
+class AosJs {
+  constructor() {
+    AOS.init(); // You can also pass an optional settings object
+    // below listed default settings
+
+    AOS.init({
+      // Global settings:
+      disable: false,
+      // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+      startEvent: 'DOMContentLoaded',
+      // name of the event dispatched on the document, that AOS should initialize on
+      initClassName: 'aos-init',
+      // class applied after initialization
+      animatedClassName: 'aos-animate',
+      // class applied on animation
+      useClassNames: false,
+      // if true, will add content of `data-aos` as classes on scroll
+      disableMutationObserver: false,
+      // disables automatic mutations' detections (advanced)
+      debounceDelay: 50,
+      // the delay on debounce used while resizing window (advanced)
+      throttleDelay: 99,
+      // the delay on throttle used while scrolling the page (advanced)
+      // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+      offset: 120,
+      // offset (in px) from the original trigger point
+      delay: 0,
+      // values from 0 to 3000, with step 50ms
+      duration: 1500,
+      // values from 0 to 3000, with step 50ms
+      easing: 'ease',
+      // default easing for AOS animations
+      once: true,
+      // whether animation should happen only once - while scrolling down
+      mirror: false,
+      // whether elements should animate out while scrolling past them
+      anchorPlacement: 'top-bottom' // defines which position of the element regarding to window should trigger the animation
+
+    });
+  }
+
+  events() {}
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (AosJs);
 
 /***/ }),
 
@@ -514,6 +582,7 @@ __webpack_require__.r(__webpack_exports__);
 class Extra {
   constructor() {
     this.events();
+    this.hideGoToTop();
   }
 
   events() {

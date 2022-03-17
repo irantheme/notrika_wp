@@ -9,7 +9,7 @@ $front_projects_post = new WP_Query(array(
   <section id="projects">
     <div class="container">
       <!-- Heading mode -->
-      <div class="heading-mode heading-mode-dark text-right">
+      <div class="heading-mode heading-mode-dark text-right" data-aos="fade-down">
         <h2><?php echo esc_html__(get_option('irantheme_front_projects_title')); ?></h2>
         <p><?php echo esc_html__(get_option('irantheme_front_projects_description')); ?></p>
       </div>
@@ -17,7 +17,7 @@ $front_projects_post = new WP_Query(array(
       $categories = get_categories(array('parent' => 0, 'hide_empty' => 0));
       if (count($categories)) : ?>
         <!-- Categories -->
-        <div class="categories">
+        <div class="categories" data-aos="fade-down">
           <ul>
             <li>
               <span id="all-categories" class="active">همه</span>
@@ -65,7 +65,7 @@ $front_projects_post = new WP_Query(array(
             $categories_output = '';
           ?>
             <!-- Post -->
-            <div class="grid-item post-holder" data-cate="<?php echo esc_attr($category_parents_id); ?>" data-id="<?php echo get_the_ID(); ?>">
+            <div class="grid-item post-holder" data-cate="<?php echo esc_attr($category_parents_id); ?>" data-id="<?php echo get_the_ID(); ?>" data-aos="fade-up">
               <article class="post">
                 <a href="<?php echo get_the_permalink(); ?>" class="post-link">
                   <!-- Post image -->

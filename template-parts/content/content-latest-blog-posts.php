@@ -9,14 +9,14 @@ if ($front_latest_blog_posts->have_posts()) :
   <section id="latest-blog-posts">
     <div class="container">
       <!-- Heading mode -->
-      <div class="heading-mode heading-mode-light">
+      <div class="heading-mode heading-mode-light" data-aos="fade-down">
         <h2>آخرین مطالب وبلاگ</h2>
       </div>
       <!-- List blog posts -->
       <div class="row">
         <?php while ($front_latest_blog_posts->have_posts()) : $front_latest_blog_posts->the_post(); ?>
           <!-- Item -->
-          <div class="col-lg-4">
+          <div class="col-lg-4" data-aos="fade-up">
             <a href="<?php the_permalink(); ?>" class="post-box-little">
               <?php if (has_post_thumbnail()) : ?>
                 <!-- Image -->

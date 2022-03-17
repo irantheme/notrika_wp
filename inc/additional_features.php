@@ -40,6 +40,16 @@ if (!function_exists('irantheme_include_features')) {
     // add_image_size('professorLandscape', 400, 260, true);
     // add_image_size('professorPortraite', 480, 650, true);
     // add_image_size('pageBanner', 1500, 350, true);
+
+    @ini_set(
+      'upload_max_size',
+      '64M'
+    );
+    @ini_set('post_max_size', '64M');
+    @ini_set(
+      'max_execution_time',
+      '300'
+    );
   }
   add_action('after_setup_theme', 'irantheme_include_features');
 }

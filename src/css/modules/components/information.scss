@@ -7,6 +7,7 @@ Information
 #information {
   padding: 1rem;
   background: $color-dark;
+  overflow: hidden;
 
   .info-item {
     display: flex;

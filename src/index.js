@@ -4,6 +4,7 @@ import './css/main.scss';
 import MasonryJs from './js/libs/MasonryJs';
 import Swiper from './js/libs/SwiperJs';
 import Parallax from './js/libs/ParallaxJs';
+import AosJs from './js/libs/AosJs';
 
 // Modules
 import Extra from './js/modules/Extra';
@@ -27,3 +28,4 @@ let categoryTrigger = new CategoryTrigger();
 let like = new Like();
 let parallax = new Parallax();
 let fullscreenSlider = new FullscreenSlider();
+let aosJs = new AosJs();

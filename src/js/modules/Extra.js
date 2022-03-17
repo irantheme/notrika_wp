@@ -5,6 +5,7 @@ import $ from 'jquery';
 class Extra {
   constructor() {
     this.events();
+    this.hideGoToTop();
   }
 
   events() {

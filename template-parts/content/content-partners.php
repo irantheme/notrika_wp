@@ -16,13 +16,13 @@ $front_post_viewpoint = new WP_Query(array(
     <div id="parallax-front-partners" class="parallax-container">
       <div class="container">
         <!-- Heading mode -->
-        <div class="heading-mode heading-mode-light text-center">
+        <div class="heading-mode heading-mode-light text-center" data-aos="fade-down">
           <h2><?php echo esc_html__(get_option('irantheme_front_partners_title')); ?></h2>
           <p><?php echo esc_html__(get_option('irantheme_front_partners_description')); ?></p>
         </div>
         <?php if ($front_post_partners->have_posts()) : ?>
           <!-- Partners brands -->
-          <div class="partners-brands">
+          <div class="partners-brands" data-aos="fade-down">
             <!-- Swiper -->
             <div class="swiper partners-slider">
               <div class="swiper-wrapper">
@@ -37,7 +37,7 @@ $front_post_viewpoint = new WP_Query(array(
         <?php endif; ?>
         <?php if ($front_post_viewpoint->have_posts()) : ?>
           <!-- Viewpoint -->
-          <div class="swiper viewpoint">
+          <div class="swiper viewpoint" data-aos="fade-up">
             <div class="swiper-wrapper">
               <?php while ($front_post_viewpoint->have_posts()) : $front_post_viewpoint->the_post(); ?>
                 <!-- Viewpoint item -->
