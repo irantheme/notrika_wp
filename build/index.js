@@ -195,7 +195,7 @@ class AosJs {
       // offset (in px) from the original trigger point
       delay: 0,
       // values from 0 to 3000, with step 50ms
-      duration: 1500,
+      duration: 1000,
       // values from 0 to 3000, with step 50ms
       easing: 'ease',
       // default easing for AOS animations
@@ -600,14 +600,14 @@ class Extra {
 
       jquery__WEBPACK_IMPORTED_MODULE_0___default()('html, body').animate({
         scrollTop: jquery__WEBPACK_IMPORTED_MODULE_0___default()(hash).offset().top
-      }, 1000); // Checking specific id (go-down)
+      }, 1000); // Checking specific id
 
-      if (this.id == 'go-down') {
+      if (this.id == 'go-down' || this.id == 'go-to-top') {
         // Adding active class
         jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass('active'); // Remove active class with delay (After scrolled)
 
-        setTimeout(function () {
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()('#go-down').removeClass('active');
+        setTimeout(() => {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('#' + this.id).removeClass('active');
         }, 1000);
       }
     });

@@ -193,7 +193,7 @@ Go to top
   z-index: 8;
   cursor: pointer;
 
-  &:hover {
+  &:hover, &.active {
     color: $color-primary;
   }
 }

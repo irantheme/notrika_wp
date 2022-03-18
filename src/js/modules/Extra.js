@@ -27,13 +27,13 @@ class Extra {
         },
         1000
       );
-      // Checking specific id (go-down)
-      if (this.id == 'go-down') {
+      // Checking specific id
+      if (this.id == 'go-down' || this.id == 'go-to-top') {
         // Adding active class
         $(this).addClass('active');
         // Remove active class with delay (After scrolled)
-        setTimeout(function () {
-          $('#go-down').removeClass('active');
+        setTimeout(() => {
+          $('#' + this.id).removeClass('active');
         }, 1000);
       }
     });
