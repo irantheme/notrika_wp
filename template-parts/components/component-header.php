@@ -2,7 +2,7 @@
 <header id="header">
   <div class="dark-mask"></div>
 
-  <div id="parallax-front-header" class="parallax-container">
+  <div id="parallax-front-header" class="parallax-container jarallax">
     <div class="container-fluid p-0">
       <!-- Main menu -->
       <div class="main-menu">

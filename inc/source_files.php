@@ -10,8 +10,8 @@ if (!function_exists('irantheme_add_theme_sources')) {
     // Adding javascript files =======================================================
     // Adding jquery js
     wp_enqueue_script('jquery-irantheme-js', get_template_directory_uri() . '/assets/js/jquery-3.5.1.min.js', array('jquery'), '3.5.1', true);
-    // Adding parallax js
-    wp_enqueue_script('parallax-irantheme-js', get_template_directory_uri() . '/assets/js/parallax.min.js', NULL, '1.5.0', true);
+    // Adding jarallax js
+    wp_enqueue_script('jarallax-irantheme-js', get_template_directory_uri() . '/assets/js/jarallax.min.js', NULL, '2.0.2', true);
     // Adding bootstrap bundle js
     wp_enqueue_script('bootstrap-bundle-irantheme-js', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js', NULL, '4.6.1', true);
     // Adding swiper js

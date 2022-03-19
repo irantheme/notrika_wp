@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import MasonryJs from './../libs/MasonryJs';
-import ParallaxJs from './../libs/ParallaxJs';
+// import ParallaxJs from './../libs/ParallaxJs';
 import FullscreenSlider from './../modules/FullscreenSlider';
 /* ===============================================================
   Load Projects
@@ -9,7 +9,6 @@ class LoadProjects {
   constructor() {
     this.btnLoad = $('#loading-projects');
     this.masonryJs = new MasonryJs();
-    this.parallaxJs = new ParallaxJs();
     this.fullscreenSlider;
     this.events();
   }
@@ -25,13 +24,6 @@ class LoadProjects {
         this.btnLoad.removeClass('active');
         this.hideLoadingButton();
       }, 1001);
-      // Trigger parallax
-      let triggerCounter = 0;
-      let triggerInterval = setInterval(() => {
-        this.parallaxJs.trigger();
-        triggerCounter++;
-        if (triggerCounter >= 300) clearInterval(triggerInterval);
-      }, 10);
       setTimeout(() => {
         // Initialize fullscreen slider
         this.fullscreenSlider = new FullscreenSlider();

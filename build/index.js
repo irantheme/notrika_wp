@@ -112,7 +112,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _css_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./css/main.scss */ "./src/css/main.scss");
 /* harmony import */ var _js_libs_MasonryJs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/libs/MasonryJs */ "./src/js/libs/MasonryJs.js");
 /* harmony import */ var _js_libs_SwiperJs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/libs/SwiperJs */ "./src/js/libs/SwiperJs.js");
-/* harmony import */ var _js_libs_ParallaxJs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/libs/ParallaxJs */ "./src/js/libs/ParallaxJs.js");
+/* harmony import */ var _js_libs_JarallaxJs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/libs/JarallaxJs */ "./src/js/libs/JarallaxJs.js");
 /* harmony import */ var _js_libs_AosJs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js/libs/AosJs */ "./src/js/libs/AosJs.js");
 /* harmony import */ var _js_modules_Extra__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/modules/Extra */ "./src/js/modules/Extra.js");
 /* harmony import */ var _js_modules_Search__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/modules/Search */ "./src/js/modules/Search.js");
@@ -145,7 +145,7 @@ let masonryJs = new _js_libs_MasonryJs__WEBPACK_IMPORTED_MODULE_1__["default"]()
 let swiper = new _js_libs_SwiperJs__WEBPACK_IMPORTED_MODULE_2__["default"]();
 let categoryTrigger = new _js_modules_CategoryTrigger__WEBPACK_IMPORTED_MODULE_9__["default"]();
 let like = new _js_modules_Like__WEBPACK_IMPORTED_MODULE_10__["default"]();
-let parallax = new _js_libs_ParallaxJs__WEBPACK_IMPORTED_MODULE_3__["default"]();
+let jarallax = new _js_libs_JarallaxJs__WEBPACK_IMPORTED_MODULE_3__["default"]();
 let fullscreenSlider = new _js_modules_FullscreenSlider__WEBPACK_IMPORTED_MODULE_11__["default"]();
 let aosJs = new _js_libs_AosJs__WEBPACK_IMPORTED_MODULE_4__["default"]();
 
@@ -216,6 +216,68 @@ class AosJs {
 
 /***/ }),
 
+/***/ "./src/js/libs/JarallaxJs.js":
+/*!***********************************!*\
+  !*** ./src/js/libs/JarallaxJs.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+/* ===============================================================
+  Category Trigger (Toggle of posts)
+=============================================================== */
+
+class JarallaxJs {
+  constructor() {
+    this.frontHeader();
+    this.frontPartners();
+    this.blogHeader();
+    this.events();
+  }
+
+  events() {} // Front header init
+
+
+  frontHeader() {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#parallax-front-header').jarallax({
+      imgSrc: wpData.frontHeaderBg,
+      speed: 0.5,
+      type: 'scroll',
+      imgPosition: 'left'
+    });
+  } // Front partners init
+
+
+  frontPartners() {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#parallax-front-partners').jarallax({
+      imgSrc: wpData.frontPartnersBg,
+      speed: 0.5,
+      type: 'scroll',
+      imgPosition: 'left'
+    });
+  } // Blog header init
+
+
+  blogHeader() {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#parallax-blog-header').jarallax({
+      imgSrc: wpData.BlogHeaderBg,
+      speed: 0.5,
+      type: 'scroll',
+      imgPosition: 'left'
+    });
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (JarallaxJs);
+
+/***/ }),
+
 /***/ "./src/js/libs/MasonryJs.js":
 /*!**********************************!*\
   !*** ./src/js/libs/MasonryJs.js ***!
@@ -268,74 +330,6 @@ class MasonryJs {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (MasonryJs);
-
-/***/ }),
-
-/***/ "./src/js/libs/ParallaxJs.js":
-/*!***********************************!*\
-  !*** ./src/js/libs/ParallaxJs.js ***!
-  \***********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-
-/* ===============================================================
-  Category Trigger (Toggle of posts)
-=============================================================== */
-
-class Parallax {
-  constructor() {
-    this.frontHeader();
-    this.frontPartners();
-    this.blogHeader();
-    this.events();
-  }
-
-  events() {}
-
-  trigger() {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).trigger('resize.px.parallax');
-  } // Front header init
-
-
-  frontHeader() {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#parallax-front-header').parallax({
-      imageSrc: wpData.frontHeaderBg,
-      speed: 0.5,
-      parallax: 'scroll',
-      positionX: 'left'
-    });
-  } // Front partners init
-
-
-  frontPartners() {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#parallax-front-partners').parallax({
-      imageSrc: wpData.frontPartnersBg,
-      speed: 0.5,
-      parallax: 'scroll',
-      positionX: 'left',
-      // mirrorContainer: '#wrapper',
-      overScrollFix: true
-    });
-  } // Blog header init
-
-
-  blogHeader() {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#parallax-blog-header').parallax({
-      imageSrc: wpData.BlogHeaderBg,
-      speed: 0.5,
-      parallax: 'scroll',
-      positionX: 'left'
-    });
-  }
-
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Parallax);
 
 /***/ }),
 
@@ -874,10 +868,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _libs_MasonryJs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../libs/MasonryJs */ "./src/js/libs/MasonryJs.js");
-/* harmony import */ var _libs_ParallaxJs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../libs/ParallaxJs */ "./src/js/libs/ParallaxJs.js");
-/* harmony import */ var _modules_FullscreenSlider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../modules/FullscreenSlider */ "./src/js/modules/FullscreenSlider.js");
+/* harmony import */ var _modules_FullscreenSlider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../modules/FullscreenSlider */ "./src/js/modules/FullscreenSlider.js");
 
-
+ // import ParallaxJs from './../libs/ParallaxJs';
 
 
 /* ===============================================================
@@ -888,7 +881,6 @@ class LoadProjects {
   constructor() {
     this.btnLoad = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#loading-projects');
     this.masonryJs = new _libs_MasonryJs__WEBPACK_IMPORTED_MODULE_1__["default"]();
-    this.parallaxJs = new _libs_ParallaxJs__WEBPACK_IMPORTED_MODULE_2__["default"]();
     this.fullscreenSlider;
     this.events();
   }
@@ -903,17 +895,10 @@ class LoadProjects {
       setTimeout(() => {
         this.btnLoad.removeClass('active');
         this.hideLoadingButton();
-      }, 1001); // Trigger parallax
-
-      let triggerCounter = 0;
-      let triggerInterval = setInterval(() => {
-        this.parallaxJs.trigger();
-        triggerCounter++;
-        if (triggerCounter >= 300) clearInterval(triggerInterval);
-      }, 10);
+      }, 1001);
       setTimeout(() => {
         // Initialize fullscreen slider
-        this.fullscreenSlider = new _modules_FullscreenSlider__WEBPACK_IMPORTED_MODULE_3__["default"]();
+        this.fullscreenSlider = new _modules_FullscreenSlider__WEBPACK_IMPORTED_MODULE_2__["default"]();
       }, 2000);
     });
   } // Check remaining projects for hiding button load

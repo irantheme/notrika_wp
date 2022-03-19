@@ -13,7 +13,8 @@ $front_post_viewpoint = new WP_Query(array(
 <?php if ($front_post_partners->have_posts() || $front_post_viewpoint->have_posts()) : ?>
   <!-- Partners -->
   <section id="partners">
-    <div id="parallax-front-partners" class="parallax-container">
+
+    <div id="parallax-front-partners" class="parallax-container jarallax">
       <div class="container">
         <!-- Heading mode -->
         <div class="heading-mode heading-mode-light text-center" data-aos="fade-down">
