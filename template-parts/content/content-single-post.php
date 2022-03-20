@@ -2,18 +2,12 @@
 <article class="single-post">
   <?php
   // Get all category of posts
+
+  use function PHPSTORM_META\type;
+
   $categories = get_the_category();
   $categories_output = '';
 
-  // // Get post format
-  // $post_format = get_post_format();
-
-  // // Get gallery post, (true, false) -> related to html output or data
-  // $gallery_post = get_post_gallery( get_the_ID(), false );
-
-  // // Init url video
-  // $video_url =  wp_get_attachment_url( get_the_ID() );
-  // $videoElement = wp_video_shortcode( array( 'src' => esc_url( $video_url ) ) );
   ?>
   <!-- Post info -->
   <div class="post-box">
@@ -57,6 +51,7 @@
         <h2><?php echo get_the_title(); ?></h2>
       </div>
       <?php
+
       // Counter of like
       $likeCount = new WP_Query(array(
         'post_type' => 'like',
@@ -69,6 +64,7 @@
         )
       ));
       ?>
+
       <?php if (!is_page()) : ?>
         <!-- Comments & Likes -->
         <div class="post-list-options">
@@ -91,20 +87,7 @@
         <?php if (!is_page()) : ?>
           <!-- Post like -->
           <div class="post-like">
-            <?php
-            // Exist query
-            $existQuery = new WP_Query(array(
-              'post_type' => 'like',
-              'meta_query' => array(
-                array(
-                  'key' => 'liked_meta_value_key',
-                  'compare' => '=',
-                  'value' => get_the_ID()
-                )
-              )
-            ));
-            ?>
-            <button class="like-button" data-like="<?php echo esc_html__($existQuery->posts[0]->ID); ?>" data-post="<?php echo get_the_ID(); ?>" data-exists="">
+            <button class="like-button" data-like="<?php echo esc_html__($likeCount->posts[0]->ID); ?>" data-post="<?php echo get_the_ID(); ?>" data-exists="">
               <i class="lni lni-heart like-heart-no"></i>
               <i class="lni lni-heart-filled like-heart-yes"></i>
               <span>
@@ -125,5 +108,3 @@
     </div>
   </div>
 </article>
-
-<?php wp_reset_query(); ?>
