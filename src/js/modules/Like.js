@@ -45,7 +45,7 @@ class Like {
       },
       url: wpData.rootUrl + '/wp-json/irantheme/v1/manageLike',
       type: 'POST',
-      data: { postID: currentLikeBox.data('post') },
+      data: { postID: currentLikeBox.attr('data-post') },
       success: (response) => {
         currentLikeBox.attr('data-exists', 'yes');
         let likeCount = parseInt(currentLikeBox.find('.like-count').html(), 10);
@@ -76,7 +76,7 @@ class Like {
         likeCount--;
         currentLikeBox.find('.like-count').html(likeCount);
         currentLikeBox.attr('data-like', '');
-        this.setCookie('wpIranthemeLiked', '', 365, this.getPath());
+        this.setCookie('wpIranthemeLiked', '', 99999999, this.getPath());
         console.log(response);
       },
       error: (response) => {

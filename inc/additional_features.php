@@ -221,17 +221,32 @@ if (!function_exists('irantheme_add_custom_post_types_namespace')) {
    */
   function irantheme_add_custom_post_types_namespace($query)
   {
-    if (is_single() && get_post_type() == 'project') {
-      $query->set('post_type', array(
-        'post', 'nav_menu_item', 'project'
-      ));
-      return $query;
-    }
+    // if (is_single() && get_post_type() == 'project') {
+    //   $query->set('post_type', array(
+    //     'post', 'project'
+    //   ));
+    //   return $query;
+    // }
 
-    if (is_category() || is_tag() && empty($query->query_vars['suppress_filters'])) {
-      $query->set('post_type', array(
-        'post', 'nav_menu_item', 'project'
-      ));
+    // if (is_category() || is_tag() && $query->is_main_query()) {
+    //   $query->set('post_type', array(
+    //     'post', 'project'
+    //   ));
+    //   return $query;
+    // }
+
+    if (!is_admin() && $query->is_main_query()) {
+      // Not a query for an admin page.
+      // It's the main query for a front end page of your site.
+
+      if (is_category() || is_tag()) {
+        // It's the main query for a category archive.
+
+        // Let's change the query for category archives.
+        $query->set('post_type', array(
+          'post', 'project'
+        ));
+      }
       return $query;
     }
   }

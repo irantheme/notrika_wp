@@ -87,15 +87,30 @@
         <?php if (!is_page()) : ?>
           <!-- Post like -->
           <div class="post-like">
-            <button class="like-button" data-like="<?php echo esc_html__($likeCount->posts[0]->ID); ?>" data-post="<?php echo get_the_ID(); ?>" data-exists="">
+
+            <?php
+            $existQuery = new WP_Query(array(
+              'post_type' => 'like',
+              'meta_query' => array(
+                array(
+                  'key' => 'liked_meta_value_key',
+                  'compare' => '=',
+                  'value' => get_the_ID()
+                )
+              )
+            ));
+            ?>
+
+            <button class="like-button" data-like="<?php echo esc_html__($existQuery->posts[0]->ID); ?>" data-post="<?php echo get_the_ID(); ?>" data-exists="">
               <i class="lni lni-heart like-heart-no"></i>
               <i class="lni lni-heart-filled like-heart-yes"></i>
               <span>
-                <cite class="text-heart-yes">پسند شده</cite><cite class="text-heart-no">می پسندید ؟</cite><em class="like-count"><?php echo esc_html__($likeCount->found_posts); ?></em>
+                <cite class="text-heart-yes">پسند شده</cite><cite class="text-heart-no">می پسندید ؟</cite><em class="like-count"><?php echo esc_html__($existQuery->found_posts); ?></em>
               </span>
             </button>
           </div>
-        <?php endif; ?>
+        <?php endif;
+        wp_reset_postdata(); ?>
 
         <!-- Post share -->
         <div class="post-share">

@@ -14,31 +14,6 @@
             ?>
 
             <?php
-
-
-            global $wp_query;
-            $term = $wp_query->get_queried_object();
-
-            $wp_query = new WP_Query(array(
-              'post_type'         => 'like',
-              // 'posts_per_page'    => -1, // -1 =  show all posts
-              // 'tax_query'         => array(array('terms' => $term->term_id)),
-            ));
-
-            echo $wp_query->found_posts;
-
-            echo '<br>';
-
-            echo get_the_ID() . '  *  ';
-
-            while ($wp_query->have_posts()) {
-              $wp_query->the_post();
-              echo get_the_ID() . ' - ';
-            }
-            wp_reset_postdata();
-            ?>
-
-            <?php
             // Get template part of post author
             get_template_part('/template-parts/components/component', 'author-post-single');
             ?>

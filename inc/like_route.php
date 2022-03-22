@@ -32,16 +32,16 @@ if (!function_exists('irantheme_create_like')) {
     $postID = sanitize_text_field($data['postID']);
 
     // Exist query
-    // $existQuery = new WP_Query(array(
-    //   'post_type' => 'like',
-    //   'meta_query' => array(
-    //     array(
-    //       'key' => 'liked_meta_value_key',
-    //       'compare' => '=',
-    //       'value' => $postID
-    //     )
-    //   )
-    // ));
+    $existQuery = new WP_Query(array(
+      'post_type' => 'like',
+      'meta_query' => array(
+        array(
+          'key' => 'liked_meta_value_key',
+          'compare' => '=',
+          'value' => $postID
+        )
+      )
+    ));
 
     if (get_post_type($postID) == 'post' || get_post_type($postID) == 'project') {
       return wp_insert_post(array(
