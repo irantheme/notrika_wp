@@ -221,7 +221,7 @@ if (!function_exists('irantheme_add_custom_post_types_namespace')) {
    */
   function irantheme_add_custom_post_types_namespace($query)
   {
-    // if (is_single() && get_post_type() == 'project') {
+    // if (is_single() && get_post_type() == 'project' && $query->is_main_query()) {
     //   $query->set('post_type', array(
     //     'post', 'project'
     //   ));
@@ -239,6 +239,16 @@ if (!function_exists('irantheme_add_custom_post_types_namespace')) {
       // Not a query for an admin page.
       // It's the main query for a front end page of your site.
 
+      if (is_single() && get_post_type() == 'project') {
+        // It's the main query for an archive page.
+
+        // Let's change the query for archive pages.
+        $query->set('post_type', array(
+          'post', 'project'
+        ));
+        return $query;
+      }
+
       if (is_category() || is_tag()) {
         // It's the main query for a category archive.
 
@@ -246,8 +256,8 @@ if (!function_exists('irantheme_add_custom_post_types_namespace')) {
         $query->set('post_type', array(
           'post', 'project'
         ));
+        return $query;
       }
-      return $query;
     }
   }
   add_filter('pre_get_posts', 'irantheme_add_custom_post_types_namespace');
