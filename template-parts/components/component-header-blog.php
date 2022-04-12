@@ -24,7 +24,7 @@
             <div class="options-layer">
               <!-- Social network -->
               <ul class="social-networks">
-                <li><a class="search-alt" href="#search-form"><i class="lni lni-search-alt"></i></a></li>
+                <li><a class="search-alt"><i class="lni lni-search-alt"></i></a></li>
                 <?php
                 // Get template part of social media
                 get_template_part('/template-parts/hooks/hook', 'social-media');

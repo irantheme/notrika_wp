@@ -882,6 +882,7 @@ class LoadProjects {
     this.btnLoad = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#loading-projects');
     this.masonryJs = new _libs_MasonryJs__WEBPACK_IMPORTED_MODULE_1__["default"]();
     this.fullscreenSlider;
+    this.hideLoadingButton();
     this.events();
   }
 
@@ -1099,6 +1100,7 @@ class Search {
   events() {
     // Toggle and close form
     this.searchAltButton.on('click', () => {
+      console.log('fs;ldljf');
       this.open();
     });
     this.searchCloseButton.on('click', () => {

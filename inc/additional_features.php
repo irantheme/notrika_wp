@@ -249,7 +249,7 @@ if (!function_exists('irantheme_add_custom_post_types_namespace')) {
         return $query;
       }
 
-      if (is_category() || is_tag()) {
+      if (is_category() || is_tag() || is_author()) {
         // It's the main query for a category archive.
 
         // Let's change the query for category archives.

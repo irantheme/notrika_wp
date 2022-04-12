@@ -23,6 +23,7 @@ class Search {
   events() {
     // Toggle and close form
     this.searchAltButton.on('click', () => {
+      console.log('fs;ldljf');
       this.open();
     });
     this.searchCloseButton.on('click', () => {
