@@ -10,6 +10,7 @@ class LoadProjects {
     this.btnLoad = $('#loading-projects');
     this.masonryJs = new MasonryJs();
     this.fullscreenSlider;
+    this.hideLoadingButton();
     this.events();
   }
 
