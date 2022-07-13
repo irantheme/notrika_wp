@@ -6,7 +6,10 @@ Features
 
 #features {
   background: $color-primary;
-  padding: 6rem 0 3rem;
+  
+  .container {
+    padding: 6rem 0 3rem;
+  }
 
   .feature-box {
     margin-bottom: 3rem;

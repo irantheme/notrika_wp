@@ -2839,6 +2839,8 @@ Features
 */
 #features {
   background: #0088cc;
+}
+#features .container {
   padding: 6rem 0 3rem;
 }
 #features .feature-box {

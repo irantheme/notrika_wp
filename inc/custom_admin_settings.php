@@ -179,6 +179,14 @@ if (!class_exists('Irantheme_WordPress_Custom_Admin_Settings')) {
 						'placeholder'	=> ''
 					),
 					array(
+						'id' 			=> 'front_about_link',
+						'label'			=> __('لینک درباره ما', $this->textdomain),
+						'description'	=> __('لینک ادامه مطلب درباره ما', $this->textdomain),
+						'type'			=> 'text',
+						'default'		=> '',
+						'placeholder'	=> ''
+					),
+					array(
 						'id' 			=> 'front_about_img_1',
 						'label'			=> __('تصویر اول درباره ما', $this->textdomain),
 						'description'	=> __('تصویر قرار گرفته در کنار توضیحات درباره ما.', $this->textdomain),
